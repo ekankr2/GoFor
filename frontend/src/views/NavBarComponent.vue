@@ -11,8 +11,11 @@
         <span>GoFor</span>
       </router-link>
       <v-toolbar-items class="ml-auto hidden-sm-and-down">
+
         <!-- login button  -->
         <member-login-card></member-login-card>
+        <!-- sign up button -->
+        <member-register-card></member-register-card>
 
       </v-toolbar-items>
       <!-- nav icon -->
@@ -45,9 +48,10 @@
 
 <script>
 import MemberLoginCard from "../components/MemberLoginCard";
+import MemberRegisterCard from "../components/MemberRegisterCard";
 export default {
   name: 'NavBarComponent',
-  components: {MemberLoginCard},
+  components: {MemberRegisterCard, MemberLoginCard},
   data () {
     return {
       group: false,

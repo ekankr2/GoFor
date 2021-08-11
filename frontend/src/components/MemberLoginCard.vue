@@ -10,7 +10,7 @@
           height="200px"
       ></v-img>
       <!-- card title -->
-      <v-card-title class="headline text-h4">
+      <v-card-title class="headline text-h4 mb-n4">
         Sign In
       </v-card-title>
       <!-- card contents -->
@@ -18,7 +18,7 @@
         <v-container grid-list-md>
           <v-layout wrap>
             <v-flex xs12>
-              <input placeholder="Enter your ID" v-model="userInfo.pw" id="account"
+              <input placeholder="Enter your ID" v-model="userInfo.id" id="account"
                      type="text" class="my-3 px-auto">
 
             </v-flex>
@@ -31,10 +31,10 @@
         </v-container>
       </v-card-text>
       <!-- divide line -->
-      <v-divider class="mx-5 my-3"></v-divider>
+      <v-divider class="mx-5 mt-5 mb-1"></v-divider>
       <!-- buttons -->
       <v-card-actions>
-        <v-btn color="teal darken-1" class="text-button"  text @click="btnLoginClick($event)">
+        <v-btn color="teal darken-1" class="text-button"  text @click="loginDialog = !loginDialog">
           cancel
         </v-btn>
         <v-spacer></v-spacer>
@@ -68,15 +68,10 @@ export default {
       } else if ($event.target.innerHTML == " cancel ") {
         this.loginDialog = false
       }
-      this.userInfo.email = ''
-      this.userInfo.password = ''
+      this.userInfo.id = ''
+      this.userInfo.pw = ''
     }
   },
-  watch: {
-    group () {
-      this.loginDialog = false
-    }
-  }
 }
 </script>
 

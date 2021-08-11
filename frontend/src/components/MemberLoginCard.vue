@@ -1,23 +1,24 @@
 <template>
-  <v-dialog v-model="loginDialog" persistent max-width="500px">
-    <template v-slot:activator="{ on }">
-      <v-btn text color="white" v-on="on">로그인</v-btn>
+  <v-dialog v-model="loginDialog" persistent max-width="400px">
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn text color="white" class="btn-flat" v-on="on" v-bind="attrs">로그인</v-btn>
     </template>
     <v-card>
       <v-card-title class="headline text-h4">
         로그인
       </v-card-title>
-      <v-card-text>
+      <v-card-text class="pa-3">
         <v-container grid-list-md>
           <v-layout wrap>
             <v-flex xs12>
-              <v-text-field label="아이디" v-model="userInfo.id" required>
-              </v-text-field>
+              <input placeholder="ID" v-model="userInfo.pw" id="account"
+                     type="text" >
+
             </v-flex>
             <v-flex xs12>
-              <v-text-field label="비밀번호" v-model="userInfo.pw"
-                            type="password" required>
-              </v-text-field>
+              <input placeholder="비밀번호" v-model="userInfo.pw" id="password"
+                     type="password" >
+              <!-- <label for="password">비밀번호</label> -->
             </v-flex>
           </v-layout>
         </v-container>

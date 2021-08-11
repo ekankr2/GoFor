@@ -4,15 +4,17 @@
     <v-main>
       <router-view/>
     </v-main>
+    <HomeFooter></HomeFooter>
   </v-app>
 </template>
 
 <script>
 
 import NavBarComponent from "./views/NavBarComponent";
+import HomeFooter from "./components/HomeFooter";
 export default {
   name: 'App',
-  components: {NavBarComponent},
+  components: {HomeFooter, NavBarComponent},
   data: () => ({
     //
   }),

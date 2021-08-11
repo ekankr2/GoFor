@@ -11,6 +11,7 @@
         <span>GoFor</span>
       </router-link>
       <v-toolbar-items class="ml-auto hidden-sm-and-down">
+        <!-- login button  -->
         <member-login-card></member-login-card>
 
       </v-toolbar-items>
@@ -49,6 +50,19 @@ export default {
   components: {MemberLoginCard},
   data () {
     return {
+      group: false,
+      nav_drawer: false,
+      links: [
+        {
+          icon: 'home', text: 'Home', name: 'home', route: '/'
+        },
+        {
+          icon: 'account_box', text: '로그인', name: 'credit_card', route: '/product'
+        },
+        {
+          icon: 'person_add', text: '회원가입', name: 'ev_station', route: '/materialize'
+        }
+      ],
     }
   },
   methods: {

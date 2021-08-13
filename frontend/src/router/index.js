@@ -18,7 +18,6 @@ const routes = [
       default: MemberRegisterPage
     }
   },
-
 ]
 
 const router = new VueRouter({

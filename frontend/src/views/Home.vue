@@ -1,48 +1,15 @@
 <template>
   <body>
   <div class="container">
-
-    <div class="box">
+    <!-- 4 contents -->
+    <div class="box" v-for="a in contents" :key="a.title">
       <div class="videoBx">
-        <video src="../assets/videos/main1.mp4" muted autoplay loop></video>
+        <video :src="a.link" muted autoplay loop></video>
       </div>
       <div class="contentBx">
         <div class="content">
-          <h3>a Walk</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.</p>
-        </div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="videoBx">
-        <video src="../assets/videos/main2.mp4" muted autoplay loop></video>
-      </div>
-      <div class="contentBx">
-        <div class="content">
-          <h3>a Bike Ride</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.</p>
-        </div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="videoBx">
-        <video src="../assets/videos/main3.mp4" muted autoplay loop></video>
-      </div>
-      <div class="contentBx">
-        <div class="content">
-          <h4>a Motorcycle Ride</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.</p>
-        </div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="videoBx">
-        <video src="../assets/videos/main4.mp4" muted autoplay loop></video>
-      </div>
-      <div class="contentBx">
-        <div class="content">
-          <h3>a Drive</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.</p>
+          <h3>{{ a.title }}</h3>
+          <p>{{ a.content }}</p>
         </div>
       </div>
     </div>
@@ -52,16 +19,20 @@
 </template>
 
 <script>
-
-
-
   export default {
     name: 'Home',
 
     components: {
-
-
     },
+    data() {
+      return {
+        contents: [
+          { link: require('@/assets/videos/main1.mp4'), title: 'a Walk', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
+          { link: require('@/assets/videos/main2.mp4'), title: 'a Bike Ride', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
+          { link: require('@/assets/videos/main3.mp4'), title: 'a Motorcycle Ride', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'}, { link: require('@/assets/videos/main4.mp4'), title: 'a Drive', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
+        ]
+      }
+    }
   }
 </script>
 

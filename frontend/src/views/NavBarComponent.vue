@@ -54,11 +54,6 @@ export default {
   },
   methods: {
   },
-  watch: {
-    group () {
-      this.nav_drawer = false
-    }
-  }
 }
 </script>
 

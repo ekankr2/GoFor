@@ -18,11 +18,7 @@ export default {
       axios.post(`http://localhost:7777/member/register`, { member_id, member_pw, name, email })
           .then(res => {
             alert('가입 성공! - ' + res)
-            console.log('아이디: ' + res.data.member_id.toString())
-            this.$router.push({
-              name: 'Home',
-              //params: { boardNo: res.data.boardNo.toString() }
-            })
+
           })
           .catch(res => {
             alert(res.response.data.message)

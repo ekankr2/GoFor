@@ -15,7 +15,8 @@
         <!-- login button  -->
         <member-login-card></member-login-card>
         <!-- sign up button -->
-        <member-register-card></member-register-card>
+        <member-register-card @submit="onRegister" >
+        </member-register-card>
 
       </v-toolbar-items>
 
@@ -44,6 +45,7 @@
 import MemberLoginCard from "../components/MemberLoginCard";
 import MemberRegisterCard from "../components/MemberRegisterCard";
 import NavigationDrawerContent from "../components/NavigationDrawerContent";
+import axios from "axios";
 export default {
   name: 'NavBarComponent',
   components: {NavigationDrawerContent, MemberRegisterCard, MemberLoginCard},
@@ -53,6 +55,20 @@ export default {
     }
   },
   methods: {
+    onRegister (payload) {
+      const { member_id, member_pw, name, email } = payload
+      axios.post(`http://localhost:7777/member/register`, { member_id, member_pw, name, email })
+          .then(res =>{
+             alert('가입이 완료되었습니다!' + res)
+            this.member_id = ''
+            this.member_pw = ''
+            this.name = ''
+            this.email = ''
+          })
+          .catch(res => {
+            alert(res.response.data.message)
+          })
+    },
   },
 }
 </script>

@@ -14,16 +14,17 @@
         Sign In
       </v-card-title>
       <!-- card contents -->
+      <form @submit.prevent="onLogin">
       <v-card-text class="pa-3">
         <v-container grid-list-md>
           <v-layout wrap>
             <v-flex xs12>
-              <input placeholder="Enter your ID" v-model="userInfo.id" id="account"
+              <input placeholder="Enter your ID" v-model="member_id"
                      type="text" class="my-3 px-auto">
 
             </v-flex>
             <v-flex xs12>
-              <input placeholder="Enter your Password" v-model="userInfo.pw" id="password"
+              <input placeholder="Enter your Password" v-model="member_pw"
                      type="password" class="my-3 px-auto">
               <!-- <label for="password">비밀번호</label> -->
             </v-flex>
@@ -38,10 +39,11 @@
           cancel
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn color="teal darken-1" class="text-button" text @click="btnLoginClick($event)">
+        <v-btn type="submit" color="teal darken-1" class="text-button" text>
           Submit
         </v-btn>
       </v-card-actions>
+      </form>
     </v-card>
   </v-dialog>
 </template>
@@ -52,25 +54,17 @@ export default {
   data() {
     return{
       loginDialog: false,
-      userInfo: {
-        id: '',
-        pw: ''
-      },
+      member_id: '',
+      member_pw: '',
+
     }
   },
   methods: {
-    btnLoginClick ($event) {
-      if ($event.target.innerHTML == " Submit ") {
-        alert('로그인이 완료되었습니다!')
-        console.log("입력된 정보 - 아이디: " + this.userInfo.id +
-            ", 비밀번호: " + this.userInfo.pw)
-        this.loginDialog = false
-      } else if ($event.target.innerHTML == " cancel ") {
-        this.loginDialog = false
-      }
-      this.userInfo.id = ''
-      this.userInfo.pw = ''
-    }
+    onLogin () {
+      const { member_id, member_pw } = this
+      this.$emit('submit', { member_id, member_pw })
+      this.loginDialog = false;
+    },
   },
 }
 </script>

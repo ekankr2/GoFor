@@ -13,7 +13,7 @@
       <v-toolbar-items class="ml-auto hidden-sm-and-down">
 
         <!-- login button  -->
-        <member-login-card></member-login-card>
+        <member-login-card @submit="onLogin"></member-login-card>
         <!-- sign up button -->
         <member-register-card @submit="onRegister" >
         </member-register-card>
@@ -64,6 +64,21 @@ export default {
             this.member_pw = ''
             this.name = ''
             this.email = ''
+          })
+          .catch(res => {
+            alert(res.response.data.message)
+          })
+    },
+    onLogin (payload) {
+      const { member_id, member_pw } = payload
+      axios.post('http://localhost:7777/member/login', { member_id, member_pw })
+          .then(res => {
+            if (res.data != "") {
+              alert('로그인 성공! - ' + res.data)
+              this.isLogin = true;
+            } else {
+              alert('아이디와 비밀번호를 확인해주세요. ' + res.data)
+            }
           })
           .catch(res => {
             alert(res.response.data.message)

@@ -13,10 +13,14 @@
       <v-toolbar-items class="ml-auto hidden-sm-and-down">
 
         <!-- login button  -->
-        <member-login-card @submit="onLogin"></member-login-card>
+        <member-login-card @submit="onLogin" v-if="!isLogin"></member-login-card>
         <!-- sign up button -->
-        <member-register-card @submit="onRegister" >
+        <member-register-card @submit="onRegister" v-if="!isLogin">
         </member-register-card>
+
+        <v-btn class="btn-flat" v-if="isLogin" @click="removeSession">
+          로그아웃
+        </v-btn>
 
       </v-toolbar-items>
 
@@ -52,6 +56,7 @@ export default {
   data () {
     return {
       nav_drawer: false,
+      isLogin: false,
     }
   },
   methods: {
@@ -80,8 +85,13 @@ export default {
               alert('아이디와 비밀번호를 확인해주세요. ' + res.data)
             }
           })
-          .catch(res => {
-            alert(res.response.data.message)
+
+    },
+    removeSession () {
+      axios.post('http://localhost:7777/member/removeSession')
+          .then(res => {
+            this.isLogin = res.data
+            alert('로그아웃 되었습니다.')
           })
     },
   },

@@ -22,10 +22,10 @@ export default {
           icon: 'home', text: 'Home', name: 'home', route: '/'
         },
         {
-          icon: 'account_box', text: '로그인', name: 'credit_card', route: '/memberRegister'
+          icon: 'account_box', text: '로그인', name: 'login', route: '/memberLogin'
         },
         {
-          icon: 'person_add', text: '회원가입', name: 'ev_station', route: '/memberRegister'
+          icon: 'person_add', text: '회원가입', name: 'sign-up', route: '/memberRegister'
         }
       ],
     }

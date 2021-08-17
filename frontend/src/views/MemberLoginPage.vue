@@ -3,7 +3,7 @@
     <div align="center">
       <h2>로그인</h2>
     </div>
-    <vuetify-member-login-form @submit="onSubmit"/>
+    <member-login-form @submit="onSubmit"/>
     <v-spacer></v-spacer>
     <v-btn tile color="teal" @click="showSession">
       <v-icon left>
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import VuetifyMemberLoginForm from '@/components/MemberLoginForm.vue'
+import MemberLoginForm from '@/components/MemberLoginForm.vue'
 import axios from 'axios'
 export default {
   name: 'MemberLoginPage',
   components: {
-    VuetifyMemberLoginForm
+    MemberLoginForm
   },
   data () {
     return {
@@ -36,14 +36,14 @@ export default {
   },
   methods: {
     onSubmit (payload) {
-      const { id, pw } = payload
-      axios.post('http://localhost:7777/member/login', { userId: id, password: pw })
+      const { member_id, member_pw } = payload
+      axios.post('http://localhost:7777/member/login', { member_id, member_pw })
           .then(res => {
             if (res.data != "") {
               alert('로그인 성공! - ' + res.data)
               this.isLogin = true;
             } else {
-              alert('로그인 실패! - ' + res.data)
+              alert('아이디와 비밀번호를 확인해주세요. ' + res.data)
             }
           })
           .catch(res => {
@@ -68,7 +68,7 @@ export default {
       }
     },
     removeSession () {
-      axios.post('http://localhost:7777/jpamember/removeSession')
+      axios.post('http://localhost:7777/member/removeSession')
           .then(res => {
             this.isLogin = res.data
           })

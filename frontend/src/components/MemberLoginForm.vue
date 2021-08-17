@@ -5,11 +5,11 @@
       <table>
         <tr>
           <td>아이디</td>
-          <td><input type="text" v-model="id"></td>
+          <td><input type="text" v-model="member_id"></td>
         </tr>
         <tr>
           <td>비밀번호</td>
-          <td><input type="password" v-model="pw"></td>
+          <td><input type="password" v-model="member_pw"></td>
         </tr>
       </table>
 
@@ -28,14 +28,14 @@ export default {
   name: 'MemberLoginForm',
   data () {
     return {
-      id: '',
-      pw: ''
+      member_id: '',
+      member_pw: ''
     }
   },
   methods: {
     onSubmit () {
-      const { id, pw } = this
-      this.$emit('submit', { id, pw })
+      const { member_id, member_pw } = this
+      this.$emit('submit', { member_id, member_pw })
     }
   }
 }

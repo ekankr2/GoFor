@@ -52,8 +52,8 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public boolean checkUserIdValidation(String userId) throws Exception {
-        Optional<Member> maybeMember = memberRepository.findByUserId(userId);
+    public boolean checkUserIdValidation(String member_id) throws Exception {
+        Optional<Member> maybeMember = memberRepository.findByUserId(member_id);
 
         if(maybeMember == null)
         {

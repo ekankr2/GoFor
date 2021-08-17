@@ -10,29 +10,35 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @Entity
-@Getter
-@Setter
-@ToString
+@Table(name = "member")
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer memberNo;
+    @Column(name = "member_no")
+    private Long memberNo;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 64, nullable = false)
     private String member_id;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 400, nullable = false)
     private String member_pw;
 
-    @Column(length = 20, nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(length = 20, nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
     @CreationTimestamp
     private Date regDate;
 
     @UpdateTimestamp
-    private Date lastModifiedDate;
+    private Date updDate;
+
+    public Member(String member_id, String member_pw, String email, String name) {
+        this.member_id = member_id;
+        this.member_pw = member_pw;
+        this.email = email;
+        this.name = name;
+    }
 }

@@ -1,10 +1,10 @@
 <template>
-  <video-player  ref="videoPlayer"
-                 :options="playerOptions"
+  <div class="video-container">
 
-                 class="videojs vjs-default-skin"
-                 controls autoplay
-                 width="640" height="264"
+    <video-player  ref="videoPlayer"
+                 :options="playerOptions"
+                 class="player video-js vjs-big-play-button">
+                 <!--
                  title="you can listen some event if you need"
                  @play="onPlayerPlay($event)"
                  @pause="onPlayerPause($event)"
@@ -15,40 +15,56 @@
                  @timeupdate="onPlayerTimeupdate($event)"
                  @canplay="onPlayerCanplay($event)"
                  @canplaythrough="onPlayerCanplaythrough($event)">
-                 <!--
+
                  title="or listen state change"
                  @statechanged="playerStateChanged($event)"
 
                  title="The prepared event will be triggered after the videojs program instance completes, and its callback player object is the videojs callback function in this context"
                  @ready="playerReadied"> -->
-  </video-player>
+    </video-player>
+  </div>
 </template>
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-// Similarly, you can also introduce the plugin resource pack you want to use within the component
-// require('some-videojs-plugin')
+
 require('videojs-youtube')
+require('videojs-playlist')
 export default {
   components: {
-    videoPlayer
+    videoPlayer,
+
   },
   data() {
     return {
+
       playerOptions: {
 
-        // component options
-        start: 0,
-        playsinline: false,
-        // videojs options
+        showinfo: false,
+        allowFullscreen: true,
+        controls: false,
+        start: 60,
+        autoplay: true,
+        playsinline: true,
         muted: true,
+        fluid: true,
+        controlBar: false,
+        bigPlayButton: false,
+        loadingSpinner: false,
+        width: "1561",
+        height: "878",
+
         language: 'en',
         playbackRates: [0.7, 1.0, 1.5, 2.0],
         techOrder: ["youtube"],
         sources: [{
           type: "video/youtube",
           src: "https://www.youtube.com/watch?v=xjS6SftYQaQ"
-        }],
+        }, {
+            type: "video/youtube",
+            src: "https://www.youtube.com/watch?v=P_A2kNpyQBs&ab"
+          }],
+
         poster: "/static/images/author.jpg",
       }
     }
@@ -85,3 +101,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.video-container{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.player{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+</style>

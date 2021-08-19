@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from '../views/Home.vue'
 import MemberRegisterPage from "../views/MemberRegisterPage";
 import MemberLoginPage from "../views/MemberLoginPage";
+
+import VueVideoEx from "../views/VueVideoEx";
 
 Vue.use(VueRouter)
 
@@ -24,6 +27,13 @@ const routes = [
     name: 'MemberLoginPage',
     components: {
       default: MemberLoginPage
+    }
+  },
+  {
+    path: '/video',
+    name: 'VueVideoEx',
+    components: {
+      default: VueVideoEx
     }
   },
 ]

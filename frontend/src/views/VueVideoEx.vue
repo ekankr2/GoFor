@@ -1,4 +1,8 @@
 <template>
+  <div>
+  <div>
+    <v-btn @click="nextVid">next</v-btn>
+  </div>
   <div class="video-container">
 
     <video-player  ref="videoPlayer"
@@ -23,10 +27,13 @@
                  @ready="playerReadied"> -->
     </video-player>
   </div>
+  </div>
 </template>
 
 <script>
 import { videoPlayer } from 'vue-video-player'
+import cityData from "../assets/data.json"
+
 
 require('videojs-youtube')
 require('videojs-playlist')
@@ -37,7 +44,11 @@ export default {
   },
   data() {
     return {
-
+      data: cityData,
+      selected_city: '',
+      selected_video: '',
+      currentVideo: '',
+      videoUrl: '',
       playerOptions: {
 
         showinfo: false,
@@ -67,15 +78,38 @@ export default {
           }],
 
         poster: "/static/images/author.jpg",
-      }
+      },
+      videos: [{
+        src: "https://www.youtube.com/watch?v=xjS6SftYQaQ"
+      },
+        {
+          src: "https://www.youtube.com/watch?v=P_A2kNpyQBs&ab"
+        },
+        {
+          src: "https://www.youtube.com/watch?v=WUILKugXouY"
+        },
+      ]
     }
   },
+  created() {
+    const selected_city = Math.floor(Math.random() * this.data.length);
+    const selected_video = Math.floor(Math.random() * this.data[selected_city].video_id.length);
+    const currentVideo = this.data[selected_city].video_id[selected_video];
+    const videoUrl = 'https://www.youtube.com/watch?v=' + currentVideo;
+    this.selected_city = selected_city
+    this.selected_video = selected_video
+    this.currentVideo = currentVideo
+    this.videoUrl = videoUrl
+
+  },
   mounted() {
+    /*
     // console.log('this is current player instance object', this.player)
     setTimeout(() => {
       console.log('dynamic change options', this.player)
       // change src
-       this.playerOptions.sources[0].src = 'https://www.youtube.com/watch?v=P_A2kNpyQBs&ab';
+      this.playerOptions.sources[0].src = 'https://www.youtube.com/watch?v=P_A2kNpyQBs&ab';
+
       // change item
       // this.$set(this.playerOptions.sources, 0, {
       //   type: "video/mp4",
@@ -87,8 +121,11 @@ export default {
       //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
       // }]
       this.player.muted(false)
-    }, 10000)
+    }, 5000)
+    */
+
   },
+
   computed: {
     player() {
       return this.$refs.videoPlayer.player
@@ -114,6 +151,9 @@ export default {
       console.log('the player is readied', player)
       // you can use it to do something...
       // player.[methods]
+    },
+    nextVid() {
+        this.playerOptions.sources[0].src = this.videoUrl;
     }
   },
   /*

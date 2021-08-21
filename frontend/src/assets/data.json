@@ -1,0 +1,1532 @@
+module.exports = [
+	{
+		"city": "Amsterdam",
+		"country": "Netherlands",
+		"video_id": [
+			"_nS2FvZ0h2g"
+		],
+		"start_times": [
+			13
+		],
+		"radio_url": [
+			"https://21633.live.streamtheworld.com/RADIO10.mp3",
+			"https://ice.cr2.streamzilla.xlcdn.com:8000/sz%3Dnhnieuws%3DNHRadio_mp3?token=a51cea67c3a470f587ae9c6e72cece39&time=5ba3ace5",
+			"https://21313.live.streamtheworld.com/100PNL_MP3_SC",
+			"https://20423.live.streamtheworld.com/SLAM_MP3.mp3",
+			"https://20873.live.streamtheworld.com/VERONICA.mp3",
+			"https://icecast.omroep.nl/radio2-bb-mp3",
+			"https://icecast.omroep.nl/radio4-bb-mp3",
+			"https://icecast.omroep.nl/funx-amsterdam-bb-mp3",
+			"https://icecast.omroep.nl/3fm-bb-mp3",
+			"https://icecast.omroep.nl/radio1-bb-mp3",
+			"https://icecast.streamone.net/46ANH44CYA8S",
+			"https://20873.live.streamtheworld.com/SKYRADIO.mp3",
+			"https://22183.live.streamtheworld.com/RADIO538.mp3",
+			"https://icecast.streamone.net/YoRFHeMSYJ42"
+		],
+		"name": [
+			"Radio 10",
+			"NH Radio",
+			"Radio 100% NL",
+			"SLAM!",
+			"Radio Veronica",
+			"NPO Radio 2",
+			"NPO Radio 4",
+			"NPO FunX",
+			"NPO 3FM",
+			"NPO Radio 1",
+			"Radio SALTO",
+			"Sky Radio",
+			"Radio 538",
+			"SALTO Caribbean FM"
+		]
+	},
+	{
+		"city": "Ankara",
+		"country": "Turkey",
+		"video_id": [
+			"xk8oDZydGp4",
+			"DulbJU8jEII"
+		],
+		"start_times": [
+			40,
+			80,
+			150
+		],
+		"radio_url": [
+			"https://driveandlistenbestfm.radyotvonline.net/bestfmmp3",
+			"https://playerservices.streamtheworld.com/api/livestream-redirect/JOY_TURK.mp3",
+			"https://17703.live.streamtheworld.com/SUPER_FM.mp3",
+			"https://18463.live.streamtheworld.com/METRO_FM.mp3",
+			"https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio",
+			"https://18463.live.streamtheworld.com/VIRGIN_RADIO.mp3",
+			"https://turkmedya.radyotvonline.net/stream/80/"
+		],
+		"name": [
+			"Best FM",
+			"Joy Türk",
+			"Süper FM",
+			"Metro FM",
+			"Power FM",
+			"Virgin Radio",
+			"Alem FM"
+		]
+	},
+	{
+		"city": "Antalya",
+		"country": "Turkey",
+		"video_id": [
+			"pPQo2mgcdkg",
+			"IRwJ0ESJU7c"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://driveandlistenbestfm.radyotvonline.net/bestfmmp3",
+			"https://playerservices.streamtheworld.com/api/livestream-redirect/JOY_TURK.mp3",
+			"https://17703.live.streamtheworld.com/SUPER_FM.mp3",
+			"https://18463.live.streamtheworld.com/METRO_FM.mp3",
+			"https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio",
+			"https://18463.live.streamtheworld.com/VIRGIN_RADIO.mp3",
+			"https://turkmedya.radyotvonline.net/stream/80/"
+		],
+		"name": [
+			"Best FM",
+			"Joy Türk",
+			"Süper FM",
+			"Metro FM",
+			"Power FM",
+			"Virgin Radio",
+			"Alem FM"
+		]
+	},
+	{
+		"city": "Barcelona",
+		"country": "Spain",
+		"video_id": [
+			"hbYweUDbtxc",
+			"dWB5_MJmZ-U"
+		],
+		"start_times": [
+			599,
+			122
+		],
+		"radio_url": [
+			"https://rne.rtveradio.cires21.com/rne_hc.mp3",
+			"https://icecast-streaming.nice264.com/melodiafmback",
+			"https://radiomarcabcnmedia.dns-lcinternet.com:9000/stream",
+			"https://flucast-b04-05.flumotion.com/cope/rockfm-low.mp3",
+			"https://radioclasica.rtveradio.cires21.com/radioclasica_hc.mp3",
+			"https://21223.live.streamtheworld.com/LOS40_CLASSIC.mp3",
+			"https://shoutcast.ccma.cat/ccma/catalunyainformacioHD.mp3",
+			"https://icecast-streaming.nice264.com/barcelonaback",
+			"https://kissfm.kissfmradio.cires21.com/kissfm.mp3",
+			"https://21283.live.streamtheworld.com/RADIOLE.mp3",
+			"https://server2.ejeserver.com:8194/stream",
+			"https://server2.ejeserver.com:8016/stream",
+			"https://22343.live.streamtheworld.com/SER_BARCELONA.mp3",
+			"https://radiott-web.streaming-pro.com:6003/radiott.mp3"
+		],
+		"name": [
+			"RNE Radio Nacional",
+			"Melodía FM",
+			"Radio Marca",
+			"Rock FM",
+			"RNE Radio Clásica",
+			"LOS40 Classic",
+			"CCMA",
+			"Onda Cero",
+			"Kiss FM",
+			"Radiolè",
+			"Hits Latinos",
+			"La Súper 96",
+			"Cadena SER",
+			"Ràdio TeleTaxi",
+			""
+		]
+	},
+	{
+		"city": "Beijing",
+		"country": "China",
+		"video_id": [
+			"QkbJLsWyfsI",
+			"gxh_-M4pkko",
+			"7hAay5Yj28Q"
+		],
+		"start_times": [
+			40,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://lhttp.qingting.fm/live/5022555/64k.mp3",
+			"https://lhttp.qingting.fm/live/21341/64k.mp3"
+		],
+		"name": [
+			"Alxa Mongolian Radio",
+			"Binchow Music Radio"
+		]
+	},
+	{
+		"city": "Berlin",
+		"country": "Germany",
+		"video_id": [
+			"r4I_4aP2Xd0",
+			"Alg8peh6JyU"
+		],
+		"start_times": [
+			10,
+			12
+		],
+		"radio_url": [
+			"https://mangoradio.stream.laut.fm/mangoradio?t302=2020-04-21_13-36-24&uuid=8cd318e1-b11f-43fa-93e9-73c7ed5aa004",
+			"https://topradio-de-hz-fal-stream05-cluster01.radiohost.de/brf_128",
+			"https://stream.jam.fm/jamfm-live/mp3-128/konsole/",
+			"https://topradio-de-hz-fal-stream01-cluster01.radiohost.de/kissfm_128",
+			"https://edg-ams-kcrw.streamguys1.com/kcrw_192k_mp3_berlin",
+			"https://sec-ir-media.hoerradar.de/bbradio-live-mp3-mq?sABC=5r97r178%231%2348p19098qn6oo0npn92s55osn814o458%23gharva_jro_zc3&amsparams=playerid:tunein_web_mp3;skey:1587011960",
+			"https://fritz.de/livemp3"
+		],
+		"name": [
+			"MANGORADIO",
+			"Berliner Rundfunk",
+			"Jam FM",
+			"Kiss FM",
+			"KCRW Berlin",
+			"BB Radio",
+			"RBB Fritz"
+		]
+	},
+	{
+		"city": "Budapest",
+		"country": "Hungary",
+		"video_id": [
+			"Sl-xj5Q1PYw",
+			"k5tqDgCosx0",
+			"NkeSgoh9SdM"
+		],
+		"start_times": [
+			0,
+			462,
+			0
+		],
+		"radio_url": [
+			"https://stream3.hit.hu:8080/spirit1",
+			"https://icast.connectmedia.hu/4780/live.mp3",
+			"https://stream1.bestfmbudapest.hu/bestfm_128.mp3",
+			"https://stream2.retroradio.hu/mid.mp3"
+		],
+		"name": [
+			"Spirit FM 87.6",
+			"Manna FM 98.6",
+			"Best FM 99.5",
+			"Retro Rádió 104.7"
+		]
+	},
+	{
+		"city": "Buenos Aires",
+		"country": "Argentina",
+		"video_id": [
+			"-TPJot7-HTs",
+			"75X9vSFCh14"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://vivo.fmlatribu.com/latribu.mp3",
+			"https://arcast.net:8443/oktubre.mp3",
+			"https://alpha.radioplayer.com.ar:9232/radiografica893",
+			"https://14073.live.streamtheworld.com/ARPEGGIO.mp3",
+			"https://stream.fmentransito.org.ar:8002/radio/live.aac",
+			"https://arcast.net:8445/FMGOL.MP3",
+			"https://14923.live.streamtheworld.com/MUCHARADIO.mp3",
+			"https://20803.live.streamtheworld.com/CADENA3.mp3",
+			"https://20283.live.streamtheworld.com/ASPEN.mp3",
+			"https://streamall.alsolnet.com/klimaxok",
+			"https://21933.live.streamtheworld.com/LOS40_ARGENTINA.mp3",
+			"https://streamall.alsolnet.com/fmaprender"
+		],
+		"name": [
+			"La Tribu 88.7 FM",
+			"Oktubre FM 89.1",
+			"Radio Gráfica 89.3 FM",
+			"Arpeggio 89.5 FM",
+			"FM En Tránsito 93.9",
+			"Club Octubre 947",
+			"Mucha Radio 97.1 FM",
+			"Cadena 3",
+			"Aspen 102.3",
+			"FM Klimax 103.5",
+			"LOS40 105.5",
+			"Aprender 106.1"
+		]
+	},
+	{
+		"city": "Chicago",
+		"country": "USA",
+		"video_id": [
+			"3ma3yXXc3V8"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://ice3.somafm.com/groovesalad-128-mp3",
+			"https://ice64.securenetsystems.net/KCKK",
+			"https://npr-ice.streamguys1.com/live.mp3"
+		],
+		"name": [
+			"Groove Salad",
+			"KCKK FM",
+			"NPR News"
+		]
+	},
+	{
+		"city": "Curitiba",
+		"country": "Brazil",
+		"video_id": [
+			"xegZIesrRsQ",
+			"4NQfxrQVoFk",
+			"jE0twFwdNdQ"
+		],
+		"start_times": [
+			30,
+			0
+		],
+		"radio_url": [
+			"https://20323.live.streamtheworld.com/NOVABRASIL_RIO.mp3",
+			"https://rrdns-dumont.webnow.com.br/mundolivre.mp3",
+			"https://rrdns-dumont.webnow.com.br/98fm.mp3",
+			"https://shout07.crossradio.com.br:18004/1.mp3"
+		],
+		"name": [
+			"NovaBrasil FM",
+			"Mundo Livre 93.9 FM",
+			"Rádio 98 FM",
+			"Clube FM"
+		]
+	},
+	{
+		"city": "Delhi",
+		"country": "India",
+		"video_id": [
+			"_UlKnvXKUWE",
+			"P2nis0I7dI0"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://redlive1.listenon.in/Hindi",
+			"http://node-24.zeno.fm/60ef4p33vxquv?rj-ttl=5&rj-tok=AAABcfD5im8AKkQwULjleajGRg",
+			"https://prclive4.listenon.in/Bhojpuri"
+		],
+		"name": [
+			"Red Indies Hindi",
+			"Hits Of Bollywood",
+			"R City Bhojpuri"
+		]
+	},
+	{
+		"city": "Dublin",
+		"country": "Ireland",
+		"video_id": [
+			"PX8bD5tpQWQ"
+		],
+		"start_times": [
+			0
+		],
+		"radio_url": [
+			"https://stream.audioxi.com/CLASSIC",
+			"https://wg.cdn.tibus.net/fm104MP3128"
+		],
+		"name": [
+			"Classic Hits",
+			"Dublin's FM104"
+		]
+	},
+	{
+		"city": "Dunedin",
+		"country": "New Zealand",
+		"video_id": [
+			"yJ5fyvDOy_Q"
+		],
+		"start_times": [
+			20
+		],
+		"radio_url": [
+			"https://ais-nzme.streamguys1.com/nz_011_aac",
+			"https://ais-nzme.streamguys1.com/nz_010_aac",
+			"https://ais-nzme.streamguys1.com/nz_014_aac"
+		],
+		"name": [
+			"Coast 104.60",
+			"Flava 88.60",
+			"The Hits 89.4"
+		]
+	},
+	{
+		"city": "Guadalajara",
+		"country": "Mexico",
+		"video_id": [
+			"6t3XkVX7dVk"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://17833.live.streamtheworld.com/XHPIFM.mp3",
+			"https://19213.live.streamtheworld.com/XEDAFM.mp3",
+			"https://14543.live.streamtheworld.com/XHDK_FM.mp3",
+			"https://17963.live.streamtheworld.com/XHRO.mp3",
+			"https://18433.live.streamtheworld.com/KEBUENA.mp3",
+			"https://18313.live.streamtheworld.com/XHLCFM.mp3",
+			"https://18543.live.streamtheworld.com/XHMA.mp3"
+		],
+		"name": [
+			"XHPI Amor",
+			"XEDA Imagen",
+			"XHDK Planeta",
+			"XHRO La Mejor",
+			"Cadena Ke Buena",
+			"XHLC FM",
+			"Exa FM"
+		]
+	},
+	{
+		"city": "Hamburg",
+		"country": "Germany",
+		"video_id": [
+			"Xiv2ShG5pSI"
+		],
+		"start_times": [
+			15
+		],
+		"radio_url": [
+			"https://rhh.streamabc.net/rhh-hh2livestream-mp3-128-9203677",
+			"https://topradio-de-hz-fal-stream05-cluster01.radiohost.de/brf_128",
+			"https://stream.jam.fm/jamfm-live/mp3-128/konsole/",
+			"https://topradio-de-hz-fal-stream01-cluster01.radiohost.de/kissfm_128",
+			"https://edg-ams-kcrw.streamguys1.com/kcrw_192k_mp3_berlin",
+			"https://sec-ir-media.hoerradar.de/bbradio-live-mp3-mq?sABC=5r97r178%231%2348p19098qn6oo0npn92s55osn814o458%23gharva_jro_zc3&amsparams=playerid:tunein_web_mp3;skey:1587011960",
+			"https://fritz.de/livemp3"
+		],
+		"name": [
+			"Hamburg Zwei 95.0",
+			"Berliner Rundfunk",
+			"Jam FM",
+			" Kiss FM",
+			"KCRW Berlin",
+			"BB Radio",
+			"RBB Fritz"
+		]
+	},
+	{
+		"city": "Hawaii",
+		"country": "USA",
+		"video_id": [
+			"UpVBdgXGi7Q",
+			"OUxfB9m2HBs",
+			"Qu_pw47TO7c"
+		],
+		"start_times": [
+			7,
+			9,
+			5
+		],
+		"radio_url": [
+			"https://14543.live.streamtheworld.com/KGUFM.mp3",
+			"https://prod-34-83-63-130.wostreaming.net/pacificradio-kddbfmmp3-ibc1?session-id=9e76b044cc8445e313176045a4344dd8",
+			"https://emf.streamguys1.com/sk001_mp3_high_web"
+		],
+		"name": [
+			"KGU The Word 99.5 FM",
+			"Da Bomb 102.7 FM",
+			"K-LOVE Radio"
+		]
+	},
+	{
+		"city": "Havana",
+		"country": "Cuba",
+		"video_id": [
+			"BIyfybP2ep8",
+			"G-F6VSjSyG4"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://node-19.zeno.fm/yxwg54nyg3quv?rj-ttl=5&rj-tok=AAABcYSsq3EA83OSzeWTUtPjWg",
+			"https://icecast.teveo.cu/b3jbfThq",
+			"https://icecast.teveo.cu/McW3fLhs",
+			"https://icecast.teveo.cu/Nbtz7HT3"
+		],
+		"name": [
+			"Radio Maxima FM",
+			"Worlds 17 Reloj Cuba",
+			"Radio Habana Cuba",
+			"CMBF Radio"
+		]
+	},
+	{
+		"city": "Istanbul",
+		"country": "Turkey",
+		"video_id": [
+			"czLnPvFcB08",
+			"U41-fswE8Zo",
+			"NevRLIkzvyE",
+			"X9FICreYGmw",
+			"3ADA2ig7xkI"
+		],
+		"start_times": [
+			40,
+			40,
+			30,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://driveandlistenbabaradyo.radyotvonline.net/babaradyomp3",
+			"https://driveandlistenbestfm.radyotvonline.net/bestfmmp3",
+			"https://playerservices.streamtheworld.com/api/livestream-redirect/JOY_TURK.mp3",
+			"https://17703.live.streamtheworld.com/SUPER_FM.mp3",
+			"https://18463.live.streamtheworld.com/METRO_FM.mp3",
+			"https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio",
+			"https://18463.live.streamtheworld.com/VIRGIN_RADIO.mp3",
+			"https://turkmedya.radyotvonline.net/stream/80/"
+		],
+		"name": [
+			"Baba Radyo",
+			"Best FM",
+			"Joy Türk",
+			"Süper FM",
+			"Metro FM",
+			"Power FM",
+			"Virgin Radio",
+			"Alem FM"
+		]
+	},
+	{
+		"city": "Izmir",
+		"country": "Turkey",
+		"video_id": [
+			"DiWh2CmZRL4"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://driveandlistenbestfm.radyotvonline.net/bestfmmp3",
+			"https://playerservices.streamtheworld.com/api/livestream-redirect/JOY_TURK.mp3",
+			"https://17703.live.streamtheworld.com/SUPER_FM.mp3",
+			"https://18463.live.streamtheworld.com/METRO_FM.mp3",
+			"https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio",
+			"https://18463.live.streamtheworld.com/VIRGIN_RADIO.mp3"
+		],
+		"name": [
+			"Best FM",
+			"Joy Türk",
+			"Süper FM",
+			"Metro FM",
+			"Power FM",
+			"Virgin Radio"
+		]
+	},
+	{
+		"city": "Johannesburg",
+		"country": "South Africa",
+		"video_id": [
+			"nvHJChVEC58"
+		],
+		"start_times": [
+			750
+		],
+		"radio_url": [
+			"https://ice1.securenetsystems.net/DEMOSTN?playSessionID=C21802AC-FE23-11C5-A6A913FC4B8D1275",
+			"https://20863.live.streamtheworld.com/FM702.mp3",
+			"https://20133.live.streamtheworld.com/FM947.mp3",
+			"https://edge.iono.fm/xice/82_medium.aac",
+			"https://edge.iono.fm/xice/65_medium.aac",
+			"https://edge.iono.fm/xice/49_medium.aac",
+			"https://edge.iono.fm/xice/54_medium.aac"
+		],
+		"name": [
+			"Hot 91.9",
+			"Talk Radio 702",
+			"FM 947",
+			"Kaya FM 95.9",
+			"Power 98.7 FM",
+			"Classic 102.7 FM",
+			"Algoa FM"
+		]
+	},
+	{
+		"city": "Kyiv",
+		"country": "Ukraine",
+		"video_id": [
+			"o6TC5CsBQaA"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://cast.radiogroup.com.ua/retro",
+			"https://online.radiojazz.ua/RadioJazz"
+		],
+		"name": [
+			"Ретро FM",
+			"Радіо Jazz"
+		]
+	},
+	{
+		"city": "Lauterbrunnen",
+		"country": "Switzerland",
+		"video_id": [
+			"J7YRIGFoOvI"
+		],
+		"start_times": [
+			35
+		],
+		"radio_url": [
+			"https://sunshineradio.ice.infomaniak.ch/sunshineradio-128.mp3",
+			"https://icecast.argovia.ch/radio24",
+			"https://radiocentral.ice.infomaniak.ch/radiocentral-128.mp3",
+			"https://mp3.radio.ch/radiozuerisee128k",
+			"https://radio.nello.tv/128k",
+			"https://icecast.argovia.ch/radio24"
+		],
+		"name": [
+			"Sunshine Radio",
+			"Radio 24",
+			"Radio Central",
+			"Radio Zürisee",
+			"Radio 1",
+			"Radio 24"
+		]
+	},
+	{
+		"city": "Lisbon",
+		"country": "Portugal",
+		"video_id": [
+			"XA_bUMhnRWA"
+		],
+		"start_times": [
+			180
+		],
+		"radio_url": [
+			"https://21313.live.streamtheworld.com/MEGA_HITS.mp3",
+			"https://tsfdirecto.tsf.pt/tsfdirecto.mp3",
+			"https://19983.live.streamtheworld.com/RFM.mp3",
+			"https://19643.live.streamtheworld.com/RADIO_RENASCENCA.mp3",
+			"https://mcrscast.mcr.iol.pt/cidadefm",
+			"https://mcrscast.mcr.iol.pt/m80",
+			"https://mcrscast.mcr.iol.pt/smoothfm",
+			"https://mcrscast.mcr.iol.pt/comercial.mp3",
+			"https://mcrscast.mcr.iol.pt/vodafone",
+			"https://19643.live.streamtheworld.com/RADIO_SIM.mp3"
+		],
+		"name": [
+			"Rádio Mega HITS",
+			"TSF Rádio Notícias",
+			"RFM",
+			"Rádio Renascença",
+			"Cidade FM",
+			"M80 Rádio",
+			"Rádio Smooth FM",
+			"Rádio Comercial",
+			"Vodafone.fm",
+			"Rádio Sim"
+		]
+	},
+	{
+		"city": "London",
+		"country": "UK",
+		"video_id": [
+			"QI4_dGvZ5yE"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://stream-kiss.planetradio.co.uk/kiss100.mp3",
+			"https://stream-mz.planetradio.co.uk/magic1054.mp3",
+			"https://20723.live.streamtheworld.com/JACK_RADIO.mp3",
+			"https://radio.virginradio.co.uk/stream"
+		],
+		"name": [
+			"KISS 100",
+			"Magic Radio",
+			"Jack Radio",
+			"Virgin Radio"
+		]
+	},
+	{
+		"city": "Los Angeles",
+		"country": "USA",
+		"video_id": [
+			"25EgbhdVESE",
+			"S-KdqA_6DII",
+			"f9Q9jYOSzOQ",
+			"J0zhd268eVk"
+		],
+		"start_times": [
+			40,
+			40,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://kcrw.streamguys1.com/kcrw_192k_mp3_on_air",
+			"https://ice3.somafm.com/groovesalad-128-mp3",
+			"https://ice64.securenetsystems.net/KCKK",
+			"https://npr-ice.streamguys1.com/live.mp3"
+		],
+		"name": [
+			"KCRW",
+			"Groove Salad",
+			"KCKK FM",
+			"NPR News"
+		]
+	},
+	{
+		"city": "Madrid",
+		"country": "Spain",
+		"video_id": [
+			"SqAOQkuY3e0"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://panel.blindstream.com/radio/8450/la879?1554996983",
+			"https://rne.rtveradio.cires21.com/rne_hc.mp3",
+			"https://19993.live.streamtheworld.com/LOS40_CLASSIC.mp3",
+			"https://hitfm.kissfmradio.cires21.com/hitfm.mp3",
+			"https://radio5.rtveradio.cires21.com/radio5_hc.mp3",
+			"https://icecast-streaming.nice264.com/europafmback",
+			"https://22333.live.streamtheworld.com/CADENADIAL.mp3",
+			"https://r4g-mp3-live.flumotion.com/r4g/r4g-mp3-live.mp3",
+			"https://flucast-m02-06.flumotion.com/cope/net4.mp3",
+			"https://22343.live.streamtheworld.com/TOPRADIO.mp3",
+			"https://icecast-streaming.nice264.com/ondacero",
+			"https://livestreaming3.esradio.fm/stream64.mp3",
+			"https://kissfm.kissfmradio.cires21.com/kissfm.mp3",
+			"https://xxdelgado.radioca.st/stream"
+		],
+		"name": [
+			"La Nueva",
+			"RNE Radio Nacional",
+			"LOS40 Classic",
+			"Hit FM",
+			"RNE Radio 5",
+			"Europa FM",
+			"Cadena Dial",
+			"Radio 4G",
+			"COPE Más Madrid",
+			"Top Radio",
+			"Onda Cero",
+			"esRadio",
+			"Kiss FM",
+			"Roca Fm Clasicos"
+		]
+	},
+	{
+		"city": "Melbourne",
+		"country": "Australia",
+		"video_id": [
+			"ef-A87X6sDU",
+			"bQ5A4eKegqA"
+		],
+		"start_times": [
+			28,
+			7
+		],
+		"radio_url": [
+			"https://securestreams.autopo.st:1122/;stream.mp3",
+			"https://20813.live.streamtheworld.com/SMOOTH915_AAC48.aac",
+			"https://sbs-ice.streamguys1.com/sbs2-sbs-web",
+			"https://19223.live.streamtheworld.com/NOVA_100_AAC48.aac",
+			"https://ic2ti.scahw.com.au/3fox_128",
+			"https://ic2ti.scahw.com.au/3mmm_128"
+		],
+		"name": [
+			"3TSC The Light 89.9 FM",
+			"3PTV Smooth 91.5 FM",
+			"SBS Radio 2 93.1",
+			"3MEL 100.3 FM",
+			"3FOX 101.9 Fox FM",
+			"3MMM 105.1 FM"
+		]
+	},
+	{
+		"city": "Miami",
+		"country": "USA",
+		"video_id": [
+			"O8Td31EnrrI",
+			"xkdiqMt8hbw",
+			"4LrBW3DHETg"
+		],
+		"start_times": [
+			40,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://14553.live.streamtheworld.com/FAMILYRADIO_EAST.mp3",
+			"https://wdna.streamguys1.com/live",
+			"https://emf.streamguys1.com/sk001_mp3_high_web",
+			"https://npr-ice.streamguys1.com/live.mp3",
+			"https://n03.radiojar.com/2p37c9au5qwtv?rj-ttl=5&rj-tok=AAABccOjvQMAtGP3FYpKeY27kA",
+			"https://prod-34-82-27-12.wostreaming.net/espn-networkmp3-48?session-id=7170b2ce59ee436fa87271efdc9bc362"
+		],
+		"name": [
+			"Family Radio",
+			"WDNA Serious Jazz",
+			"K-LOVE Radio",
+			"NPR News",
+			"WRIZ Gridlock Radio",
+			"ESPN Radio"
+		]
+	},
+	{
+		"city": "Mumbai",
+		"country": "India",
+		"video_id": [
+			"NdWdU8fQabo",
+			"JG8G9tVyXaw"
+		],
+		"start_times": [
+			5,
+			0
+		],
+		"radio_url": [
+			"https://redlive1.listenon.in/Hindi",
+			"http://node-24.zeno.fm/60ef4p33vxquv?rj-ttl=5&rj-tok=AAABcfD5im8AKkQwULjleajGRg",
+			"https://prclive4.listenon.in/Bhojpuri",
+			"https://redlive1.listenon.in/Marathi"
+		],
+		"name": [
+			"Red Indies Hindi",
+			"Hits Of Bollywood",
+			"R City Bhojpuri",
+			"Red Indies Marathi"
+		]
+	},
+	{
+		"city": "Munich",
+		"country": "Germany",
+		"video_id": [
+			"lFSf-49awKw"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://mangoradio.stream.laut.fm/mangoradio?t302=2020-04-21_13-36-24&uuid=8cd318e1-b11f-43fa-93e9-73c7ed5aa004",
+			"https://topradio-de-hz-fal-stream05-cluster01.radiohost.de/brf_128",
+			"https://stream.jam.fm/jamfm-live/mp3-128/konsole/",
+			"https://topradio-de-hz-fal-stream01-cluster01.radiohost.de/kissfm_128",
+			"https://edg-ams-kcrw.streamguys1.com/kcrw_192k_mp3_berlin",
+			"https://sec-ir-media.hoerradar.de/bbradio-live-mp3-mq?sABC=5r97r178%231%2348p19098qn6oo0npn92s55osn814o458%23gharva_jro_zc3&amsparams=playerid:tunein_web_mp3;skey:1587011960",
+			"https://fritz.de/livemp3"
+		],
+		"name": [
+			"MANGORADIO",
+			"Berliner Rundfunk",
+			"Jam FM",
+			" Kiss FM",
+			"KCRW Berlin",
+			"BB Radio",
+			"RBB Fritz"
+		]
+	},
+	{
+		"city": "Moscow",
+		"country": "Russia",
+		"video_id": [
+			"YORkrd05BtA",
+			"vffgKEGG-8Y"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://rusradio.hostingradio.ru/rusradio96.aacp",
+			"https://ic6.101.ru:8000/a102",
+			"https://choco.hostingradio.ru:10010/fm",
+			"https://ic7.101.ru:8000/a202",
+			"https://ic6.101.ru:8000/a99"
+		],
+		"name": [
+			"Русское Радио",
+			"Юмор FM",
+			"Шоколад FM",
+			"Comedy Radio",
+			"Радио Energy"
+		]
+	},
+	{
+		"city": "New York City",
+		"country": "USA",
+		"video_id": [
+			"7HaJArMDKgI",
+			"xWf-vT0wLBw"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://17343.live.streamtheworld.com/WQHTFM.mp3",
+			"https://ice3.somafm.com/groovesalad-128-mp3",
+			"https://ice64.securenetsystems.net/KCKK",
+			"https://npr-ice.streamguys1.com/live.mp3",
+			"https://kazafm.radioca.st/;"
+		],
+		"name": [
+			"WQHT Hot 97",
+			"Groove Salad",
+			"KCKK FM",
+			"NPR News",
+			"Kaza FM"
+		]
+	},
+	{
+		"city": "Nice",
+		"country": "France",
+		"video_id": [
+			"G4fNt-C2ZkA",
+			"IP6rPac2zo0"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://rcnradiochalomcotedazur.ice.infomaniak.ch/rcnradiochalomcotedazur-128.mp3",
+			"https://mfm.ice.infomaniak.ch/mfm-128.mp3",
+			"https://live.medi1.com/medi3#.mp3",
+			"https://kissfm.ice.infomaniak.ch/kissfm-128.mp3",
+			"https://cannesradio.ice.infomaniak.ch/cannesradio-128.mp3",
+			"https://icecast.radiofrance.fr/francemusique-midfi.mp3",
+			"https://icecast.rtl.fr/rtl2-1-44-128",
+			"https://agoracotedazur.ice.infomaniak.ch/agoracotedazur.mp3",
+			"https://streaming.radio.funradio.fr/fun-1-44-96",
+			"https://radiofg.impek.com/fg",
+			"https://rivieraradio.ice.infomaniak.ch/rivieraradio-high"
+		],
+		"name": [
+			"RCN",
+			"M Radio",
+			"Medi 1 radio (Int)",
+			"Kiss FM",
+			"Cannes Radio",
+			"France Musique",
+			"RTL2",
+			"Agora Côte d'Azur",
+			"Fun Radio",
+			"Radio FG",
+			"Riviera Radio"
+		]
+	},
+	{
+		"city": "Oslo",
+		"country": "Norway",
+		"video_id": [
+			"TcCsdGV0GGo",
+			"pdodmUg5DVo"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://stream.radionova.no/mp3",
+			"https://stream.radiorakel.no/fm993.mp3",
+			"https://lyd.nrk.no/nrk_radio_p1_hedmark_og_oppland_mp3_h",
+			"https://live-bauerno.sharp-stream.com/vinyl_no_mp3"
+		],
+		"name": [
+			"Radio Nova",
+			"RadiOrakel",
+			"NRK P1 Innlandet",
+			"Radio Vinyl"
+		]
+	},
+	{
+		"city": "Paris",
+		"country": "France",
+		"video_id": [
+			"FBjjYw-xcdg"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://jazzblues.ice.infomaniak.ch/jazzblues-high.mp3",
+			"https://radio.rastapuls.com/rastapuls",
+			"https://stream.chantefrance.com/stream_chante_france.mp3"
+		],
+		"name": [
+			"Jazz Radio Blues",
+			"Rastapuls Reggae",
+			"Chante France"
+		]
+	},
+	{
+		"city": "Prague",
+		"country": "Czechia",
+		"video_id": [
+			"hGQqjJEnyJU"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://ice.abradio.cz/blanikfm128.mp3",
+			"https://ice.actve.net/fm-evropa2-128",
+			"https://ice.actve.net/dance-radio128.mp3",
+			"https://icecast4.play.cz/country128.mp3",
+			"https://icecast5.play.cz/expres128mp3",
+			"https://icecast8.play.cz/color128.mp3",
+			"https://icecast7.play.cz/cro2-128.mp3",
+			"https://icecast1.play.cz/radio1.mp3",
+			"https://icecast5.play.cz/rockzone128.mp3",
+			"https://icecast7.play.cz/cro1-128.mp3",
+			"https://icecast5.play.cz/cro3-128.mp3"
+		],
+		"name": [
+			"Rádio BLANÍK",
+			"Rádio Evropa 2",
+			"Dance Radio",
+			"Country Radio",
+			"Expres FM",
+			"Color Music Rádio",
+			"ČRo Dvojka",
+			"Radio 1",
+			"Rock Zone",
+			"ČRo Radiožurnál",
+			"ČRo Vltava"
+		]
+	},
+	{
+		"city": "Recife",
+		"country": "Brazil",
+		"video_id": [
+			"DT1m88iM5e0"
+		],
+		"start_times": [
+			40,
+			80
+		],
+		"radio_url": [
+			"https://ssl.zoeweb.net/proxy/recifefm?mp=/stream",
+			"https://24483.live.streamtheworld.com/NOVABRASIL_REC.mp3",
+			"https://radio.saopaulo01.com.br:10780/;stream.mp3"
+		],
+		"name": [
+			"Recife FM",
+			"NovaBrasil FM",
+			"Rádio da Bispa 97.1"
+		]
+	},
+	{
+		"city": "Rio De Janeiro",
+		"country": "Brazil",
+		"video_id": [
+			"_hWCN1yV9TY",
+			"fG_idt30MZA"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://cloud2.cdnseguro.com:20000/stream.mp3",
+			"https://20323.live.streamtheworld.com/NOVABRASIL_RIO.mp3",
+			"https://18133.live.streamtheworld.com/FM93.mp3",
+			"https://15383.live.streamtheworld.com/JBFMAAC1.aac"
+		],
+		"name": [
+			"KISS FM",
+			"NovaBrasil FM",
+			"Rádio 93 FM",
+			"JBFM"
+		]
+	},
+	{
+		"city": "Rome",
+		"country": "Italy",
+		"video_id": [
+			"OjcTRwh62xI"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://live.radioradicale.it/live.mp3",
+			"https://20723.live.streamtheworld.com/AFNE_VIC_SC",
+			"https://20853.live.streamtheworld.com/AFNE_SIG_SC",
+			"https://21273.live.streamtheworld.com/AFNE_AVN_SC",
+			"https://icy.unitedradio.it/Radio105.mp3",
+			"https://wma08.fluidstream.net:8080/KissKiss.mp3",
+			"https://icy.unitedradio.it/Virgin.mp3"
+		],
+		"name": [
+			"A19  RADICALE  IT",
+			"AFN 360 Vicenza",
+			"AFN 360 Sigonella",
+			"AFN 360 Aviano",
+			"Radio 105",
+			"Radio KISS",
+			"Virgin Radio"
+		]
+	},
+	{
+		"city": "San Francisco",
+		"country": "USA",
+		"video_id": [
+			"PGMu_Z89Ao8"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://ice3.somafm.com/groovesalad-128-mp3",
+			"https://npr-ice.streamguys1.com/live.mp3"
+		],
+		"name": [
+			"Groove Salad",
+			"NPR News"
+		]
+	},
+	{
+		"city": "Sao Paulo",
+		"country": "Brazil",
+		"video_id": [
+			"Ic2ERD7kt4o",
+			"_hptbEVx5eM",
+			"39eKuBwiOv0"
+		],
+		"start_times": [
+			40,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://cloud2.cdnseguro.com:20000/stream.mp3",
+			"https://20823.live.streamtheworld.com/NOVABRASIL_SP.mp3",
+			"https://stream.antena1.com.br/stream5",
+			"https://17483.live.streamtheworld.com/JP_SP_FM.mp3",
+			"https://tvcultura.com.br/_radio/streaming.php?radio=fm",
+			"https://ice.fabricahost.com.br/89aradiorocksp",
+			"https://ice.fabricahost.com.br/alphafm1017"
+		],
+		"name": [
+			"KISS FM",
+			"NovaBrasil FM",
+			"Rádio Antena 1",
+			"Jovem Pan",
+			"Rádio Cultura FM",
+			"89 A Rádio Rock",
+			"Alpha FM 101.7"
+		]
+	},
+	{
+		"city": "Seattle",
+		"country": "USA",
+		"video_id": [
+			"6kmWtd5uGfA",
+			"w38ghzdAfMQ",
+			"rjVD1-1mbuE"
+		],
+		"start_times": [
+			22,
+			49,
+			60
+		],
+		"radio_url": [
+			"https://kexp-mp3-128.streamguys1.com/kexp128.mp3",
+			"https://live.wostreaming.net/direct/ppm-knkxfmaac-ibc1",
+			"https://ice3.somafm.com/groovesalad-128-mp3",
+			"https://npr-ice.streamguys1.com/live.mp3"
+		],
+		"name": [
+			"KEXP 90.3 FM",
+			"Jazz 88.5 FM",
+			"Groove Salad",
+			"NPR News"
+		]
+	},
+	{
+		"city": "Seoul",
+		"country": "Korea",
+		"video_id": [
+			"Qk3vynC0AWI",
+			"jfI4ui7kuus",
+			"n6LTG1y37K4",
+			"tDnFwyT5pG4"
+		],
+		"start_times": [
+			80,
+			47,
+			47,
+			47
+		],
+		"radio_url": [
+			"https://listen.moe/kpop/stream",
+			"https://listen.moe/kpop/stream?"
+		],
+		"name": [
+			"Listen Moe K-pop",
+			"Listen Moe K-pop"
+		]
+	},
+	{
+		"city": "Singapore",
+		"country": "Singapore",
+		"video_id": [
+			"IpEpTWIDL4Q"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://21413.live.streamtheworld.com/883JIA.mp3",
+			"https://20683.live.streamtheworld.com/MONEY_893.mp3",
+			"https://19183.live.streamtheworld.com/RIA897FM.mp3",
+			"https://19183.live.streamtheworld.com/GOLD905.mp3",
+			"https://20683.live.streamtheworld.com/ONE_FM_913.mp3",
+			"https://20663.live.streamtheworld.com/KISS_92.mp3",
+			"https://19183.live.streamtheworld.com/SYMPHONY924.mp3",
+			"https://19183.live.streamtheworld.com/YES933.mp3",
+			"https://13743.live.streamtheworld.com/938NOW.mp3",
+			"https://19183.live.streamtheworld.com/WARNA942FM.mp3",
+			"https://13743.live.streamtheworld.com/CLASS95.mp3",
+			"https://19183.live.streamtheworld.com/CAPITAL958FM.mp3"
+		],
+		"name": [
+			"Jia FM",
+			"Money FM",
+			"Ria 89.7 FM",
+			"Gold 905",
+			"One FM",
+			"Kiss 92",
+			"Symphony 92.4 FM",
+			"YES 933",
+			"CNA 938",
+			"Warna 94.2 FM",
+			"Class 95",
+			"Capital 95.8 FM"
+		]
+	},
+	{
+		"city": "Sofia",
+		"country": "Bulgaria",
+		"video_id": [
+			"lccnrglxYhI"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://darikradio.by.host.bg:8000/Nostalgie",
+			"https://darikradio.by.host.bg:8000/S2-128"
+		],
+		"name": [
+			"Радио Носталжи 90.0",
+			"Дарик Радио 105.0"
+		]
+	},
+	{
+		"city": "St. Petersburg",
+		"country": "Russia",
+		"video_id": [
+			"NHKehN_vjZM"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://rusradio.hostingradio.ru/rusradio96.aacp",
+			"https://ic6.101.ru:8000/a102",
+			"https://choco.hostingradio.ru:10010/fm",
+			"https://ic7.101.ru:8000/a202",
+			"https://ic6.101.ru:8000/a99"
+		],
+		"name": [
+			"Русское Радио",
+			"Юмор FM",
+			"Шоколад FM",
+			"Comedy Radio",
+			"Радио Energy"
+		]
+	},
+	{
+		"city": "Stockholm",
+		"country": "Sweden",
+		"video_id": [
+			"U_aQgRhbQ7k",
+			"22lpXJKIexc"
+		],
+		"start_times": [
+			0,
+			45
+		],
+		"radio_url": [
+			"https://http-live.sr.se/p1-mp3-128",
+			"https://http-live.sr.se/srinternational-mp3-128",
+			"https://edge-bauersefm-03-gos2.sharp-stream.com/lugnaklassiker_instream_se_mp3",
+			"https://fm05-ice.stream.khz.se/fm05_mp3?platform=web&aw_0_1st.playerid=mtgradio-web",
+			"https://fm02-ice.stream.khz.se/fm02_mp3?platform=web&aw_0_1st.playerid=mtgradio-web",
+			"https://edge-bauersefm-02-gos1.sharp-stream.com/mixmegapol_instream_se_mp3",
+			"https://edge-bauersefm-06-gos2.sharp-stream.com/svenskpop_se_mp3",
+			"https://edge-bauersefm-05-gos1.sharp-stream.com/nrj_instreamtest_se_mp3",
+			"https://edge-bauersefm-02-gos1.sharp-stream.com/vinylfm_instream_se_mp3",
+			"https://edge-bauersefm-08-gos2.sharp-stream.com/rockklassiker_instream_se_mp3?",
+			"https://fm01-ice.stream.khz.se/fm01_mp3?platform=web&aw_0_1st.playerid=mtgradio-web",
+			"https://fm04-ice.stream.khz.se/fm04_mp3?platform=web&aw_0_1st.playerid=mtgradio-web"
+		],
+		"name": [
+			"Sveriges Radio P1",
+			"Sveriges Radio P6",
+			"Radio Lugna Klassiker",
+			"Star FM",
+			"Bandit Rock Radio",
+			"Radio Mix Megapol",
+			"Radio Svensk Pop",
+			"Radio NRJ",
+			"Radio Vinyl FM",
+			"Radio Rockklassiker",
+			"Radio Rix FM",
+			"Power Hit Radio"
+		]
+	},
+	{
+		"city": "Tel Aviv",
+		"country": "Israel",
+		"video_id": [
+			"itE6jzH0caY",
+			"dilk4IB_tBk",
+			"1Kxn1xipm-A"
+		],
+		"start_times": [
+			0,
+			0,
+			0
+		],
+		"radio_url": [
+			"https://91fm.streamgates.net/Lev91Fm",
+			"https://eco-live.mediacast.co.il/99fm",
+			"https://100fm.streamgates.net/Radios100Fm",
+			"https://102.livecdn.biz/102fm_aac"
+		],
+		"name": [
+			"רדיו לב המדינה 91.0",
+			"אקו 99.0",
+			"רדיוס 100.0",
+			"רדיו תל אביב 102.0"
+		]
+	},
+	{
+		"city": "Thessaloniki",
+		"country": "Greece",
+		"video_id": [
+			"sZkXNHyO018",
+			"bveQrRpP0GA",
+			"UJf10Qjdj5U"
+		],
+		"start_times": [
+			613,
+			16,
+			1668
+		],
+		"radio_url": [
+			"https://radiostreaming.ert.gr/ert-proto",
+			"https://eu9.fastcast4u.com/proxy/nicperet?mp=/1",
+			"https://radiostreaming.ert.gr/ert-deftero",
+			"https://radiostreaming.ert.gr/ert-trito",
+			"https://radiostreaming.ert.gr/ert-erasport",
+			"https://radiostreaming.ert.gr/ert-958fm",
+			"https://netradio.live24.gr/north98thess",
+			"https://netradio.live24.gr/panorama984",
+			"https://netradio.live24.gr/athinaradio"
+		],
+		"name": [
+			"ΕΡΑ Πρώτο 88.0",
+			"Imagine 89.7 FM",
+			"ΕΡΑ Δεύτερο 90.0",
+			"ΕΡΑ Τρίτο 92.0",
+			"ΕΡΑ Σπορ 93.9",
+			"ΕΡΤ3 95.8 FM",
+			"Radio North 98.0",
+			"Πανόραμα 98.4",
+			"Παραπολιτικά 90.1 FM"
+		]
+	},
+	{
+		"city": "Tokyo",
+		"country": "Japan",
+		"video_id": [
+			"z1obnaqPgMA",
+			"B8Yyf6WKgaM",
+			"ceEE_oYuzS4"
+		],
+		"start_times": [
+			40,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://listen.moe/stream",
+			"https://musicbird.leanstream.co/JCB027-MP3",
+			"https://musicbird.leanstream.co/JCB032-MP3"
+		],
+		"name": [
+			"Listen Moe",
+			"FM Fujigoko",
+			"FM Tokyo"
+		]
+	},
+	{
+		"city": "Toronto",
+		"country": "Canada",
+		"video_id": [
+			"50Uf_T12OGY",
+			"Cmp39Cd3t7I"
+		],
+		"start_times": [
+			40,
+			40
+		],
+		"radio_url": [
+			"https://streamer.radio.co/se3e1e3815/listen",
+			"https://ice5.securenetsystems.net/CKPCFM?playSessionID=4BBC6351-C78C-92FC-E2596BBA30DEB53C",
+			"https://ice23.securenetsystems.net/CKDX?playSessionID=4BC57E91-EF1A-8DC8-CC62B048DD3C3D7D",
+			"https://ice9.securenetsystems.net/CIRVFM?playSessionID=4BCB9123-B928-2599-A0275739EA4193EC",
+			"https://live.leanstream.co/CHAYFM-MP3",
+			"https://17533.live.streamtheworld.com/WNEDFM.mp3",
+			"https://17453.live.streamtheworld.com/CKGEFM.mp3"
+		],
+		"name": [
+			"Radio Regent",
+			"CKPC Jewel",
+			"CKDX Jewel",
+			"CIRV Red FM",
+			"CHAY Fresh",
+			"WNED Classical",
+			"CKGE The Rock"
+		]
+	},
+	{
+		"city": "Warsaw",
+		"country": "Poland",
+		"video_id": [
+			"afeQ09woEWE"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://pl-play.adtonos.com/radio-pogoda",
+			"https://n-6-1.dcs.redcdn.pl/sc/o2/Eurozet/live/chillizet.livx?audio=5",
+			"https://stream4.nadaje.com/muzo"
+		],
+		"name": [
+			"Radio Pogoda",
+			"Chillizet",
+			"Muzo.FM"
+		]
+	},
+	{
+		"city": "Wuhan",
+		"country": "China",
+		"video_id": [
+			"6USLukgez8g",
+			"-jlcr7TyqyA",
+			"VSVjogRrPW4"
+		],
+		"start_times": [
+			40,
+			40,
+			40
+		],
+		"radio_url": [
+			"https://lhttp.qingting.fm/live/5022555/64k.mp3",
+			"https://lhttp.qingting.fm/live/21341/64k.mp3"
+		],
+		"name": [
+			"Alxa Mongolian Radio",
+			"Binchow Music Radio"
+		]
+	},
+	{
+		"city": "Yekaterinburg",
+		"country": "Russia",
+		"video_id": [
+			"nqQGiYtHg-A"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://choco.hostingradio.ru:10010/fm",
+			"https://rusradio.hostingradio.ru/rusradio96.aacp",
+			"https://ic6.101.ru:8000/a102",
+			"https://ic7.101.ru:8000/a202",
+			"https://ic6.101.ru:8000/a99",
+			"https://icecast-newradio.cdnvideo.ru/newradio3",
+			"https://air.radiorecord.ru:8101/rr_128",
+			"https://kpradio.hostingradio.ru:8000/ekaterinburg.radiokp128.mp3"
+		],
+		"name": [
+			"Шоколад FM",
+			"Русское Радио",
+			"Юмор FM",
+			"Comedy Radio",
+			"Радио Energy",
+			"Новое Радио",
+			"Радио Рекорд",
+			"Комсомольская правда"
+		]
+	},
+	{
+		"city": "Zurich",
+		"country": "Switzerland",
+		"video_id": [
+			"RMZO7hcg9DM"
+		],
+		"start_times": [
+			40
+		],
+		"radio_url": [
+			"https://sunshineradio.ice.infomaniak.ch/sunshineradio-128.mp3",
+			"https://icecast.argovia.ch/radio24",
+			"https://radiocentral.ice.infomaniak.ch/radiocentral-128.mp3",
+			"https://mp3.radio.ch/radiozuerisee128k",
+			"https://radio.nello.tv/128k",
+			"https://icecast.argovia.ch/radio24"
+		],
+		"name": [
+			"Sunshine Radio",
+			"Radio 24",
+			"Radio Central",
+			"Radio Zürisee",
+			"Radio 1",
+			"Radio 24"
+		]
+	}
+];
+
+
+//////////////////
+// WEBPACK FOOTER
+// ./src/data.json
+// module id = 78
+// module chunks = 0

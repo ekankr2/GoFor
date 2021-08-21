@@ -7,6 +7,7 @@ import MemberLoginPage from "../views/MemberLoginPage";
 
 import VueVideoEx from "../views/VueVideoEx";
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -36,6 +37,7 @@ const routes = [
       default: VueVideoEx
     }
   },
+
 ]
 
 const router = new VueRouter({

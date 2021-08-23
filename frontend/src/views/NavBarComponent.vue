@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav-container" >
     <v-toolbar dense dark>
       <v-toolbar-title>
         <router-link to="/" class="white--text">
@@ -57,6 +57,7 @@ export default {
     return {
       nav_drawer: false,
       isLogin: false,
+      show: false,
     }
   },
   methods: {
@@ -99,6 +100,7 @@ export default {
 </script>
 
 <style scoped>
+
 span{
   user-select: none;
 }

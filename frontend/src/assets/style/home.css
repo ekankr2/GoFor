@@ -30,6 +30,7 @@ body{
     height: 320px;
     background: #000;
     margin: 25px auto;
+    cursor: pointer;
 }
 .box .videoBx{
     position: absolute;

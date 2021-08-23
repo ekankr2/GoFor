@@ -1,13 +1,10 @@
 <template>
   <div>
-  <div>
-    <v-btn @click="nextVid">next</v-btn>
-  </div>
-  <div class="video-container">
 
-    <video-player  ref="videoPlayer"
+    <div class="video-container">
+    <video-player ref="videoPlayer"
                  :options="playerOptions"
-                 class="player video-js vjs-big-play-button">
+                 class="player video-js vjs-big-play-button ">
                  <!--
                  title="you can listen some event if you need"
                  @play="onPlayerPlay($event)"
@@ -26,13 +23,13 @@
                  title="The prepared event will be triggered after the videojs program instance completes, and its callback player object is the videojs callback function in this context"
                  @ready="playerReadied"> -->
     </video-player>
-  </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import cityData from "../assets/data.json"
+//import cityData from "../assets/data.json"
 
 
 require('videojs-youtube')
@@ -44,7 +41,7 @@ export default {
   },
   data() {
     return {
-      data: cityData,
+      //data: cityData,
       selected_city: '',
       selected_video: '',
       currentVideo: '',
@@ -52,18 +49,23 @@ export default {
       playerOptions: {
 
         showinfo: false,
-        allowFullscreen: true,
         controls: false,
+        rel: false,
+        modestbranding: true,
+        allowFullscreen: true,
         start: 60,
         autoplay: true,
         playsinline: true,
         muted: true,
-        fluid: true,
+        fluid: true, // full screen
         controlBar: false,
         bigPlayButton: false,
         loadingSpinner: false,
-        width: "1561",
-        height: "878",
+
+
+
+
+
 
         language: 'en',
         playbackRates: [0.7, 1.0, 1.5, 2.0],
@@ -175,17 +177,26 @@ export default {
 </script>
 
 <style scoped>
-.video-container{
-  position: absolute;
-  width: 100%;
-  height: 100vh;
+*{
+  box-sizing: border-box;
 }
-
-.player{
-  position: absolute;
+.video-container{
+  background: #000;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  height: 120vh;
+
+
+  display: flex;
+  flex-direction: column;
+}
+.player{
   width: 100%;
 }
+
+
+
 </style>

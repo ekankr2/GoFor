@@ -3,9 +3,9 @@
   <div class="container">
 
     <!-- 4 contents -->
-    <div class="box" v-for="a in contents" :key="a.title">
+    <router-link :to="a.route" tag="div" class="box" v-for="a in contents" :key="a.title">
       <div class="videoBx">
-         <video :src="a.link" muted autoplay loop></video>
+         <video :src="a.vidLink" muted autoplay loop></video>
       </div>
       <div class="contentBx">
         <div class="content">
@@ -13,7 +13,7 @@
           <p>{{ a.content }}</p>
         </div>
       </div>
-    </div>
+    </router-link>
 
   </div>
   </body>
@@ -28,13 +28,13 @@
     data() {
       return {
         contents: [
-          { link: require('@/assets/videos/main1.mp4'), title: 'a Walk',
+          { vidLink: require('@/assets/videos/main1.mp4'), title: 'a Walk', route: 'videoEx',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
-          { link: require('@/assets/videos/main2.mp4'), title: 'a Bike Ride',
+          { vidLink: require('@/assets/videos/main2.mp4'), title: 'a Bike Ride', route: 'videoEx',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
-          { link: require('@/assets/videos/main3.mp4'), title: 'a Motorcycle Ride',
+          { vidLink: require('@/assets/videos/main3.mp4'), title: 'a Motorcycle Ride', route: 'videoEx',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
-          { link: require('@/assets/videos/main4.mp4'), title: 'a Drive',
+          { vidLink: require('@/assets/videos/main4.mp4'), title: 'a Drive', route: 'videoEx',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
         ]
       }

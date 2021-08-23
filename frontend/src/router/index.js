@@ -5,7 +5,8 @@ import Home from '../views/Home.vue'
 import MemberRegisterPage from "../views/MemberRegisterPage";
 import MemberLoginPage from "../views/MemberLoginPage";
 
-import VueVideoEx from "../views/VueVideoEx";
+
+import Car from "../views/Car";
 
 
 Vue.use(VueRouter)
@@ -31,10 +32,10 @@ const routes = [
     }
   },
   {
-    path: '/video',
-    name: 'VueVideoEx',
+    path: '/car',
+    name: 'Car',
     components: {
-      default: VueVideoEx
+      default: Car
     }
   },
 

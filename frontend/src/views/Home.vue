@@ -28,13 +28,13 @@
     data() {
       return {
         contents: [
-          { vidLink: require('@/assets/videos/main1.mp4'), title: 'a Walk', route: 'videoEx',
+          { vidLink: require('@/assets/videos/main1.mp4'), title: 'a Walk', route: 'video',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
           { vidLink: require('@/assets/videos/main2.mp4'), title: 'a Bike Ride', route: 'videoEx',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
           { vidLink: require('@/assets/videos/main3.mp4'), title: 'a Motorcycle Ride', route: 'videoEx',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
-          { vidLink: require('@/assets/videos/main4.mp4'), title: 'a Drive', route: 'videoEx',
+          { vidLink: require('@/assets/videos/main4.mp4'), title: 'a Drive', route: 'car',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec leo et quam condimentum varius. In scelerisque, tellus sit amet congue condimentum, erat dui elementum est, nec iaculis est.'},
         ]
       }

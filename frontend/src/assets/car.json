@@ -144,6 +144,17 @@
 		]
 	},
 	{
+		"city":"Dubai",
+		"country":"UAE",
+		"video_id":[
+			"TE2tfavIo3E",
+			"Rl3zyHDjSIs"
+		],
+		"start_times":[
+			0
+		]
+	},
+	{
 		"city":"Dunedin",
 		"country":"New Zealand",
 		"video_id":[

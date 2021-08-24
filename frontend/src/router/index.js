@@ -7,6 +7,9 @@ import MemberLoginPage from "../views/MemberLoginPage";
 
 
 import Car from "../views/Car";
+import Walk from "../views/Walk";
+import Bike from "../views/Bike";
+import Motorcycle from "../views/Motorcycle";
 
 
 Vue.use(VueRouter)
@@ -29,6 +32,27 @@ const routes = [
     name: 'MemberLoginPage',
     components: {
       default: MemberLoginPage
+    }
+  },
+  {
+    path: '/walk',
+    name: 'Walk',
+    components: {
+      default: Walk
+    }
+  },
+  {
+    path: '/bike',
+    name: 'Bike',
+    components: {
+      default: Bike
+    }
+  },
+  {
+    path: '/motorcycle',
+    name: 'Motorcycle',
+    components: {
+      default: Motorcycle
     }
   },
   {

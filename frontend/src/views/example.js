@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Modal from 'react-bootstrap/Modal'
 import YoutubePlayer from 'react-player'
 import ReactAudioPlayer from 'react-audio-player'
-import data from './data.json'
+import data from './car.json'
 import showIcon from './show.svg'
 import Script from 'react-load-script'
 import {isMobile, isIOS} from 'react-device-detect';

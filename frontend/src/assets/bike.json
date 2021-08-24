@@ -1,0 +1,76 @@
+[
+	{
+		"city": "Amsterdam",
+		"country": "Netherlands",
+		"video_id": [
+			"PcKXjFCC2f0",
+			"XyUKLFO4u_k"
+		]
+	},
+	{
+		"city": "Antalya",
+		"country": "Turkey",
+		"video_id": [
+			"rUzsOCPdwWE"
+		]
+	},
+	{
+		"city": "Bangkok",
+		"country": "Thailand",
+		"video_id": [
+			"i0FRWPvncwQ"
+		]
+	},
+	{
+		"city": "Berlin",
+		"country": "Germany",
+		"video_id": [
+			"P67orOd11O0"
+		]
+	},
+	{
+		"city": "Downtown Core",
+		"country": "Singapore",
+		"video_id": [
+			"SYpRb2Pxl6o"
+		]
+	},
+	{
+		"city": "Mexico City",
+		"country": "Mexico",
+		"video_id": [
+			"RH6naRedhP8"
+		]
+	},
+	{
+		"city": "New York City",
+		"country": "USA",
+		"video_id": [
+			"Ur9mn5qGc0I"
+		]
+	},
+	{
+		"city": "Osaka",
+		"country": "Japan",
+		"video_id": [
+			"7PEvqrcqB7U",
+			"neOmgDIfuFU"
+		]
+	},
+	{
+		"city": "Rome",
+		"country": "Italy",
+		"video_id": [
+			"bdjUv2ctBQ4"
+		]
+	},
+	{
+		"city": "Tokyo",
+		"country": "Japan",
+		"video_id": [
+			"3iECBzZ8FKc",
+			"IWNa18KXmmg",
+			"JG3jZfbchPg"
+		]
+	}
+]

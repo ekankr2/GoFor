@@ -5,7 +5,7 @@
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
     <video-player ref="videoPlayer" v-show="!loading"
                  :options="playerOptions"
-                 class="player video-js vjs-big-play-button" @ended="onPlayerEnded($event)">
+                 class="player video-js vjs-big-play-button " @ended="onPlayerEnded($event)">
                  <!--
                  title="you can listen some event if you need"
                  @play="onPlayerPlay($event)"
@@ -30,7 +30,7 @@
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import cityData from "../assets/car.json"
+import cityData from "../assets/cityMotorcycle.json"
 
 
 require('videojs-youtube')
@@ -61,11 +61,7 @@ export default {
         autoplay: true,
         playsinline: true,
         muted: true,
-        //fluid: true, // full screen
-        //width: 1500,
-        //fill: true,
-        aspectRatio: "16:9",
-
+        fluid: true, // full screen
         controlBar: false,
         bigPlayButton: false,
         loadingSpinner: false,
@@ -187,8 +183,8 @@ export default {
 }
 .video-container{
   background: #000;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -199,8 +195,6 @@ export default {
 }
 .player{
   width: 100%;
-  top: -50px;
-  bottom: -50px;
   pointer-events: none;
 }
 

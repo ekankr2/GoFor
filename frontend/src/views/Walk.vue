@@ -1,29 +1,29 @@
 <template>
-  <div>
-    <span>Location : {{ currentCity }},{{ currentCountry }} ,link : {{ this.playerOptions.sources[0].src }}</span>
+  <div class="page">
+    <span>Location : {{ currentCity }}, {{ currentCountry }} link : {{ this.playerOptions.sources[0].src }}</span>
     <div class="video-container">
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
-    <video-player ref="videoPlayer" v-show="!loading"
-                 :options="playerOptions"
-                 class="player video-js vjs-big-play-button " @ended="onPlayerEnded($event)">
-                 <!--
-                 title="you can listen some event if you need"
-                 @play="onPlayerPlay($event)"
-                 @pause="onPlayerPause($event)"
-                 @ended="onPlayerEnded($event)"
-                 @loadeddata="onPlayerLoadeddata($event)"
-                 @waiting="onPlayerWaiting($event)"
-                 @playing="onPlayerPlaying($event)"
-                 @timeupdate="onPlayerTimeupdate($event)"
-                 @canplay="onPlayerCanplay($event)"
-                 @canplaythrough="onPlayerCanplaythrough($event)">
+      <video-player ref="videoPlayer" v-show="!loading"
+                    :options="playerOptions"
+                    class="player video-js vjs-big-play-button" @ended="onPlayerEnded($event)">
+        <!--
+        title="you can listen some event if you need"
+        @play="onPlayerPlay($event)"
+        @pause="onPlayerPause($event)"
+        @ended="onPlayerEnded($event)"
+        @loadeddata="onPlayerLoadeddata($event)"
+        @waiting="onPlayerWaiting($event)"
+        @playing="onPlayerPlaying($event)"
+        @timeupdate="onPlayerTimeupdate($event)"
+        @canplay="onPlayerCanplay($event)"
+        @canplaythrough="onPlayerCanplaythrough($event)">
 
-                 title="or listen state change"
-                 @statechanged="playerStateChanged($event)"
+        title="or listen state change"
+        @statechanged="playerStateChanged($event)"
 
-                 title="The prepared event will be triggered after the videojs program instance completes, and its callback player object is the videojs callback function in this context"
-                 @ready="playerReadied"> -->
-    </video-player>
+        title="The prepared event will be triggered after the videojs program instance completes, and its callback player object is the videojs callback function in this context"
+        @ready="playerReadied"> -->
+      </video-player>
     </div>
   </div>
 </template>
@@ -61,7 +61,11 @@ export default {
         autoplay: true,
         playsinline: true,
         muted: true,
-        fluid: true, // full screen
+        //fluid: true, // full screen
+        //width: 1500,
+        //fill: true,
+        aspectRatio: "16:9",
+
         controlBar: false,
         bigPlayButton: false,
         loadingSpinner: false,
@@ -114,16 +118,16 @@ export default {
   methods: {
     // listen event
     onPlayerPlay(player) {
-       console.log('player play!', player)
+      console.log('player play!', player)
     },
     onPlayerPause(player) {
-       console.log('player pause!', player)
+      console.log('player pause!', player)
     },
     // ...player event
 
     // or listen state event
     playerStateChanged(playerCurrentState) {
-       console.log('player current update state', playerCurrentState)
+      console.log('player current update state', playerCurrentState)
     },
 
     // player is ready
@@ -181,19 +185,28 @@ export default {
 *{
   box-sizing: border-box;
 }
+.page{
+  background: #000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
 .video-container{
   background: #000;
   position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
+  top: 40px;
   bottom: 0;
-  height: 100%;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  z-index: 100;
+
 }
 .player{
+  top: -45px;
   width: 100%;
   pointer-events: none;
 }

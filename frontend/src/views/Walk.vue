@@ -1,8 +1,43 @@
 <template>
   <div class="page">
+    <p class="white--text">{{ randomVid }}</p>
+    <!-- + icon -->
+    <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
+        @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
+
+    <v-navigation-drawer right v-model="drawer" absolute temporary>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>John Leider</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item
+            v-for="item in items" :key="item.title" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <!--
     <span>Location : {{ currentCity }}, {{ currentCountry }} link : {{ this.playerOptions.sources[0].src }}</span>
+    -->
     <div class="video-container">
+      <!-- noise screen-->
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
+
       <video-player ref="videoPlayer" v-show="!loading"
                     :options="playerOptions"
                     class="player video-js vjs-big-play-button" @ended="onPlayerEnded($event)">
@@ -30,8 +65,7 @@
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import cityData from "../assets/walk.json"
-
+import { mapActions, mapState,mapGetters } from 'vuex'
 
 require('videojs-youtube')
 require('videojs-playlist')
@@ -42,7 +76,8 @@ export default {
   },
   data() {
     return {
-      data: cityData,
+      data: this.products,
+      drawer: null,
       selected_city: '',
       selected_video: '',
       currentVideo: '',
@@ -107,15 +142,18 @@ export default {
     }, 5000)
     */
     this.noiseEffect()
+    this.setProducts()
   },
 
   computed: {
     player() {
       return this.$refs.videoPlayer.player
     },
-
+    ...mapState(['products']),
+    ...mapGetters(['randomVid'])
   },
   methods: {
+    ...mapActions(['setProducts']),
     // listen event
     onPlayerPlay(player) {
       console.log('player play!', player)
@@ -202,7 +240,7 @@ export default {
   top: 40px;
   bottom: 0;
   width: 100%;
-  z-index: 100;
+
 
 }
 .player{

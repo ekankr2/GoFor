@@ -1,28 +1,46 @@
 <template>
   <div class="page">
-    <span>Location : {{ currentCity }}, {{ currentCountry }} link : {{ this.playerOptions.sources[0].src }}</span>
+    <!-- + icon -->
+    <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
+           @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
+
+    <v-navigation-drawer right v-model="drawer" absolute temporary>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>John Leider</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item class="mb-5"
+            v-for="item in items" :key="item.name" link router :to="item.route">
+          <v-list-item-icon >
+            <v-icon class="pt-2">{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-h6 font-weight-regular py-2">{{ item.text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <MglMap
+          :mapbox-gl="mapbox-gl"
+          :accesToken="accessToken"
+          :mapStyle.sync="mapStyle"
+          @load="onMapLoaded"/>
+      </v-list>
+    </v-navigation-drawer>
+
     <div class="video-container">
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
       <video-player ref="videoPlayer" v-show="!loading"
                     :options="playerOptions"
                     class="player video-js vjs-big-play-button" @ended="onPlayerEnded($event)">
-        <!--
-        title="you can listen some event if you need"
-        @play="onPlayerPlay($event)"
-        @pause="onPlayerPause($event)"
-        @ended="onPlayerEnded($event)"
-        @loadeddata="onPlayerLoadeddata($event)"
-        @waiting="onPlayerWaiting($event)"
-        @playing="onPlayerPlaying($event)"
-        @timeupdate="onPlayerTimeupdate($event)"
-        @canplay="onPlayerCanplay($event)"
-        @canplaythrough="onPlayerCanplaythrough($event)">
-
-        title="or listen state change"
-        @statechanged="playerStateChanged($event)"
-
-        title="The prepared event will be triggered after the videojs program instance completes, and its callback player object is the videojs callback function in this context"
-        @ready="playerReadied"> -->
       </video-player>
     </div>
   </div>
@@ -31,17 +49,29 @@
 <script>
 import { videoPlayer } from 'vue-video-player'
 import cityData from "../assets/car.json"
-
+import Mapbox from "mapbox-gl"
+import { MglMap } from "vue-mapbox"
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
     videoPlayer,
-
+    MglMap
   },
   data() {
     return {
+      drawer: null,
+      items: [
+        {
+          icon: 'home', text: 'Home', name: 'home', route: '/'
+        },
+        {
+          icon: 'location_on', text: '', name: 'location', route: ''
+        },
+      ],
+      accessToken: "pk.eyJ1IjoiZWthbmtyMiIsImEiOiJja3NxcGJkYm4wZTRqMm9wZzJibnlmdW1jIn0.uRDczh2Hp1oEdBXRhD4Gcg",
+      mapStyle: "mapbox://styles/ekankr2/cksqpjzn91hwf17q78drfotch",
       data: cityData,
       selected_city: '',
       selected_video: '',
@@ -84,28 +114,10 @@ export default {
   },
   created() {
     this.randomVideo()
+    this.mapbox = Mapbox;
+    this.map = null;
   },
   mounted() {
-    /*
-    // console.log('this is current player instance object', this.player)
-    setTimeout(() => {
-      console.log('dynamic change options', this.player)
-      // change src
-      this.playerOptions.sources[0].src = 'https://www.youtube.com/watch?v=P_A2kNpyQBs&ab';
-
-      // change item
-      // this.$set(this.playerOptions.sources, 0, {
-      //   type: "video/mp4",
-      //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-      // })
-      // change array
-      // this.playerOptions.sources = [{
-      //   type: "video/mp4",
-      //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-      // }]
-      this.player.muted(false)
-    }, 5000)
-    */
     this.noiseEffect()
   },
 
@@ -116,24 +128,13 @@ export default {
 
   },
   methods: {
-    // listen event
-    onPlayerPlay(player) {
-      console.log('player play!', player)
-    },
-    onPlayerPause(player) {
-      console.log('player pause!', player)
-    },
-    // ...player event
-
-    // or listen state event
-    playerStateChanged(playerCurrentState) {
-      console.log('player current update state', playerCurrentState)
-    },
-
     // player is ready
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
+    },
+    onMapLoaded(event){
+      this.map = event.map
     },
     randomVideo() {
       const selected_city = Math.floor(Math.random() * this.data.length);
@@ -147,6 +148,7 @@ export default {
       this.selected_city = selected_city
       this.selected_video = selected_video
       this.currentVideo = currentVideo
+      this.items[1].text = currentCity + ", " + currentCountry
       this.playerOptions.sources[0].src = videoUrl;
     },
     noiseEffect() {
@@ -156,28 +158,10 @@ export default {
       },1500)
     },
     onPlayerEnded() {
-      this.loading = true;
+      this.noiseEffect()
       this.randomVideo()
-      setTimeout(() => {
-        this.loading = false;
-      },1500)
     }
   },
-  /*
-  watch: {
-    options: {
-      deep: true,
-      handler(options, oldOptions) {
-        this.dispose(() => {
-          if (options && options.sources && options.sources.length) {
-            this.initialize()
-          }
-        })
-      }
-    }
-  }
-
-   */
 }
 </script>
 
@@ -199,10 +183,10 @@ export default {
 .video-container{
   background: #000;
   position: absolute;
-  top: 40px;
+  top: 45px;
   bottom: 0;
   width: 100%;
-  z-index: 100;
+
 
 }
 .player{

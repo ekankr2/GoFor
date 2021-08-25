@@ -2,9 +2,9 @@ export default {
     randomVid(state) {
         const videoData = state.products;
         const strData = JSON.stringify(videoData);
-        /*
-        const selected_city = Math.floor(Math.random() * strData.length);
 
+        const selected_city = Math.floor(Math.random() * strData.length);
+        /*
         const selected_video = Math.floor(Math.random() * strData[selected_city].video_id.length);
 
         const currentVideo = strData[selected_city].video_id[selected_video];
@@ -14,7 +14,7 @@ export default {
 
          */
 
-        return strData;
+        return selected_city;
 
     }
 }

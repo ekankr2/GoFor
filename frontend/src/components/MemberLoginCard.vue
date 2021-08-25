@@ -7,8 +7,7 @@
       <!-- card image -->
       <v-img
           src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-          height="200px"
-      ></v-img>
+          height="200px"></v-img>
       <!-- card title -->
       <v-card-title class="headline text-h4 mb-n4">
         Sign In

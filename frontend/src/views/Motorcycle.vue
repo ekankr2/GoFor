@@ -139,7 +139,7 @@ export default {
       const selected_city = Math.floor(Math.random() * this.data.length);
       const selected_video = Math.floor(Math.random() * this.data[selected_city].video_id.length);
       const currentVideo = this.data[selected_city].video_id[selected_video];
-      const videoUrl = 'https://www.youtube.com/watch?v=' + currentVideo + '&t=40';
+      const videoUrl = 'https://www.youtube.com/watch?v=' + currentVideo + '&t=50';
       const currentCity = this.data[selected_city].city
       const currentCountry = this.data[selected_city].country
       this.currentCity = currentCity

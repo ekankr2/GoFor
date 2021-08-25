@@ -1,8 +1,8 @@
 <template>
   <v-dialog elevation="15" v-model="seeLocation" max-width="600px">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn text color="black" class="btn-flat px-16 text-h6 font-weight-regular" v-on="on" v-bind="attrs">
-        <v-icon class="mr-6 ml-n3">location_on</v-icon>Location</v-btn>
+      <v-btn outlined color="indigo" class="btn-flat mt-n2 text-h6 font-weight-regular" v-on="on" v-bind="attrs">
+        <v-icon class="mr-8 ml-n4">location_on</v-icon>Location</v-btn>
     </template>
     <v-card elevation="15">
 

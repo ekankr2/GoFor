@@ -29,8 +29,12 @@
 
       <v-divider></v-divider>
 
-      <v-list dense class="mt-5">
+      <v-list dense class="mt-1">
+        <v-list-item>
               <map-location></map-location>
+        </v-list-item>
+        <v-divider></v-divider>
+        <v-btn class="my-5 ml-10" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Street Sound</v-btn>
       </v-list>
     </v-navigation-drawer>
 
@@ -86,6 +90,7 @@ export default {
         autoplay: true,
         playsinline: true,
         muted: true,
+        volume: 1,
         //fluid: true, // full screen
         //width: 1500,
         //fill: true,
@@ -108,10 +113,11 @@ export default {
     }
   },
   created() {
-    this.randomVideo()
+
   },
   mounted() {
     this.noiseEffect()
+    this.randomVideo()
   },
 
   computed: {
@@ -128,6 +134,9 @@ export default {
     },
     onMapLoaded(event){
       this.map = event.map
+    },
+    sound(){
+      this.playerOptions.muted  = !this.playerOptions.muted
     },
     randomVideo() {
       const selected_city = Math.floor(Math.random() * this.data.length);

@@ -1,12 +1,7 @@
 <template>
   <div id="map">
-    <MglMap :accessToken="accessToken" :mapStyle="mapStyle">
-      <MglGeojsonLayer
-          :sourceId="geoJsonSource.data.id"
-          :source="geoJsonSource"
-          layerId="somethingSomething"
-          :layer="geoJsonLayer"
-      />
+    <MglMap :accessToken="accessToken" :mapStyle="mapStyle"
+    :center="center" :zoom="zoom">
       <MglMarker :coordinates="coordinates"/>
     </MglMap>
   </div>
@@ -14,12 +9,11 @@
 
 <script>
 import Mapbox from "mapbox-gl";
-import { MglMap, MglGeojsonLayer, MglMarker } from "vue-mapbox";
+import { MglMap,  MglMarker } from "vue-mapbox";
 
 export default {
   components: {
     MglMap,
-    MglGeojsonLayer,
     MglMarker
   },
   data() {
@@ -27,32 +21,9 @@ export default {
       accessToken:
           "pk.eyJ1IjoibWlrZWhhbWlsdG9uMDAiLCJhIjoiNDVjS2puUSJ9.aLvWM5BnllUGJ0e6nwMSEg", // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/streets-v11", // your map style
-      coordinates: [102.0, 0.5],
-      geoJsonSource: {
-        type: "geojson",
-        data: {
-          id: "thisIsMySource",
-          type: "FeatureCollection",
-          features: [
-            {
-              type: "Feature",
-              geometry: {
-                type: "Point",
-                coordinates: [102.0, 0.5]
-              },
-              properties: {
-                id: "value0"
-              }
-            }
-          ]
-        }
-      },
-      geoJsonLayer: {
-        type: "circle",
-        paint: {
-          "circle-color": "red"
-        }
-      }
+      coordinates: [127.01378671832322,37.571116946077936],
+      center: [127.01378671832322,37.571116946077936],
+      zoom: 5,
     };
   },
   created() {

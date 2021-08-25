@@ -18,21 +18,19 @@
       <v-divider></v-divider>
 
       <v-list dense>
-        <v-list-item class="mb-5"
-            v-for="item in items" :key="item.name" link router :to="item.route">
-          <v-list-item-icon >
-            <v-icon class="pt-2">{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+        <v-list-item class="my-2" link router :to="items[0].route">
+          <v-list-item-icon><v-icon class="pt-2">{{ items[0].icon }}</v-icon></v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title class="text-h6 font-weight-regular py-2">{{ item.text }}</v-list-item-title>
+            <v-list-item-title class="text-h6 font-weight-regular py-2">Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <MglMap
-          :mapbox-gl="mapbox-gl"
-          :accesToken="accessToken"
-          :mapStyle.sync="mapStyle"
-          @load="onMapLoaded"/>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense class="mt-5">
+              <map-location></map-location>
       </v-list>
     </v-navigation-drawer>
 
@@ -49,15 +47,14 @@
 <script>
 import { videoPlayer } from 'vue-video-player'
 import cityData from "../assets/car.json"
-import Mapbox from "mapbox-gl"
-import { MglMap } from "vue-mapbox"
+import MapLocation from "../components/MapLocation";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
+    MapLocation,
     videoPlayer,
-    MglMap
   },
   data() {
     return {
@@ -70,8 +67,6 @@ export default {
           icon: 'location_on', text: '', name: 'location', route: ''
         },
       ],
-      accessToken: "pk.eyJ1IjoiZWthbmtyMiIsImEiOiJja3NxcGJkYm4wZTRqMm9wZzJibnlmdW1jIn0.uRDczh2Hp1oEdBXRhD4Gcg",
-      mapStyle: "mapbox://styles/ekankr2/cksqpjzn91hwf17q78drfotch",
       data: cityData,
       selected_city: '',
       selected_video: '',
@@ -114,8 +109,6 @@ export default {
   },
   created() {
     this.randomVideo()
-    this.mapbox = Mapbox;
-    this.map = null;
   },
   mounted() {
     this.noiseEffect()

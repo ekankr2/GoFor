@@ -551,7 +551,8 @@ class App extends Component {
     }
 }
 
-function CitiesPopup(props) {
+function CitiesPopup
+(props) {
     const [show, setShow] = React.useState(false);
     const selected_city = props.selected_city;
     const data = props.data;

@@ -1,3 +1,7 @@
+import walk from "../assets/test2.json"
+
 export default {
-    products: []
+    products: [],
+    db: [],
+    walk: walk
 }

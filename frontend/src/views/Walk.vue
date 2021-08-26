@@ -143,17 +143,19 @@ export default {
     */
     this.noiseEffect()
     this.setProducts()
+    this.dbInit()
   },
 
   computed: {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['products']),
-    ...mapGetters(['randomVid'])
+    ...mapState(['db']),
+    ...mapGetters(['randomVid']),
+
   },
   methods: {
-    ...mapActions(['setProducts']),
+    ...mapActions(['setProducts', 'dbInit']),
     // listen event
     onPlayerPlay(player) {
       console.log('player play!', player)

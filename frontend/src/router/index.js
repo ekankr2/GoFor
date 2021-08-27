@@ -11,6 +11,7 @@ import Walk from "../views/Walk";
 import Bike from "../views/Bike";
 import Motorcycle from "../views/Motorcycle";
 import MapTest from "../views/MapTest";
+import TestPage from "../views/TestPage";
 
 
 Vue.use(VueRouter)
@@ -68,6 +69,13 @@ const routes = [
     name: 'MapTest',
     components: {
       default: MapTest
+    }
+  },
+  {
+    path: '/test',
+    name: 'TestPage',
+    components: {
+      default: TestPage
     }
   },
 

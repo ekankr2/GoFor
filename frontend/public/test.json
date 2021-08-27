@@ -1,26 +1,29 @@
 [
 	{
-		"city": "Ankara",
-		"country": "Turkey",
-		"video_id": [
+		"city":"Ankara",
+		"country":"Turkey",
+		"zoom": "32.865937568228446,39.85685404897845",
+		"video_id":[
 			"f2II1CvPc6Y",
 			"uOt2ronEbtg"
 		]
 	},
 	{
-		"city": "Antalya",
-		"country": "Turkey",
-		"video_id": [
+		"city":"Antalya",
+		"country":"Turkey",
+		"zoom": "30.66995158652435,36.88987427178438",
+		"video_id":[
 			"-orp0ePN8P0",
 			"OtmKmiMpuxQ"
 		]
 	},
 	{
-		"city": "Dubai",
-		"country": "UAE",
-		"video_id": [
+		"city":"Dubai",
+		"country":"UAE",
+		"zoom": "55.293037934726954,25.261174966363342",
+		"video_id":[
 			"fKNo4mEpin4",
 			"NMCsg_LQ4f4"
 		]
-	},
+	}
 ]

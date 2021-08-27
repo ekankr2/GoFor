@@ -7,9 +7,10 @@
     <v-card elevation="15">
 
       <!-- card title -->
-      <v-card-title class="headline text-h4">
-        Current Location
-      </v-card-title>
+      <v-card-title class="text-h4 mb-1">Current Location</v-card-title>
+      <v-card-subtitle class="text-h6 mb-n3 ml-1"><v-icon>place</v-icon>
+        {{ currentCity }}, {{ currentCountry }}</v-card-subtitle>
+
       <!-- card contents -->
       <div class="map">
         <MglMap :accessToken="accessToken" :mapStyle="mapStyle"
@@ -24,6 +25,7 @@
 <script>
 import Mapbox from "mapbox-gl";
 import { MglMap,  MglMarker } from "vue-mapbox";
+import { mapGetters } from "vuex"
 
 export default {
   name: "MapLocation",
@@ -31,21 +33,24 @@ export default {
     MglMap,
     MglMarker
   },
+  computed: {
+    ...mapGetters(['currentCity','currentCountry', 'moveMap'])
+  },
   data() {
     return {
       seeLocation: false,
       accessToken:
           "pk.eyJ1IjoibWlrZWhhbWlsdG9uMDAiLCJhIjoiNDVjS2puUSJ9.aLvWM5BnllUGJ0e6nwMSEg", // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/streets-v11", // your map style
-      coordinates: [127.01378671832322,37.571116946077936],
-      center: [127.01378671832322,37.571116946077936],
+      coordinates: this.$store.getters.moveMap,
+      center: this.$store.getters.moveMap,
       zoom: 5,
     };
   },
   created() {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
-  }
+  },
 };
 
 </script>

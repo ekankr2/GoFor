@@ -1,6 +1,7 @@
 <template>
   <div class="page">
-    <p class="white--text">{{ randomVid }}</p>
+    <span class="white--text">{{ randomVid }}, location: {{ this.$store.getters.currentCity}}
+    country: {{ this.$store.getters.currentCountry}}</span>
     <!-- + icon -->
     <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
         @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
@@ -19,16 +20,23 @@
       <v-divider></v-divider>
 
       <v-list dense>
-        <v-list-item
-            v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+        <v-list-item class="my-2" link router :to="items[0].route">
+          <v-list-item-icon><v-icon class="pt-2">{{ items[0].icon }}</v-icon></v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="text-h6 font-weight-regular py-2">Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense class="mt-1">
+        <v-list-item>
+          <map-location></map-location>
+        </v-list-item>
+        <v-divider></v-divider>
+        <v-btn class="my-5 ml-10" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Street Sound</v-btn>
       </v-list>
     </v-navigation-drawer>
     <!--
@@ -65,18 +73,27 @@
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import { mapActions, mapState,mapGetters } from 'vuex'
+import { mapState,mapGetters } from 'vuex'
+import MapLocation from "../components/MapLocation";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
     videoPlayer,
-
+    MapLocation,
   },
   data() {
     return {
-      data: this.products,
+      data: this.$store.getters.walkVid,
+      items: [
+        {
+          icon: 'home', text: 'Home', name: 'home', route: '/'
+        },
+        {
+          icon: 'location_on', text: '', name: 'location', route: ''
+        },
+      ],
       drawer: null,
       selected_city: '',
       selected_video: '',
@@ -110,15 +127,16 @@ export default {
         sources: [{
           type: "video/youtube",
           //src: "https://www.youtube.com/watch?v=vifIDKDrfq4&ab"
-          src: '',
+          src: this.$store.getters.randomVid,
         }],
 
-        poster: "/static/images/author.jpg",
+        poster: '/static/images/author.jpg',
       },
     }
   },
   created() {
-    this.randomVideo()
+    //this.randomVideo()
+
   },
   mounted() {
     /*
@@ -142,38 +160,24 @@ export default {
     }, 5000)
     */
     this.noiseEffect()
-    this.setProducts()
-    this.dbInit()
   },
 
   computed: {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['db']),
-    ...mapGetters(['randomVid']),
+    ...mapState(['walk']),
+    ...mapGetters(['randomVid','walkVid']),
 
   },
   methods: {
-    ...mapActions(['setProducts', 'dbInit']),
-    // listen event
-    onPlayerPlay(player) {
-      console.log('player play!', player)
-    },
-    onPlayerPause(player) {
-      console.log('player pause!', player)
-    },
-    // ...player event
-
-    // or listen state event
-    playerStateChanged(playerCurrentState) {
-      console.log('player current update state', playerCurrentState)
-    },
-
     // player is ready
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
+    },
+    sound(){
+      this.playerOptions.muted  = !this.playerOptions.muted
     },
     randomVideo() {
       const selected_city = Math.floor(Math.random() * this.data.length);

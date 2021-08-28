@@ -17,14 +17,15 @@
           <v-simple-table height="300px" v-if="show">
             <template v-slot:default>
               <tbody>
-              <tr v-for="item in data" :key="item.city">
-                <td class="text-h6 font-weight-regular">{{item.city}}, {{item.country}}</td>
+              <tr v-for="(item,idx) in data" :key="idx">
+                <td class="text-h6 font-weight-regular" @click="updateSelected(item.country)">
+                  {{item.city}}, {{item.country}}</td>
               </tr>
               </tbody>
             </template>
           </v-simple-table>
         </v-card>
-
+        <div v-if="showPlaces">{{ selectedPlace }}</div>
       </v-card>
     </v-app>
   </div>
@@ -36,11 +37,16 @@ export default {
   data() {
     return {
       show: false,
+      showPlaces: false,
       data: this.$store.getters.walkVid,
+      selectedPlace: {},
     }
   },
   methods: {
-
+    updateSelected(selectedItem) {
+      this.selectedPlace = selectedItem
+      this.showPlaces = true
+    }
   }
 }
 </script>

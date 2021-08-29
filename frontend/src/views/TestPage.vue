@@ -13,12 +13,13 @@
         </v-card-title>
         <v-divider></v-divider>
 
-        <v-card elevation="10" max-width="300" min-width="300" class="mx-auto">
+        <v-card elevation="10" max-width="250" min-width="250" class="mx-auto">
           <v-simple-table height="300px" v-if="show">
             <template v-slot:default>
               <tbody>
               <tr v-for="(item,idx) in data" :key="idx">
-                <td class="text-h6 font-weight-regular" @click="updateSelected(item.country)">
+                <td class="text-h6 font-weight-regular"
+                    @click="updateSelected(item.video_id[Math.floor(Math.random() * item.video_id.length)])">
                   {{item.city}}, {{item.country}}</td>
               </tr>
               </tbody>

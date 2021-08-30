@@ -1,0 +1,1 @@
+export const GET_RANDOM_WALK = 'GET_RANDOM_WALK'

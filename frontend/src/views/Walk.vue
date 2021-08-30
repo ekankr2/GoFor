@@ -37,6 +37,7 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-btn class="my-5 ml-10" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Street Sound</v-btn>
+        <select-city-box></select-city-box>
       </v-list>
     </v-navigation-drawer>
     <!--
@@ -75,11 +76,13 @@
 import { videoPlayer } from 'vue-video-player'
 import { mapState,mapGetters } from 'vuex'
 import MapLocation from "../components/MapLocation";
+import SelectCityBox from "../components/SelectCityBox";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
+    SelectCityBox,
     videoPlayer,
     MapLocation,
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-    <span class="white--text">{{ randomVid }}, location: {{ this.$store.getters.currentCity}}
-    country: {{ this.$store.getters.currentCountry}}</span>
+    <span class="white--text">{{ playerOptions.sources[0].src }}, location: {{ data.city }},
+    country: {{ data.country }}</span>
     <!-- + icon -->
     <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
         @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
@@ -20,7 +20,7 @@
       <v-divider></v-divider>
 
       <v-list dense>
-        <v-list-item class="my-2" link router :to="items[0].route">
+        <v-list-item class="my-2 mt-n1 mb-n1" link router :to="items[0].route">
           <v-list-item-icon><v-icon class="pt-2">{{ items[0].icon }}</v-icon></v-list-item-icon>
 
           <v-list-item-content>
@@ -36,13 +36,11 @@
           <map-location></map-location>
         </v-list-item>
         <v-divider></v-divider>
-        <v-btn class="my-5 ml-10" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Street Sound</v-btn>
+        <v-btn class="my-4 ml-15" color="transparent" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Sound</v-btn>
+
         <select-city-box></select-city-box>
       </v-list>
     </v-navigation-drawer>
-    <!--
-    <span>Location : {{ currentCity }}, {{ currentCountry }} link : {{ this.playerOptions.sources[0].src }}</span>
-    -->
     <div class="video-container">
       <!-- noise screen-->
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
@@ -74,7 +72,7 @@
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import { mapState,mapGetters } from 'vuex'
+import { mapState,mapActions } from 'vuex'
 import MapLocation from "../components/MapLocation";
 import SelectCityBox from "../components/SelectCityBox";
 
@@ -88,7 +86,7 @@ export default {
   },
   data() {
     return {
-      data: this.$store.getters.walkVid,
+      data: '',
       items: [
         {
           icon: 'home', text: 'Home', name: 'home', route: '/'
@@ -98,12 +96,6 @@ export default {
         },
       ],
       drawer: null,
-      selected_city: '',
-      selected_video: '',
-      currentVideo: '',
-      videoUrl: '',
-      currentCity: '',
-      currentCountry: '',
       loading: true,
       playerOptions: {
 
@@ -130,16 +122,12 @@ export default {
         sources: [{
           type: "video/youtube",
           //src: "https://www.youtube.com/watch?v=vifIDKDrfq4&ab"
-          src: this.$store.getters.randomVid,
+          src: '',
         }],
 
         poster: '/static/images/author.jpg',
       },
     }
-  },
-  created() {
-    //this.randomVideo()
-
   },
   mounted() {
     /*
@@ -163,38 +151,29 @@ export default {
     }, 5000)
     */
     this.noiseEffect()
+    this.fetchRandom()
   },
 
   computed: {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['walk']),
-    ...mapGetters(['randomVid','walkVid']),
-
+    ...mapState(['randomWalk']),
   },
   methods: {
-    // player is ready
+    ...mapActions(['getRandomWalk']),
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
     },
+    fetchRandom() {
+      this.getRandomWalk()
+      this.data = this.randomWalk
+      this.playerOptions.sources[0].src =
+          'https://www.youtube.com/watch?v=' + this.randomWalk.video_id[0] + '&t=40'
+    },
     sound(){
       this.playerOptions.muted  = !this.playerOptions.muted
-    },
-    randomVideo() {
-      const selected_city = Math.floor(Math.random() * this.data.length);
-      const selected_video = Math.floor(Math.random() * this.data[selected_city].video_id.length);
-      const currentVideo = this.data[selected_city].video_id[selected_video];
-      const videoUrl = 'https://www.youtube.com/watch?v=' + currentVideo + '&t=40';
-      const currentCity = this.data[selected_city].city
-      const currentCountry = this.data[selected_city].country
-      this.currentCity = currentCity
-      this.currentCountry = currentCountry
-      this.selected_city = selected_city
-      this.selected_video = selected_video
-      this.currentVideo = currentVideo
-      this.playerOptions.sources[0].src = videoUrl;
     },
     noiseEffect() {
       this.loading = true;
@@ -204,27 +183,12 @@ export default {
     },
     onPlayerEnded() {
       this.loading = true;
-      this.randomVideo()
+      this.fetchRandom();
       setTimeout(() => {
         this.loading = false;
       },1500)
     }
   },
-  /*
-  watch: {
-    options: {
-      deep: true,
-      handler(options, oldOptions) {
-        this.dispose(() => {
-          if (options && options.sources && options.sources.length) {
-            this.initialize()
-          }
-        })
-      }
-    }
-  }
-
-   */
 }
 </script>
 

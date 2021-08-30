@@ -18,7 +18,7 @@ export default {
     ...mapState(['randomWalk'])
   },
   mounted() {
-    this.getRandomWalk()
+
   },
   methods: {
     ...mapActions(['getRandomWalk'])

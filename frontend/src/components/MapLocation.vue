@@ -9,7 +9,7 @@
       <!-- card title -->
       <v-card-title class="text-h4 mb-1">Current Location</v-card-title>
       <v-card-subtitle class="text-h6 mb-n3 ml-1"><v-icon>place</v-icon>
-        {{ currentCity }}, {{ currentCountry }}</v-card-subtitle>
+        {{ getRandomWalk.city }}, {{ getRandomWalk.country }}</v-card-subtitle>
 
       <!-- card contents -->
       <div class="map">
@@ -34,7 +34,7 @@ export default {
     MglMarker
   },
   computed: {
-    ...mapGetters(['currentCity','currentCountry', 'moveMap'])
+    ...mapGetters(['getRandomWalk'])
   },
   data() {
     return {
@@ -42,22 +42,32 @@ export default {
       accessToken:
           "pk.eyJ1IjoibWlrZWhhbWlsdG9uMDAiLCJhIjoiNDVjS2puUSJ9.aLvWM5BnllUGJ0e6nwMSEg", // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/streets-v11", // your map style
-      coordinates: this.$store.getters.moveMap,
-      center: this.$store.getters.moveMap,
+      coordinates: '',
+      center: '',
       zoom: 5,
     };
   },
-  created() {
+  beforeUpdate() {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
+    this.getCoordinates()
   },
+  methods: {
+    getCoordinates() {
+      const vid = this.getRandomWalk
+      const coordinates = vid.zoom
+      const array = coordinates.split(",").map(Number)
+      this.coordinates = array
+      this.center = array
+    }
+  }
 };
 
 </script>
 
 <style scoped>
 div.map{
-  width: 600px;
+  width: 100%;
   height: 600px;
 }
 </style>

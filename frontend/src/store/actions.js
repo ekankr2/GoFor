@@ -12,5 +12,6 @@ export default {
          {
             commit(GET_RANDOM_WALK, currentCity)
         }
-    }
+    },
+
 }

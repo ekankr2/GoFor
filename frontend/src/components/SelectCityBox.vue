@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card class="mx-auto" max-width="240">
-      <v-card-title class="white--text text-h5 text font-weight-medium indigo darken-2">
+      <v-card-title class="white--text text-h5 text font-weight-medium indigo darken-2 py-3 mt-1">
         Select City
 
         <v-spacer></v-spacer>
@@ -31,25 +31,34 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: "SelectCityBox",
   data() {
     return {
       show: false,
       showPlaces: false,
-      data: this.$store.getters.walkVid,
+      data: '',
       selectedPlace: {},
     }
+  },
+  computed: {
+    ...mapState(['walk'])
   },
   methods: {
     updateSelected(selectedItem) {
       this.selectedPlace = selectedItem
       this.showPlaces = true
     }
+  },
+  beforeUpdate() {
+    this.data = this.walk
   }
 }
 </script>
 
 <style scoped>
-
+td{
+  user-select: none;
+}
 </style>

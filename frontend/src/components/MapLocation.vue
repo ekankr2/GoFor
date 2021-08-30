@@ -40,7 +40,8 @@ export default {
     return {
       seeLocation: false,
       accessToken:
-          "pk.eyJ1IjoibWlrZWhhbWlsdG9uMDAiLCJhIjoiNDVjS2puUSJ9.aLvWM5BnllUGJ0e6nwMSEg", // your access token. Needed if you using Mapbox maps
+          "pk.eyJ1IjoibWlrZWhhbWlsdG9uMDAiLCJhIjoiNDVjS2puUSJ9.aLvWM5BnllUGJ0e6nwMSEg",
+      // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/streets-v11", // your map style
       coordinates: '',
       center: '',

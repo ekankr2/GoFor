@@ -1,7 +1,6 @@
 <template>
   <div class="page">
-    <span class="white--text">{{ playerOptions.sources[0].src }}, location: {{ data.city }},
-    country: {{ data.country }}</span>
+    <span class="white--text">{{ parentValue }}</span>
     <!-- + icon -->
     <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
         @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
@@ -38,7 +37,7 @@
         <v-divider></v-divider>
         <v-btn class="my-4 ml-15" color="transparent" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Sound</v-btn>
 
-        <select-city-box></select-city-box>
+        <select-city-box @changeVideo="changeVideo"></select-city-box>
       </v-list>
     </v-navigation-drawer>
     <div class="video-container">
@@ -97,6 +96,7 @@ export default {
       ],
       drawer: null,
       loading: true,
+      parentValue: '',
       playerOptions: {
 
         showinfo: false,
@@ -166,11 +166,16 @@ export default {
       this.playerOptions.muted = true
       console.log('player ready!', player)
     },
+    changeVideo(selectedUrl) {
+      this.parentValue = selectedUrl
+      this.playerOptions.sources[0].src = selectedUrl
+    },
     fetchRandom() {
       this.getRandomWalk()
       this.data = this.randomWalk
+      const random = Math.floor(Math.random() * this.randomWalk.video_id.length)
       this.playerOptions.sources[0].src =
-          'https://www.youtube.com/watch?v=' + this.randomWalk.video_id[0] + '&t=40'
+          'https://www.youtube.com/watch?v=' + this.randomWalk.video_id[random] + '&t=40'
     },
     sound(){
       this.playerOptions.muted  = !this.playerOptions.muted

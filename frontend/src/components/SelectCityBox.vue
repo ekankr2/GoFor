@@ -18,7 +18,7 @@
             <tbody>
             <tr v-for="(item,idx) in data" :key="idx">
               <td class="text-h6 font-weight-regular"
-                  @click="updateSelected(item.video_id[Math.floor(Math.random() * item.video_id.length)])">
+                  @click="updateSelected(item.video_id); selectVideo(item)">
                 {{item.city}}, {{item.country}}</td>
             </tr>
             </tbody>
@@ -26,12 +26,13 @@
         </v-simple-table>
       </v-card>
       <div v-if="showPlaces">{{ selectedPlace }}</div>
+      <div >{{ randomWalk }}</div>
     </v-card>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: "SelectCityBox",
   data() {
@@ -42,14 +43,20 @@ export default {
       selectedPlace: {},
     }
   },
+  props: ['value'],
   computed: {
-    ...mapState(['walk'])
+    ...mapState(['walk','randomWalk'])
   },
   methods: {
+    ...mapActions(['selectVideo']),
     updateSelected(selectedItem) {
       this.selectedPlace = selectedItem
       this.showPlaces = true
-    }
+      const selectedUrl = selectedItem[Math.floor(Math.random() * selectedItem.length)]
+      const videoUrl = 'https://www.youtube.com/watch?v=' + selectedUrl + '&t=40'
+      this.$emit('changeVideo',videoUrl)
+    },
+
   },
   beforeUpdate() {
     this.data = this.walk

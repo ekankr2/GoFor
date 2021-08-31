@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import MemberLoginForm from '@/components/MemberLoginForm.vue'
+import MemberLoginForm from '@/components/HomeContents/MemberLoginForm.vue'
 import axios from 'axios'
 export default {
   name: 'MemberLoginPage',

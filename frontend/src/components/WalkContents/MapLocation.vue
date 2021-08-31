@@ -9,7 +9,7 @@
       <!-- card title -->
       <v-card-title class="text-h4 mb-1">Current Location</v-card-title>
       <v-card-subtitle class="text-h6 mb-n3 ml-1"><v-icon>place</v-icon>
-        {{ getRandomWalk.city }}, {{ getRandomWalk.country }}</v-card-subtitle>
+        {{ city }}, {{ country }}</v-card-subtitle>
 
       <!-- card contents -->
       <div class="map">
@@ -34,11 +34,13 @@ export default {
     MglMarker
   },
   computed: {
-    ...mapGetters(['getRandomWalk'])
+    ...mapGetters(['getWalk']),
   },
   data() {
     return {
       seeLocation: false,
+      city: '',
+      country: '',
       accessToken:
           "pk.eyJ1IjoibWlrZWhhbWlsdG9uMDAiLCJhIjoiNDVjS2puUSJ9.aLvWM5BnllUGJ0e6nwMSEg",
       // your access token. Needed if you using Mapbox maps
@@ -52,10 +54,12 @@ export default {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
     this.getCoordinates()
+    this.city = this.getWalk.city
+    this.country = this.getWalk.country
   },
   methods: {
     getCoordinates() {
-      const vid = this.getRandomWalk
+      const vid = this.getWalk
       const coordinates = vid.zoom
       const array = coordinates.split(",").map(Number)
       this.coordinates = array

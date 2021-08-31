@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import MemberLoginCard from "../components/MemberLoginCard";
-import MemberRegisterCard from "../components/MemberRegisterCard";
-import NavigationDrawerContent from "../components/NavigationDrawerContent";
+import MemberLoginCard from "../components/HomeContents/MemberLoginCard";
+import MemberRegisterCard from "../components/HomeContents/MemberRegisterCard";
+import NavigationDrawerContent from "../components/HomeContents/NavigationDrawerContent";
 import axios from "axios";
 export default {
   name: 'NavBarComponent',

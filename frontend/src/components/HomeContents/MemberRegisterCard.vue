@@ -6,7 +6,7 @@
     <v-card>
       <!-- card image -->
       <v-img
-          :src="require('../assets/pic/sunrise.jpg')"
+          :src="require('../../assets/pic/sunrise.jpg')"
           height="190px"
       ></v-img>
       <!-- card title -->

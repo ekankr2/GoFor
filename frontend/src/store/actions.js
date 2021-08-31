@@ -1,6 +1,6 @@
 import {
     GET_RANDOM_WALK,
-    SELECT_VIDEO
+    SELECT_WALK,
 } from "./mutation-types";
 
 
@@ -14,7 +14,7 @@ export default {
             commit(GET_RANDOM_WALK, currentCity)
         }
     },
-    selectVideo({ commit}, selectedVideo) {
-        commit(SELECT_VIDEO, selectedVideo)
+    selectWalk({ commit }, selectedVideo) {
+        commit(SELECT_WALK, selectedVideo)
     }
 }

@@ -1,6 +1,6 @@
 export default {
-    getRandomWalk(state) {
-        const vid = state.randomWalk
+    getWalk(state) {
+        const vid = state.selectedWalk
         return vid
     },
 }

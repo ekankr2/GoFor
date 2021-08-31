@@ -11,7 +11,7 @@
 <script>
 
 import NavBarComponent from "./views/NavBarComponent";
-import HomeFooter from "./components/HomeFooter";
+import HomeFooter from "./components/HomeContents/HomeFooter";
 export default {
   name: 'App',
   components: {HomeFooter, NavBarComponent},

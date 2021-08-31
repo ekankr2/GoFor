@@ -51,7 +51,7 @@
 <script>
 import { videoPlayer } from 'vue-video-player'
 import cityData from "../assets/car.json"
-import MapLocation from "../components/MapLocation";
+import MapLocation from "../components/WalkContents/MapLocation";
 
 require('videojs-youtube')
 require('videojs-playlist')

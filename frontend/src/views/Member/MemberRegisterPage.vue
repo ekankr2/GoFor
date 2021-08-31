@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MemberRegisterForm from "../components/MemberRegisterForm";
+import MemberRegisterForm from "../../components/HomeContents/MemberRegisterForm";
 import axios from "axios";
 
 export default {

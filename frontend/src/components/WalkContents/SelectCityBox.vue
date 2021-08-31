@@ -18,15 +18,17 @@
             <tbody>
             <tr v-for="(item,idx) in data" :key="idx">
               <td class="text-h6 font-weight-regular"
-                  @click="updateSelected(item.video_id); selectVideo(item)">
+                  @click="updateSelected(item.video_id); selectWalk(item)">
                 {{item.city}}, {{item.country}}</td>
             </tr>
             </tbody>
           </template>
         </v-simple-table>
       </v-card>
-      <div v-if="showPlaces">{{ selectedPlace }}</div>
-      <div >{{ randomWalk }}</div>
+      <v-card elevation="1">
+      <div v-if="showPlaces" class="text-h6 text font-weight-regular mx-2 py-2">City:
+        {{ selectedWalk.city }}, {{selectedWalk.country}}</div>
+      </v-card>
     </v-card>
   </div>
 </template>
@@ -45,10 +47,10 @@ export default {
   },
   props: ['value'],
   computed: {
-    ...mapState(['walk','randomWalk'])
+    ...mapState(['walk','selectedWalk'])
   },
   methods: {
-    ...mapActions(['selectVideo']),
+    ...mapActions(['selectWalk']),
     updateSelected(selectedItem) {
       this.selectedPlace = selectedItem
       this.showPlaces = true

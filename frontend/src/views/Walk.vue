@@ -72,8 +72,8 @@
 <script>
 import { videoPlayer } from 'vue-video-player'
 import { mapState,mapActions } from 'vuex'
-import MapLocation from "../components/MapLocation";
-import SelectCityBox from "../components/SelectCityBox";
+import MapLocation from "../components/WalkContents/MapLocation";
+import SelectCityBox from "../components/WalkContents/SelectCityBox";
 
 require('videojs-youtube')
 require('videojs-playlist')
@@ -158,7 +158,7 @@ export default {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['randomWalk']),
+    ...mapState(['selectedWalk']),
   },
   methods: {
     ...mapActions(['getRandomWalk']),
@@ -167,15 +167,16 @@ export default {
       console.log('player ready!', player)
     },
     changeVideo(selectedUrl) {
+      this.noiseEffect()
       this.parentValue = selectedUrl
       this.playerOptions.sources[0].src = selectedUrl
     },
     fetchRandom() {
       this.getRandomWalk()
-      this.data = this.randomWalk
-      const random = Math.floor(Math.random() * this.randomWalk.video_id.length)
+      this.data = this.selectedWalk
+      const random = Math.floor(Math.random() * this.selectedWalk.video_id.length)
       this.playerOptions.sources[0].src =
-          'https://www.youtube.com/watch?v=' + this.randomWalk.video_id[random] + '&t=40'
+          'https://www.youtube.com/watch?v=' + this.selectedWalk.video_id[random] + '&t=40'
     },
     sound(){
       this.playerOptions.muted  = !this.playerOptions.muted
@@ -184,7 +185,7 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.loading = false;
-      },1500)
+      },1000)
     },
     onPlayerEnded() {
       this.loading = true;

@@ -2,15 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
-import MemberRegisterPage from "../views/MemberRegisterPage";
-import MemberLoginPage from "../views/MemberLoginPage";
+import MemberRegisterPage from "../views/Member/MemberRegisterPage";
+import MemberLoginPage from "../views/Member/MemberLoginPage";
 
 
 import Car from "../views/Car";
 import Walk from "../views/Walk";
 import Bike from "../views/Bike";
 import Motorcycle from "../views/Motorcycle";
-import MapTest from "../views/MapTest";
 import TestPage from "../views/TestPage";
 
 
@@ -62,13 +61,6 @@ const routes = [
     name: 'Car',
     components: {
       default: Car
-    }
-  },
-  {
-    path: '/map',
-    name: 'MapTest',
-    components: {
-      default: MapTest
     }
   },
   {

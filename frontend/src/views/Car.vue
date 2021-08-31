@@ -18,7 +18,7 @@
       <v-divider></v-divider>
 
       <v-list dense>
-        <v-list-item class="my-2" link router :to="items[0].route">
+        <v-list-item class="my-2 mt-n1 mb-n1" link router :to="items[0].route">
           <v-list-item-icon><v-icon class="pt-2">{{ items[0].icon }}</v-icon></v-list-item-icon>
 
           <v-list-item-content>
@@ -30,16 +30,27 @@
       <v-divider></v-divider>
 
       <v-list dense class="mt-1">
+        <!-- location map -->
         <v-list-item>
-              <map-location></map-location>
+          <car-map></car-map>
         </v-list-item>
+
         <v-divider></v-divider>
-        <v-btn class="my-5 ml-10" @click.stop.prevent="sound"><v-icon class="mr-3">volume_up</v-icon>Street Sound</v-btn>
+        <!-- buttons -->
+        <v-btn fab elevation="3" small class="ma-3 ml-15"  @click.stop.prevent="sound">
+          <v-icon class="mx-2">{{ items[1].icon }}</v-icon></v-btn>
+
+        <v-btn fab elevation="3" dark small color="purple" class="ml-10"
+               :href="this.playerOptions.sources[0].src" target="_blank"><v-icon>link</v-icon></v-btn>
+        <!-- Select City -->
+        <car-select-box @changeVideo="changeVideo"></car-select-box>
       </v-list>
     </v-navigation-drawer>
 
     <div class="video-container">
+      <!-- noise screen-->
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
+
       <video-player ref="videoPlayer" v-show="!loading"
                     :options="playerOptions"
                     class="player video-js vjs-big-play-button" @ended="onPlayerEnded($event)">
@@ -50,34 +61,30 @@
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import cityData from "../assets/car.json"
-import MapLocation from "../components/WalkContents/MapLocation";
+import { mapState,mapActions } from 'vuex'
+import CarMap from "../components/CarContents/CarMap";
+import CarSelectBox from "../components/CarContents/CarSelectBox";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
-    MapLocation,
+    CarSelectBox,
     videoPlayer,
+    CarMap,
   },
   data() {
     return {
-      drawer: null,
+      data: '',
       items: [
         {
           icon: 'home', text: 'Home', name: 'home', route: '/'
         },
         {
-          icon: 'location_on', text: '', name: 'location', route: ''
+          icon: 'volume_off', text: '', name: 'volume', route: ''
         },
       ],
-      data: cityData,
-      selected_city: '',
-      selected_video: '',
-      currentVideo: '',
-      videoUrl: '',
-      currentCity: '',
-      currentCountry: '',
+      drawer: null,
       loading: true,
       playerOptions: {
 
@@ -90,7 +97,6 @@ export default {
         autoplay: true,
         playsinline: true,
         muted: true,
-        volume: 1,
         //fluid: true, // full screen
         //width: 1500,
         //fill: true,
@@ -108,95 +114,65 @@ export default {
           src: '',
         }],
 
-        poster: "/static/images/author.jpg",
+        poster: '/static/images/author.jpg',
       },
     }
   },
-  created() {
-
-  },
   mounted() {
     this.noiseEffect()
-    this.randomVideo()
+    this.fetchRandom()
   },
 
   computed: {
     player() {
       return this.$refs.videoPlayer.player
     },
-
+    ...mapState(['selectedCar']),
   },
   methods: {
-    // player is ready
+    ...mapActions(['getRandomCar']),
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
     },
-    onMapLoaded(event){
-      this.map = event.map
+    changeVideo(selectedUrl) {
+      this.noiseEffect()
+      this.playerOptions.sources[0].src = selectedUrl
+    },
+    fetchRandom() {
+      this.getRandomCar()
+      this.data = this.selectedCar
+      const random = Math.floor(Math.random() * this.selectedCar.video_id.length)
+      this.playerOptions.sources[0].src =
+          'https://www.youtube.com/watch?v=' + this.selectedCar.video_id[random] + '&t=40'
     },
     sound(){
       this.playerOptions.muted  = !this.playerOptions.muted
-    },
-    randomVideo() {
-      const selected_city = Math.floor(Math.random() * this.data.length);
-      const selected_video = Math.floor(Math.random() * this.data[selected_city].video_id.length);
-      const currentVideo = this.data[selected_city].video_id[selected_video];
-      const videoUrl = 'https://www.youtube.com/watch?v=' + currentVideo + '&t=40';
-      const currentCity = this.data[selected_city].city
-      const currentCountry = this.data[selected_city].country
-      this.currentCity = currentCity
-      this.currentCountry = currentCountry
-      this.selected_city = selected_city
-      this.selected_video = selected_video
-      this.currentVideo = currentVideo
-      this.items[1].text = currentCity + ", " + currentCountry
-      this.playerOptions.sources[0].src = videoUrl;
+      const on = "volume_up"
+      const off = "volume_off"
+      if(this.items[1].icon == on){
+        this.items[1].icon = off
+      } else {
+        this.items[1].icon = on
+      }
     },
     noiseEffect() {
       this.loading = true;
       setTimeout(() => {
         this.loading = false;
-      },1500)
+      },1000)
     },
     onPlayerEnded() {
-      this.noiseEffect()
-      this.randomVideo()
+      this.loading = true;
+      this.fetchRandom();
+      setTimeout(() => {
+        this.loading = false;
+      },1500)
     }
   },
 }
 </script>
 
-<style scoped>
-*{
-  box-sizing: border-box;
-}
-.page{
-  background: #000;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-}
-.video-container{
-  background: #000;
-  position: absolute;
-  top: 45px;
-  bottom: 0;
-  width: 100%;
-
-
-}
-.player{
-  top: -45px;
-  width: 100%;
-  pointer-events: none;
-}
-
-
+<style scoped src="../assets/style/videoCommon.css">
 
 </style>

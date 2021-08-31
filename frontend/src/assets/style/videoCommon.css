@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+.page{
+    background: #000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+.video-container{
+    background: #000;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    width: 100%;
+
+
+}
+.player{
+    top: -45px;
+    width: 100%;
+    pointer-events: none;
+}

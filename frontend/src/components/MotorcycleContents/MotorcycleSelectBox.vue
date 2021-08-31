@@ -6,8 +6,8 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn color="white" class="text--primary" @click="show = !show" fab small>
-          <v-icon>mdi-plus</v-icon>
+        <v-btn color="white" class="text--primary" @click="showTable" fab small>
+          <v-icon>{{ plusIcon }}</v-icon>
         </v-btn>
       </v-card-title>
       <v-divider></v-divider>
@@ -18,7 +18,7 @@
             <tbody>
             <tr v-for="(item,idx) in data" :key="idx">
               <td class="text-h6 font-weight-regular"
-                  @click="updateSelected(item.video_id); selectWalk(item)">
+                  @click="updateSelected(item.video_id); selectMotorcycle(item)">
                 {{item.city}}, {{item.country}}</td>
             </tr>
             </tbody>
@@ -27,7 +27,7 @@
       </v-card>
       <v-card elevation="1">
       <div v-if="showPlaces" class="text-h6 text font-weight-regular mx-2 py-2">City:
-        {{ selectedWalk.city }}, {{selectedWalk.country}}</div>
+        {{ selectedMotorcycle.city }}, {{selectedMotorcycle.country}}</div>
       </v-card>
     </v-card>
   </div>
@@ -36,10 +36,11 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-  name: "SelectCityBox",
+  name: "MotorcycleSelectBox",
   data() {
     return {
       show: false,
+      plusIcon: 'mdi-plus',
       showPlaces: false,
       data: '',
       selectedPlace: {},
@@ -47,10 +48,10 @@ export default {
   },
   props: ['value'],
   computed: {
-    ...mapState(['walk','selectedWalk'])
+    ...mapState(['motorcycle','selectedMotorcycle'])
   },
   methods: {
-    ...mapActions(['selectWalk']),
+    ...mapActions(['selectMotorcycle']),
     updateSelected(selectedItem) {
       this.selectedPlace = selectedItem
       this.showPlaces = true
@@ -58,10 +59,19 @@ export default {
       const videoUrl = 'https://www.youtube.com/watch?v=' + selectedUrl + '&t=40'
       this.$emit('changeVideo',videoUrl)
     },
-
+    showTable(){
+      this.show = !this.show
+      const plus = "mdi-plus"
+      const minus = "mdi-minus"
+      if(this.plusIcon == plus) {
+        this.plusIcon = minus
+      }else {
+        this.plusIcon = plus
+      }
+    }
   },
   beforeUpdate() {
-    this.data = this.walk
+    this.data = this.motorcycle
   }
 }
 </script>

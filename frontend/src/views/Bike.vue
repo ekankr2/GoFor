@@ -1,28 +1,59 @@
 <template>
   <div class="page">
-    <span>Location : {{ currentCity }}, {{ currentCountry }} link : {{ this.playerOptions.sources[0].src }}</span>
+    <!-- + icon -->
+    <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
+           @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
+
+    <v-navigation-drawer right v-model="drawer" absolute temporary>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>John Leider</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item class="my-2 mt-n1 mb-n1" link router :to="items[0].route">
+          <v-list-item-icon><v-icon class="pt-2">{{ items[0].icon }}</v-icon></v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-h6 font-weight-regular py-2">Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense class="mt-1">
+        <!-- location map -->
+        <v-list-item>
+          <bike-map></bike-map>
+        </v-list-item>
+
+        <v-divider></v-divider>
+        <!-- buttons -->
+        <v-btn fab elevation="3" small class="ma-3 ml-15"  @click.stop.prevent="sound">
+          <v-icon class="mx-2">{{ items[1].icon }}</v-icon></v-btn>
+
+        <v-btn fab elevation="3" dark small color="purple" class="ml-10"
+               :href="this.playerOptions.sources[0].src" target="_blank"><v-icon>link</v-icon></v-btn>
+        <!-- Select City -->
+        <bike-select-box @changeVideo="changeVideo"></bike-select-box>
+      </v-list>
+    </v-navigation-drawer>
+
     <div class="video-container">
+      <!-- noise screen-->
       <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
+
       <video-player ref="videoPlayer" v-show="!loading"
                     :options="playerOptions"
                     class="player video-js vjs-big-play-button" @ended="onPlayerEnded($event)">
-        <!--
-        title="you can listen some event if you need"
-        @play="onPlayerPlay($event)"
-        @pause="onPlayerPause($event)"
-        @ended="onPlayerEnded($event)"
-        @loadeddata="onPlayerLoadeddata($event)"
-        @waiting="onPlayerWaiting($event)"
-        @playing="onPlayerPlaying($event)"
-        @timeupdate="onPlayerTimeupdate($event)"
-        @canplay="onPlayerCanplay($event)"
-        @canplaythrough="onPlayerCanplaythrough($event)">
-
-        title="or listen state change"
-        @statechanged="playerStateChanged($event)"
-
-        title="The prepared event will be triggered after the videojs program instance completes, and its callback player object is the videojs callback function in this context"
-        @ready="playerReadied"> -->
       </video-player>
     </div>
   </div>
@@ -30,25 +61,30 @@
 
 <script>
 import { videoPlayer } from 'vue-video-player'
-import cityData from "../assets/bike.json"
-
+import { mapState,mapActions } from 'vuex'
+import BikeMap from "../components/BikeContents/BikeMap";
+import BikeSelectBox from "../components/BikeContents/BikeSelectBox";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
+    BikeSelectBox,
     videoPlayer,
-
+    BikeMap,
   },
   data() {
     return {
-      data: cityData,
-      selected_city: '',
-      selected_video: '',
-      currentVideo: '',
-      videoUrl: '',
-      currentCity: '',
-      currentCountry: '',
+      data: '',
+      items: [
+        {
+          icon: 'home', text: 'Home', name: 'home', route: '/'
+        },
+        {
+          icon: 'volume_off', text: '', name: 'volume', route: ''
+        },
+      ],
+      drawer: null,
       loading: true,
       playerOptions: {
 
@@ -78,139 +114,65 @@ export default {
           src: '',
         }],
 
-        poster: "/static/images/author.jpg",
+        poster: '/static/images/author.jpg',
       },
     }
   },
-  created() {
-    this.randomVideo()
-  },
   mounted() {
-    /*
-    // console.log('this is current player instance object', this.player)
-    setTimeout(() => {
-      console.log('dynamic change options', this.player)
-      // change src
-      this.playerOptions.sources[0].src = 'https://www.youtube.com/watch?v=P_A2kNpyQBs&ab';
-
-      // change item
-      // this.$set(this.playerOptions.sources, 0, {
-      //   type: "video/mp4",
-      //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-      // })
-      // change array
-      // this.playerOptions.sources = [{
-      //   type: "video/mp4",
-      //   src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-      // }]
-      this.player.muted(false)
-    }, 5000)
-    */
     this.noiseEffect()
+    this.fetchRandom()
   },
 
   computed: {
     player() {
       return this.$refs.videoPlayer.player
     },
-
+    ...mapState(['selectedBike']),
   },
   methods: {
-    // listen event
-    onPlayerPlay(player) {
-      console.log('player play!', player)
-    },
-    onPlayerPause(player) {
-      console.log('player pause!', player)
-    },
-    // ...player event
-
-    // or listen state event
-    playerStateChanged(playerCurrentState) {
-      console.log('player current update state', playerCurrentState)
-    },
-
-    // player is ready
+    ...mapActions(['getRandomBike']),
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
     },
-    randomVideo() {
-      const selected_city = Math.floor(Math.random() * this.data.length);
-      const selected_video = Math.floor(Math.random() * this.data[selected_city].video_id.length);
-      const currentVideo = this.data[selected_city].video_id[selected_video];
-      const videoUrl = 'https://www.youtube.com/watch?v=' + currentVideo + '&t=40';
-      const currentCity = this.data[selected_city].city
-      const currentCountry = this.data[selected_city].country
-      this.currentCity = currentCity
-      this.currentCountry = currentCountry
-      this.selected_city = selected_city
-      this.selected_video = selected_video
-      this.currentVideo = currentVideo
-      this.playerOptions.sources[0].src = videoUrl;
+    changeVideo(selectedUrl) {
+      this.noiseEffect()
+      this.playerOptions.sources[0].src = selectedUrl
+    },
+    fetchRandom() {
+      this.getRandomBike()
+      this.data = this.selectedBike
+      const random = Math.floor(Math.random() * this.selectedBike.video_id.length)
+      this.playerOptions.sources[0].src =
+          'https://www.youtube.com/watch?v=' + this.selectedBike.video_id[random] + '&t=40'
+    },
+    sound(){
+      this.playerOptions.muted  = !this.playerOptions.muted
+      const on = "volume_up"
+      const off = "volume_off"
+      if(this.items[1].icon == on){
+        this.items[1].icon = off
+      } else {
+        this.items[1].icon = on
+      }
     },
     noiseEffect() {
       this.loading = true;
       setTimeout(() => {
         this.loading = false;
-      },1500)
+      },1000)
     },
     onPlayerEnded() {
       this.loading = true;
-      this.randomVideo()
+      this.fetchRandom();
       setTimeout(() => {
         this.loading = false;
       },1500)
     }
   },
-  /*
-  watch: {
-    options: {
-      deep: true,
-      handler(options, oldOptions) {
-        this.dispose(() => {
-          if (options && options.sources && options.sources.length) {
-            this.initialize()
-          }
-        })
-      }
-    }
-  }
-
-   */
 }
 </script>
 
-<style scoped>
-*{
-  box-sizing: border-box;
-}
-.page{
-  background: #000;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-}
-.video-container{
-  background: #000;
-  position: absolute;
-  top: 40px;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-
-}
-.player{
-  top: -45px;
-  width: 100%;
-  pointer-events: none;
-}
-
-
+<style scoped src="../assets/style/videoCommon.css">
 
 </style>

@@ -8,12 +8,12 @@
 
       <!-- card title -->
       <v-card-title class="text-h4 mb-1">Current Location</v-card-title>
-      <v-card-subtitle class="text-h6 mb-n3 ml-1"><v-icon>place</v-icon>
+      <v-card-subtitle class="text-h6 mb-n3 ml-1"><v-icon color="cyan darken-1">place</v-icon>
         {{ city }}, {{ country }}</v-card-subtitle>
 
       <!-- card contents -->
-      <div class="map">
-        <MglMap :accessToken="accessToken" :mapStyle="mapStyle"
+      <div class="mapContainer">
+        <MglMap class="map" :accessToken="accessToken" :mapStyle="mapStyle"
                 :center="center" :zoom="zoom">
           <MglMarker :coordinates="coordinates"/>
         </MglMap>
@@ -28,13 +28,13 @@ import { MglMap,  MglMarker } from "vue-mapbox";
 import { mapGetters } from "vuex"
 
 export default {
-  name: "MapLocation",
+  name: "BikeMap",
   components: {
     MglMap,
     MglMarker
   },
   computed: {
-    ...mapGetters(['getWalk']),
+    ...mapGetters(['getBike']),
   },
   data() {
     return {
@@ -47,19 +47,19 @@ export default {
       mapStyle: "mapbox://styles/mapbox/streets-v11", // your map style
       coordinates: '',
       center: '',
-      zoom: 5,
+      zoom: 6,
     };
   },
   beforeUpdate() {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
     this.getCoordinates()
-    this.city = this.getWalk.city
-    this.country = this.getWalk.country
+    this.city = this.getBike.city
+    this.country = this.getBike.country
   },
   methods: {
     getCoordinates() {
-      const vid = this.getWalk
+      const vid = this.getBike
       const coordinates = vid.zoom
       const array = coordinates.split(",").map(Number)
       this.coordinates = array
@@ -70,9 +70,6 @@ export default {
 
 </script>
 
-<style scoped>
-div.map{
-  width: 100%;
-  height: 600px;
-}
+<style scoped src="../../assets/style/mapStyle.css">
+
 </style>

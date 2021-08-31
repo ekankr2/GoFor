@@ -1,12 +1,15 @@
 <template>
   <div>
-    <v-btn @click="getRandomWalk">check</v-btn>
-    <label>{{ randomWalk }}</label>
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn color="primary" dark v-bind="attrs" v-on="on">Button</v-btn>
+      </template>
+      <span>hello</span>
+    </v-tooltip>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
 export default {
   name: "TestPage",
   data() {
@@ -14,16 +17,7 @@ export default {
 
     }
   },
-  computed: {
-    ...mapState(['randomWalk'])
-  },
-  mounted() {
-
-  },
-  methods: {
-    ...mapActions(['getRandomWalk'])
-    }
-  }
+}
 </script>
 
 <style scoped>

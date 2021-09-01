@@ -46,7 +46,6 @@ export default {
       selectedPlace: {},
     }
   },
-  props: ['value'],
   computed: {
     ...mapState(['walk','selectedWalk'])
   },

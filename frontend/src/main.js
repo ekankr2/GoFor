@@ -11,9 +11,11 @@ import 'material-design-icons/iconfont/material-icons.css'
 import 'video.js/dist/video-js.css'
 import 'vue-video-player/src/custom-theme.css'
 import VueVideoPlayer from "vue-video-player";
+import cookies from "vue-cookies";
 
 
 Vue.use(VueVideoPlayer)
+Vue.use(cookies)
 
 Vue.config.productionTip = false
 

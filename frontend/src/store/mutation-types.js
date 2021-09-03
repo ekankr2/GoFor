@@ -9,3 +9,6 @@ export const SELECT_MOTORCYCLE = 'SELECT_MOTORCYCLE'
 
 export const GET_RANDOM_CAR = 'GET_RANDOM_CAR'
 export const SELECT_CAR = 'SELECT_CAR'
+
+export const FETCH_BOARD_LIST = 'FETCH_BOARD_LIST'
+export const FETCH_BOARD = 'FETCH_BOARD'

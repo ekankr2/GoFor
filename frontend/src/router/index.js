@@ -2,15 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
-import MemberRegisterPage from "../views/Member/MemberRegisterPage";
-import MemberLoginPage from "../views/Member/MemberLoginPage";
-
 
 import Car from "../views/Car";
 import Walk from "../views/Walk";
 import Bike from "../views/Bike";
 import Motorcycle from "../views/Motorcycle";
 import TestPage from "../views/TestPage";
+import BoardRegisterPage from "../views/BoardRegisterPage";
+import BoardListPage from "../views/BoardListPage";
 
 
 Vue.use(VueRouter)
@@ -20,20 +19,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/memberRegister',
-    name: 'MemberRegisterPage',
-    components: {
-      default: MemberRegisterPage
-    }
-  },
-  {
-    path: '/memberLogin',
-    name: 'MemberLoginPage',
-    components: {
-      default: MemberLoginPage
-    }
   },
   {
     path: '/walk',
@@ -68,6 +53,20 @@ const routes = [
     name: 'TestPage',
     components: {
       default: TestPage
+    }
+  },
+  {
+    path: '/board/create',
+    name: 'BoardRegisterPage',
+    components: {
+      default: BoardRegisterPage
+    }
+  },
+  {
+    path: '/board',
+    name: 'BoardListPage',
+    components: {
+      default: BoardListPage
     }
   },
 

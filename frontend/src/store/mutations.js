@@ -1,4 +1,6 @@
 import {
+    FETCH_BOARD,
+    FETCH_BOARD_LIST,
     GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK
 } from "./mutation-types";
@@ -30,5 +32,12 @@ export default {
     },
     [SELECT_CAR] (state,payload) {
         state.selectedCar = payload
+    },
+    // Board
+    [FETCH_BOARD_LIST] (state,boards) {
+        state.boards = boards;
+    },
+    [FETCH_BOARD] (state, board) {
+        state.board = board
     },
 }

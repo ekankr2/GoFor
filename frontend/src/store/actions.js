@@ -1,7 +1,10 @@
 import {
+    FETCH_BOARD,
+    FETCH_BOARD_LIST,
     GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK,
 } from "./mutation-types";
+import axios from "axios";
 
 
 
@@ -53,5 +56,18 @@ export default {
     },
     selectCar({ commit }, selectedVideo) {
         commit(SELECT_CAR, selectedVideo)
+    },
+    // Board
+    fetchBoardList ({ commit }) {
+        return axios.get(`http://localhost:7777/board/lists`)
+            .then((res) => {
+                commit(FETCH_BOARD_LIST, res.data)
+            })
+    },
+    fetchBoard ({ commit }, boardNo) {
+        return axios.get(`http://localhost:7777/board/${boardNo}`)
+            .then((res) => {
+                commit(FETCH_BOARD, res.data)
+            })
     },
 }

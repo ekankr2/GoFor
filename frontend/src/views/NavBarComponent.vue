@@ -41,6 +41,7 @@
         <div v-if="isLogin">
         <v-list-item-title class="ml-2"><v-icon x-large color="black" class="mt-n2">account_circle</v-icon>
           <span class="text-h4 ml-5">{{ session.member_id }}</span></v-list-item-title>
+          <v-divider></v-divider>
           <v-list-item class="logout ml-3" @click="logout">
             <v-list-item-action>
               <v-icon>account_box</v-icon>
@@ -120,7 +121,8 @@ export default {
     onLogin (payload) {
       if(this.$store.state.session == null) {
         const {member_id, member_pw} = payload
-        axios.post('http://localhost:7777/member/login', {member_id, member_pw})
+        const name = null
+        axios.post('http://localhost:7777/member/login', {member_id, member_pw, name})
             .then(res => {
               if (res.data != "") {
                 alert(res.data.member_id + "님 환영합니다.")

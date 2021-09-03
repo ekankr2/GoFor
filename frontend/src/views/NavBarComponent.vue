@@ -6,6 +6,7 @@
           <span class="font-weight-bold text-h4 hidden-sm-and-down">GoFor</span>
         </router-link>
       </v-toolbar-title>
+      {{ session }}
       <!--hidden Mobile Home -->
       <router-link to="/" class="white--text font-weight-bold text-h3 ml-auto mr-n8 hidden-md-and-up">
         <span>GoFor</span>
@@ -18,7 +19,7 @@
         <member-register-card @submit="onRegister" v-if="!isLogin">
         </member-register-card>
 
-        <v-btn class="btn-flat" v-if="isLogin" @click="removeSession">
+        <v-btn class="btn-flat" v-if="isLogin" @click="logout">
           로그아웃
         </v-btn>
 
@@ -49,7 +50,12 @@
 import MemberLoginCard from "../components/HomeContents/MemberLoginCard";
 import MemberRegisterCard from "../components/HomeContents/MemberRegisterCard";
 import NavigationDrawerContent from "../components/HomeContents/NavigationDrawerContent";
+import Vue from "vue";
 import axios from "axios";
+import {mapState} from 'vuex'
+
+import cookies from "vue-cookies";
+Vue.use(cookies)
 export default {
   name: 'NavBarComponent',
   components: {NavigationDrawerContent, MemberRegisterCard, MemberLoginCard},
@@ -58,6 +64,15 @@ export default {
       nav_drawer: false,
       isLogin: false,
       show: false,
+    }
+  },
+  computed: {
+    ...mapState(["session"])
+  },
+  mounted() {
+    this.$store.state.session = this.$cookies.get("user")
+    if(this.$store.state.session != null) {
+      this.isLogin = true
     }
   },
   methods: {
@@ -76,16 +91,25 @@ export default {
           })
     },
     onLogin (payload) {
-      const { member_id, member_pw } = payload
-      axios.post('http://localhost:7777/member/login', { member_id, member_pw })
-          .then(res => {
-            if (res.data != "") {
-              alert('로그인 성공! - ' + res.data)
-              this.isLogin = true;
-            } else {
-              alert('아이디와 비밀번호를 확인해주세요. ' + res.data)
-            }
-          })
+      if(this.$store.state.session == null) {
+        const {member_id, member_pw} = payload
+        axios.post('http://localhost:7777/member/login', {member_id, member_pw})
+            .then(res => {
+              if (res.data != "") {
+                alert(res.data.member_id + "님 환영합니다.")
+                this.isLogin = true;
+                this.$store.state.session = res.data
+                this.$cookies.set("user", res.data, '1h')
+              } else {
+                alert('아이디와 비밀번호를 확인해주세요. ' + res.data)
+              }
+            })
+            .catch(res => {
+              alert(res.response.data.message)
+            })
+      } else {
+        alert("이미 로그인 되어 있습니다. 아이디 : " +this.$store.state.session.userId)
+      }
 
     },
     removeSession () {
@@ -95,6 +119,11 @@ export default {
             alert('로그아웃 되었습니다.')
           })
     },
+    logout () {
+      this.$cookies.remove('user')
+      this.isLogin = false
+      this.$store.state.session = null
+    }
   },
 }
 </script>

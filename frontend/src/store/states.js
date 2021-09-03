@@ -16,4 +16,6 @@ export default {
     // car
     car: car,
     selectedCar: null,
+    // session
+    session: [],
 }

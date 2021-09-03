@@ -31,15 +31,43 @@
     </v-toolbar >
 
     <!-- drawer -->
-    <v-navigation-drawer app v-model="nav_drawer" temporary right>
+    <v-navigation-drawer app v-model="nav_drawer" temporary right class="blue-grey darken-1">
       <v-list nav dense>
         <!-- X icon -->
         <v-subheader>
           <v-icon right @click="nav_drawer = !nav_drawer" style="cursor: pointer"
                   class="ml-auto pb-2">close</v-icon>
         </v-subheader>
+        <div v-if="isLogin">
+        <v-list-item-title class="ml-2"><v-icon x-large color="black" class="mt-n2">account_circle</v-icon>
+          <span class="text-h4 ml-5">{{ session.member_id }}</span></v-list-item-title>
+          <v-list-item class="logout ml-3" @click="logout">
+            <v-list-item-action>
+              <v-icon>account_box</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>로그아웃</v-list-item-content>
+          </v-list-item>
+        </div>
         <!--contents -->
-        <navigation-drawer-content></navigation-drawer-content>
+        <div v-if="!isLogin">
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon>account_box</v-icon>
+            </v-list-item-action>
+            <member-login-card @submit="onLogin"></member-login-card>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon>person_add</v-icon>
+            </v-list-item-action>
+            <member-register-card @submit="onRegister"></member-register-card>
+          </v-list-item>
+        </div>
+
+        <div>
+          <v-list-item-action><v-icon></v-icon></v-list-item-action>
+        </div>
+
       </v-list>
     </v-navigation-drawer>
 
@@ -49,7 +77,6 @@
 <script>
 import MemberLoginCard from "../components/HomeContents/MemberLoginCard";
 import MemberRegisterCard from "../components/HomeContents/MemberRegisterCard";
-import NavigationDrawerContent from "../components/HomeContents/NavigationDrawerContent";
 import Vue from "vue";
 import axios from "axios";
 import {mapState} from 'vuex'
@@ -58,7 +85,7 @@ import cookies from "vue-cookies";
 Vue.use(cookies)
 export default {
   name: 'NavBarComponent',
-  components: {NavigationDrawerContent, MemberRegisterCard, MemberLoginCard},
+  components: { MemberRegisterCard, MemberLoginCard},
   data () {
     return {
       nav_drawer: false,
@@ -132,5 +159,8 @@ export default {
 
 span{
   user-select: none;
+}
+.logout{
+  cursor: pointer;
 }
 </style>

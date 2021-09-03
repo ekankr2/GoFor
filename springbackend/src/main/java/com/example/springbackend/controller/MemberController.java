@@ -53,7 +53,6 @@ public class MemberController {
             // 세션 할당
             info = new UserInfo();
             info.setMember_id(memberRequest.getMember_id());
-            info.setName(memberRequest.getName());
             log.info("Session Info: " + info);
 
             session = request.getSession();

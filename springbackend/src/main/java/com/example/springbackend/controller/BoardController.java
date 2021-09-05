@@ -34,11 +34,10 @@ public class BoardController {
     }
 
     @GetMapping("/lists")
-    public List<Board> getLists (@Validated @RequestBody BoardRequest boardRequest) throws Exception {
-        log.info("getLists(): " + boardRequest.getWriter() + ", " + boardRequest.getTitle() + ", " +
-                boardRequest.getContent());
+    public ResponseEntity <List<Board>> getLists ( ) throws Exception {
+        log.info("getLists(): " + service.boardFindAll());
 
+        return new ResponseEntity<>(service.boardFindAll(), HttpStatus.OK);
 
-        return service.boardFindAll();
     }
 }

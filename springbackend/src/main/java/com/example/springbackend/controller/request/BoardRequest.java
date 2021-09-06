@@ -11,9 +11,9 @@ import java.util.Date;
 @Slf4j
 @NoArgsConstructor
 public class BoardRequest {
+    private Long boardNo;
     private String writer;
     private String title;
     private String content;
     private Date regDate;
-
 }

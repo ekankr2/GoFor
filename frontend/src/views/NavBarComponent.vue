@@ -6,7 +6,6 @@
           <span class="font-weight-bold text-h4 hidden-sm-and-down">GoFor</span>
         </router-link>
       </v-toolbar-title>
-      {{ session }}
       <!--hidden Mobile Home -->
       <router-link to="/" class="white--text font-weight-bold text-h3 ml-auto mr-n8 hidden-md-and-up">
         <span>GoFor</span>

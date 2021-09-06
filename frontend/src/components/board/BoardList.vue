@@ -1,4 +1,5 @@
 <template>
+  <v-container>
   <div>
     <h3>게시물 목록</h3>
     <table border="1">
@@ -26,6 +27,7 @@
       </tr>
     </table>
   </div>
+  </v-container>
 </template>
 
 <script>

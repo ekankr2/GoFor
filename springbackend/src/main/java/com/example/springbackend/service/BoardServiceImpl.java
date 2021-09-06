@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -19,8 +18,8 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public void register(BoardRequest boardRequest) throws Exception {
-        Board boardEntity = new Board(boardRequest.getWriter(), boardRequest.getTitle(), boardRequest.getContent(),
-                boardRequest.getRegDate());
+        Board boardEntity = new Board(boardRequest.getBoardNo(), boardRequest.getWriter(), boardRequest.getTitle(),
+                boardRequest.getContent(), boardRequest.getRegDate());
 
         boardRepository.save(boardEntity);
     }
@@ -29,5 +28,11 @@ public class BoardServiceImpl implements BoardService{
     public List<Board> boardFindAll() throws Exception {
 
         return boardRepository.findAll();
+    }
+
+    @Override
+    public List<Board> findByBoardNo(Long boardNo) throws Exception {
+
+        return boardRepository.findByBoardNo(boardNo);
     }
 }

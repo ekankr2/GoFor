@@ -38,6 +38,27 @@ public class BoardController {
         log.info("getLists(): " + service.boardFindAll());
 
         return new ResponseEntity<>(service.boardFindAll(), HttpStatus.OK);
-
     }
+    /*
+    @GetMapping("/{boardNo}")
+    public ResponseEntity<List<Board>> read(@PathVariable Long boardNo) throws Exception {
+        List<Board> board = service.findByBoardNo(boardNo);
+
+        return new ResponseEntity<List<Board>>(board, HttpStatus.OK);
+    }
+
+    @GetMapping("/{boardNo}")
+    public ResponseEntity<Object> read(@PathVariable Long boardNo) throws Exception {
+        List<Board> board = service.findByBoardNo(boardNo);
+        Object boardRead = board.get(0);
+        return new ResponseEntity<Object>(boardRead, HttpStatus.OK);
+    }
+     */
+    @GetMapping("/{boardNo}")
+    public ResponseEntity<Board> read(@PathVariable Long boardNo) throws Exception {
+        List<Board> board = service.findByBoardNo(boardNo);
+        Board boardRead = board.get(0);
+        return new ResponseEntity<Board>(boardRead, HttpStatus.OK);
+    }
+
 }

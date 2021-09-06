@@ -1,31 +1,19 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <h3>게시물 작성 형태</h3>
-    <table>
-      <tr>
-        <td>제목</td>
-        <td><input type="text" placeholder="제목을 작성하세요." v-model="title"></td>
-      </tr>
-      <tr>
-        <td>작성자</td>
-        <td><input type="text" v-model="writer"></td>
-      </tr>
-      <tr>
-        <td>본문</td>
-        <td><textarea cols="50" rows="20" placeholder="본문을 작성하면 됩니다." v-model="content"></textarea></td>
-      </tr>
-    </table>
+    <input type="text" placeholder="제목을 작성하세요." class="mt-5" v-model="title">
+    <input type="text" class="mt-5"  disabled v-model="writer">
+    <v-textarea filled auto-grow class="mt-8"  rows="4" row-height="80" placeholder="본문을 작성하면 됩니다."
+              v-model="content"></v-textarea>
 
     <div>
-      <button type="submit">등록</button>
-      <router-link :to="{ name: 'BoardListPage' }">
-        취소
-      </router-link>
+      <v-btn type="submit">등록하기</v-btn>
     </div>
   </form>
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   name: 'BoardRegisterForm',
   data () {
@@ -34,6 +22,12 @@ export default {
       writer: '',
       content: ''
     }
+  },
+  computed: {
+    ...mapState(["session"])
+  },
+  mounted() {
+    this.writer = this.$store.state.session.member_id
   },
   methods: {
     onSubmit () {

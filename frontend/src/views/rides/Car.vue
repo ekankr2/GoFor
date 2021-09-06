@@ -2,7 +2,7 @@
   <div class="page">
     <!-- + icon -->
     <v-btn color="secondary" class="right mr-1 mt-1" fab x-small dark
-        @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
+           @click.stop="drawer = !drawer"><v-icon>add</v-icon></v-btn>
 
     <v-navigation-drawer right v-model="drawer" absolute temporary>
       <v-list-item>
@@ -32,7 +32,7 @@
       <v-list dense class="mt-1">
         <!-- location map -->
         <v-list-item>
-          <walk-map></walk-map>
+          <car-map></car-map>
         </v-list-item>
 
         <v-divider></v-divider>
@@ -43,13 +43,14 @@
         <v-btn fab elevation="3" dark small color="purple" class="ml-10"
                :href="this.playerOptions.sources[0].src" target="_blank"><v-icon>link</v-icon></v-btn>
         <!-- Select City -->
-        <walk-select-box @changeVideo="changeVideo"></walk-select-box>
+        <car-select-box @changeVideo="changeVideo"></car-select-box>
+        <v-btn class="more mb-6 ml-7" to="/board">Recommend us videos</v-btn>
       </v-list>
     </v-navigation-drawer>
 
     <div class="video-container">
       <!-- noise screen-->
-      <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
+      <video src="../../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
 
       <video-player ref="videoPlayer" v-show="!loading"
                     :options="playerOptions"
@@ -62,16 +63,16 @@
 <script>
 import { videoPlayer } from 'vue-video-player'
 import { mapState,mapActions } from 'vuex'
-import WalkMap from "../components/WalkContents/WalkMap";
-import WalkSelectBox from "../components/WalkContents/WalkSelectBox";
+import CarMap from "@/components/CarContents/CarMap";
+import CarSelectBox from "@/components/CarContents/CarSelectBox";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
-    WalkSelectBox,
+    CarSelectBox,
     videoPlayer,
-    WalkMap,
+    CarMap,
   },
   data() {
     return {
@@ -127,10 +128,10 @@ export default {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['selectedWalk']),
+    ...mapState(['selectedCar']),
   },
   methods: {
-    ...mapActions(['getRandomWalk']),
+    ...mapActions(['getRandomCar']),
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
@@ -140,11 +141,11 @@ export default {
       this.playerOptions.sources[0].src = selectedUrl
     },
     fetchRandom() {
-      this.getRandomWalk()
-      this.data = this.selectedWalk
-      const random = Math.floor(Math.random() * this.selectedWalk.video_id.length)
+      this.getRandomCar()
+      this.data = this.selectedCar
+      const random = Math.floor(Math.random() * this.selectedCar.video_id.length)
       this.playerOptions.sources[0].src =
-          'https://www.youtube.com/watch?v=' + this.selectedWalk.video_id[random] + '&t=40'
+          'https://www.youtube.com/watch?v=' + this.selectedCar.video_id[random] + '&t=40'
     },
     sound(){
       this.playerOptions.muted  = !this.playerOptions.muted
@@ -173,6 +174,6 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/style/videoCommon.css">
+<style scoped src="../../assets/style/videoCommon.css">
 
 </style>

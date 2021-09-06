@@ -34,7 +34,8 @@ public class Board {
     private Date regDate;
 
 
-    public Board(String writer, String title, String content, Date regDate) {
+    public Board(Long boardNo, String writer, String title, String content, Date regDate) {
+        this.boardNo = boardNo;
         this.writer = writer;
         this.title = title;
         this.content = content;

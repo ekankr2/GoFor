@@ -1,7 +1,19 @@
 <template>
   <div align="center">
-    <h2>게시물 작성</h2>
-    <board-register-form @submit="onSubmit"/>
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12" md="12">
+
+          <router-link :to="{ name: 'BoardListPage' }">
+            <v-btn class="right">취소</v-btn>
+          </router-link>
+
+    <h2 class="mt-15">게시물 작성</h2>
+
+    <board-register-form class="mt-8" @submit="onSubmit"/>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -28,7 +40,7 @@ export default {
           .catch(res => {
             alert(res.response.data.message)
           })
-    }
+    },
   }
 }
 </script>

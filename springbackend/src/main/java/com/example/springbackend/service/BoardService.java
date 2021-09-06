@@ -8,5 +8,6 @@ import java.util.List;
 public interface BoardService {
     public void register(BoardRequest boardRequest) throws Exception;
     public List<Board> boardFindAll() throws Exception;
+    public List<Board> findByBoardNo(Long boardNo) throws Exception;
 
 }

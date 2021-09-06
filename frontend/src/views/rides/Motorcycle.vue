@@ -32,7 +32,7 @@
       <v-list dense class="mt-1">
         <!-- location map -->
         <v-list-item>
-          <bike-map></bike-map>
+          <motorcycle-map></motorcycle-map>
         </v-list-item>
 
         <v-divider></v-divider>
@@ -43,13 +43,14 @@
         <v-btn fab elevation="3" dark small color="purple" class="ml-10"
                :href="this.playerOptions.sources[0].src" target="_blank"><v-icon>link</v-icon></v-btn>
         <!-- Select City -->
-        <bike-select-box @changeVideo="changeVideo"></bike-select-box>
+        <motorcycle-select-box @changeVideo="changeVideo"></motorcycle-select-box>
+        <v-btn class="more mb-6 ml-7" to="/board">Recommend us videos</v-btn>
       </v-list>
     </v-navigation-drawer>
 
     <div class="video-container">
       <!-- noise screen-->
-      <video src="../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
+      <video src="../../assets/videos/noise.mp4" muted autoplay loop v-show="loading"></video>
 
       <video-player ref="videoPlayer" v-show="!loading"
                     :options="playerOptions"
@@ -62,16 +63,16 @@
 <script>
 import { videoPlayer } from 'vue-video-player'
 import { mapState,mapActions } from 'vuex'
-import BikeMap from "../components/BikeContents/BikeMap";
-import BikeSelectBox from "../components/BikeContents/BikeSelectBox";
+import MotorcycleMap from "@/components/MotorcycleContents/MotorcycleMap";
+import MotorcycleSelectBox from "@/components/MotorcycleContents/MotorcycleSelectBox";
 
 require('videojs-youtube')
 require('videojs-playlist')
 export default {
   components: {
-    BikeSelectBox,
+    MotorcycleSelectBox,
     videoPlayer,
-    BikeMap,
+    MotorcycleMap,
   },
   data() {
     return {
@@ -127,10 +128,10 @@ export default {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['selectedBike']),
+    ...mapState(['selectedMotorcycle']),
   },
   methods: {
-    ...mapActions(['getRandomBike']),
+    ...mapActions(['getRandomMotorcycle']),
     playerReadied(player) {
       this.playerOptions.muted = true
       console.log('player ready!', player)
@@ -140,11 +141,11 @@ export default {
       this.playerOptions.sources[0].src = selectedUrl
     },
     fetchRandom() {
-      this.getRandomBike()
-      this.data = this.selectedBike
-      const random = Math.floor(Math.random() * this.selectedBike.video_id.length)
+      this.getRandomMotorcycle()
+      this.data = this.selectedMotorcycle
+      const random = Math.floor(Math.random() * this.selectedMotorcycle.video_id.length)
       this.playerOptions.sources[0].src =
-          'https://www.youtube.com/watch?v=' + this.selectedBike.video_id[random] + '&t=40'
+          'https://www.youtube.com/watch?v=' + this.selectedMotorcycle.video_id[random] + '&t=40'
     },
     sound(){
       this.playerOptions.muted  = !this.playerOptions.muted
@@ -173,6 +174,6 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/style/videoCommon.css">
+<style scoped src="../../assets/style/videoCommon.css">
 
 </style>

@@ -3,13 +3,14 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 
-import Car from "../views/Car";
-import Walk from "../views/Walk";
-import Bike from "../views/Bike";
-import Motorcycle from "../views/Motorcycle";
+import Car from "../views/rides/Car";
+import Walk from "../views/rides/Walk";
+import Bike from "../views/rides/Bike";
+import Motorcycle from "../views/rides/Motorcycle";
 import TestPage from "../views/TestPage";
-import BoardRegisterPage from "../views/BoardRegisterPage";
-import BoardListPage from "../views/BoardListPage";
+import BoardRegisterPage from "../views/board/BoardRegisterPage";
+import BoardListPage from "../views/board/BoardListPage";
+import BoardReadPage from "../views/board/BoardReadPage";
 
 
 Vue.use(VueRouter)
@@ -67,6 +68,16 @@ const routes = [
     name: 'BoardListPage',
     components: {
       default: BoardListPage
+    }
+  },
+  {
+    path: '/board/:boardNo',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
     }
   },
 

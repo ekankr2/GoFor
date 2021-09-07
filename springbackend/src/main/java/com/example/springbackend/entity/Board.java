@@ -33,13 +33,17 @@ public class Board {
     @CreationTimestamp
     private Date regDate;
 
+    @UpdateTimestamp
+    private Date updDate;
 
-    public Board(Long boardNo, String writer, String title, String content, Date regDate) {
+    @Builder
+    public Board(Long boardNo, String writer, String title, String content, Date regDate, Date updDate) {
         this.boardNo = boardNo;
         this.writer = writer;
         this.title = title;
         this.content = content;
         this.regDate = regDate;
+        this.updDate = updDate;
     }
 
 }

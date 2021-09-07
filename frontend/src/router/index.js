@@ -11,6 +11,7 @@ import TestPage from "../views/TestPage";
 import BoardRegisterPage from "../views/board/BoardRegisterPage";
 import BoardListPage from "../views/board/BoardListPage";
 import BoardReadPage from "../views/board/BoardReadPage";
+import BoardModifyPage from "../views/board/BoardModifyPage";
 
 
 Vue.use(VueRouter)
@@ -75,6 +76,16 @@ const routes = [
     name: 'BoardReadPage',
     components: {
       default: BoardReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/board/:boardNo/edit',
+    name: 'BoardModifyPage',
+    components: {
+      default: BoardModifyPage
     },
     props: {
       default: true

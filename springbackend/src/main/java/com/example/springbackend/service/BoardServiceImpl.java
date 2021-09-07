@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -19,7 +20,7 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public void register(BoardRequest boardRequest) throws Exception {
         Board boardEntity = new Board(boardRequest.getBoardNo(), boardRequest.getWriter(), boardRequest.getTitle(),
-                boardRequest.getContent(), boardRequest.getRegDate());
+                boardRequest.getContent(), boardRequest.getRegDate(), boardRequest.getUpdDate());
 
         boardRepository.save(boardEntity);
     }
@@ -34,5 +35,17 @@ public class BoardServiceImpl implements BoardService{
     public List<Board> findByBoardNo(Long boardNo) throws Exception {
 
         return boardRepository.findByBoardNo(boardNo);
+    }
+
+    @Override
+    public void modify(BoardRequest boardRequest) throws Exception {
+        Optional<Board> board = boardRepository.findById(boardRequest.getBoardNo());
+        board.ifPresent(selectBoard ->{
+            selectBoard.setWriter(boardRequest.getWriter());
+            selectBoard.setTitle(boardRequest.getTitle());
+            selectBoard.setContent(boardRequest.getContent());
+            selectBoard.setUpdDate(boardRequest.getUpdDate());
+            boardRepository.save(selectBoard);
+        });
     }
 }

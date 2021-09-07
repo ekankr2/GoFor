@@ -58,9 +58,8 @@ export default {
   },
   methods: {
     showBoard(event, idx) {
-      console.log(event)
-      console.log(idx.item.boardNo)
-      this.$router.push({name: 'BoardReadPage', params: {boardNo: idx.item.boardNo}})
+      console.log("글 번호: " + idx.item.boardNo)
+      this.$router.push({name: 'BoardReadPage', params: {boardNo: String(idx.item.boardNo)}})
     },
   }
 }

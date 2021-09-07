@@ -41,7 +41,7 @@ export default {
     ...mapActions(['fetchBoard']),
     onDelete () {
       const { boardNo } = this.board
-      axios.delete(`http://localhost:7777/vueboard/${boardNo}`)
+      axios.delete(`http://localhost:7777/board/${boardNo}`)
           .then(() => {
             alert('삭제 성공!')
             this.$router.push({ name: 'BoardListPage' })

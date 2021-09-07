@@ -66,4 +66,10 @@ public class BoardController {
         service.modify(boardRequest);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
+
+    @DeleteMapping("/{boardNo}")
+    public ResponseEntity<Void> delete(@PathVariable("boardNo") Long boardNo) throws Exception {
+        service.delete(boardNo);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }

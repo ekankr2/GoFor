@@ -1,22 +1,25 @@
 <template>
   <div>
     <v-container fluid>
-      <h2>Recommend Us Videos</h2>
+      <h3 align="center">Recommend Us Videos</h3>
 
         <v-btn @click="recommend">Recommend</v-btn>
 
     </v-container>
-    <board-list :boards="boards"/>
+    <!--<board-list :boards="boards"/>-->
+    <test-page :boards="boards"></test-page>
   </div>
 </template>
 
 <script>
-import BoardList from '@/components/board/BoardList.vue'
+//import BoardList from '@/components/board/BoardList.vue'
 import { mapState, mapActions } from 'vuex'
+import TestPage from "../TestPage";
 export default {
   name: 'BoardListPage',
   components: {
-    BoardList
+    TestPage,
+    //BoardList
   },
   computed: {
     ...mapState(['boards', 'session'])

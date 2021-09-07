@@ -48,4 +48,10 @@ public class BoardServiceImpl implements BoardService{
             boardRepository.save(selectBoard);
         });
     }
+
+    @Override
+    public void delete(Long boardNo) throws Exception {
+
+        boardRepository.deleteById(boardNo);
+    }
 }

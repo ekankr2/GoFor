@@ -1,7 +1,6 @@
 <template>
   <div>
-    <board-read :board="board" :board-no="boardNo"/>
-    <test-page v-if="!board" :board="board" :board-no="boardNo"></test-page>
+    <board-read :board-no="boardNo"/>
   </div>
 </template>
 
@@ -9,11 +8,10 @@
 import { mapState, mapActions } from 'vuex'
 import axios from 'axios'
 import BoardRead from "../../components/board/BoardRead";
-import TestPage from "../TestPage";
 
 export default {
   name: "BoardReadPage",
-  components: {TestPage, BoardRead},
+  components: {BoardRead},
   props: {
     boardNo: {
       type: String,

@@ -18,7 +18,7 @@
                     :items="boards"
                     :search="search"
                     :page.sync="page"
-                    items-per-page="9"
+                    :items-per-page="itemsPerPage"
                     class="table"
                     hide-default-footer
                     @page-count="pageCount = $event"
@@ -46,6 +46,7 @@ export default {
       search: '',
       page: 1,
       pageCount: 0,
+      itemsPerPage: 9,
       /*
       options:{
         page: number,

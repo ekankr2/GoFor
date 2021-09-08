@@ -1,8 +1,7 @@
 <template>
-  <div align="center">
-    <h2>게시물 수정</h2>
-    <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
-    <p v-else>로딩중 .......</p>
+  <div>
+    <board-modify-form v-if="!board" :board="board" @submit="onSubmit"/>
+    <test-page :board="board" :board-no="boardNo" @submit="onSubmit"></test-page>
   </div>
 </template>
 
@@ -10,9 +9,11 @@
 import BoardModifyForm from '@/components/board/BoardModifyForm'
 import { mapState, mapActions } from 'vuex'
 import axios from 'axios'
+import TestPage from "../TestPage";
 export default {
   name: 'BoardModifyPage',
   components: {
+    TestPage,
     BoardModifyForm
   },
   props: {

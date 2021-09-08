@@ -37,20 +37,6 @@ public class BoardServiceImpl implements BoardService{
         return boardRepository.findByBoardNo(boardNo);
     }
 
-/*
-    @Override
-    public void modify(BoardRequest boardRequest) throws Exception {
-        Optional<Board> board = boardRepository.findById(boardRequest.getBoardNo());
-        board.ifPresent(selectBoard ->{
-            selectBoard.setWriter(boardRequest.getWriter());
-            selectBoard.setTitle(boardRequest.getTitle());
-            selectBoard.setContent(boardRequest.getContent());
-            selectBoard.setUpdDate(boardRequest.getUpdDate());
-            boardRepository.save(selectBoard);
-        });
-    }
-     */
-
     @Override
     public void modify(Board board, BoardRequest boardRequest) throws Exception {
         board.updateBoard(boardRequest);

@@ -1,14 +1,7 @@
 <template>
   <div>
-    <board-read v-if="board" :board="board"/>
-    <test-page :board="board"></test-page>
-    <router-link :to="{ name: 'BoardModifyPage', params: { boardNo } }">
-      게시물 수정
-    </router-link>
-    <button @click="onDelete">삭제</button>
-    <router-link :to="{ name: 'BoardListPage' }">
-      게시물 보기
-    </router-link>
+    <board-read :board="board" :board-no="boardNo"/>
+    <test-page v-if="!board" :board="board" :board-no="boardNo"></test-page>
   </div>
 </template>
 

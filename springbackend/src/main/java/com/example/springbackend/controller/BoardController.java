@@ -55,12 +55,10 @@ public class BoardController {
     @PutMapping("/{boardNo}")
     public ResponseEntity<Void> modify(@PathVariable Long boardNo,
                                        @RequestBody BoardRequest boardRequest) throws Exception {
-        log.info("Modify board");
 
         List<Board> board = service.findByBoardNo(boardNo);
         Board boardRead = board.get(0);
         service.modify(boardRead, boardRequest);
-
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 

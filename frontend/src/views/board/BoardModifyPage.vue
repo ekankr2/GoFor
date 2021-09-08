@@ -31,9 +31,9 @@ export default {
       axios.put(`http://localhost:7777/board/${this.boardNo}`, { title, content })
           .then(res => {
             alert('수정 성공!')
+            console.log(res)
             this.$router.push({
-              name: 'BoardReadPage',
-              params: { boardNo: res.data.boardNo.toString() }
+              name: 'BoardListPage',
             })
           })
           .catch(err => {

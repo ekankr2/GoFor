@@ -17,4 +17,6 @@ public class BoardRequest {
     private String content;
     private Date regDate;
     private Date updDate;
+
+
 }

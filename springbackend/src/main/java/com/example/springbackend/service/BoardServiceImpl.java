@@ -37,6 +37,7 @@ public class BoardServiceImpl implements BoardService{
         return boardRepository.findByBoardNo(boardNo);
     }
 
+/*
     @Override
     public void modify(BoardRequest boardRequest) throws Exception {
         Optional<Board> board = boardRepository.findById(boardRequest.getBoardNo());
@@ -47,6 +48,13 @@ public class BoardServiceImpl implements BoardService{
             selectBoard.setUpdDate(boardRequest.getUpdDate());
             boardRepository.save(selectBoard);
         });
+    }
+     */
+
+    @Override
+    public void modify(Board board, BoardRequest boardRequest) throws Exception {
+        board.updateBoard(boardRequest);
+        boardRepository.save(board);
     }
 
     @Override

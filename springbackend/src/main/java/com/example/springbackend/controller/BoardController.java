@@ -58,12 +58,25 @@ public class BoardController {
         Board boardRead = board.get(0);
         return new ResponseEntity<Board>(boardRead, HttpStatus.OK);
     }
-
+    /*
     @PutMapping("/{boardNo}")
     public ResponseEntity<Void> modify(@PathVariable("boardNo") Long boardNo,
                                         @Validated @RequestBody BoardRequest boardRequest) throws Exception {
         boardRequest.setBoardNo(boardNo);
         service.modify(boardRequest);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+     */
+    @PutMapping("/{boardNo}")
+    public ResponseEntity<Void> modify(@PathVariable Long boardNo,
+                                       @RequestBody BoardRequest boardRequest) throws Exception {
+        log.info("Modify board");
+
+        List<Board> board = service.findByBoardNo(boardNo);
+        Board boardRead = board.get(0);
+        service.modify(boardRead, boardRequest);
+
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 

@@ -13,8 +13,8 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     @Query("select m from Board m where m.boardNo = :boardNo")
     List<Board> findByBoardNo(Long boardNo);
 
-    @Query("select m from Board m where m.boardNo = :boardNo")
-    Optional<Board> findById(Long boardNo);
+    //@Query("select m from Board m where m.boardNo = :boardNo")
+    //Optional<Board> findById(Long boardNo);
 
 }
 

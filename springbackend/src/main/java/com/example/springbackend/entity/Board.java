@@ -1,5 +1,6 @@
 package com.example.springbackend.entity;
 
+import com.example.springbackend.controller.request.BoardRequest;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,6 @@ public class Board {
     @UpdateTimestamp
     private Date updDate;
 
-    @Builder
     public Board(Long boardNo, String writer, String title, String content, Date regDate, Date updDate) {
         this.boardNo = boardNo;
         this.writer = writer;
@@ -44,6 +44,12 @@ public class Board {
         this.content = content;
         this.regDate = regDate;
         this.updDate = updDate;
+    }
+
+    public void updateBoard(BoardRequest boardRequest) {
+        this.title = boardRequest.getTitle();
+        this.content = boardRequest.getContent();
+        this.updDate = boardRequest.getUpdDate();
     }
 
 }

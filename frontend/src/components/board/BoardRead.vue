@@ -1,7 +1,6 @@
 <template>
   <v-container>
-    <h3>게시물 읽기</h3>
-    <h5>{{ board }}</h5>
+    <h2>{{ board.title }}</h2>
     <table>
       <tr>
         <td>글번호</td>

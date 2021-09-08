@@ -1,8 +1,7 @@
 <template>
-  <div align="center">
-    <h2>Vue + Spring 게시판 읽기</h2>
+  <div>
     <board-read v-if="board" :board="board"/>
-    <p v-else>로딩중 ...... </p>
+    <test-page :board="board"></test-page>
     <router-link :to="{ name: 'BoardModifyPage', params: { boardNo } }">
       게시물 수정
     </router-link>
@@ -17,10 +16,11 @@
 import { mapState, mapActions } from 'vuex'
 import axios from 'axios'
 import BoardRead from "../../components/board/BoardRead";
+import TestPage from "../TestPage";
 
 export default {
   name: "BoardReadPage",
-  components: {BoardRead},
+  components: {TestPage, BoardRead},
   props: {
     boardNo: {
       type: String,

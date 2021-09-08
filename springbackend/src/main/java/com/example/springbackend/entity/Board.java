@@ -1,6 +1,7 @@
 package com.example.springbackend.entity;
 
 import com.example.springbackend.controller.request.BoardRequest;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Console;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
@@ -31,9 +33,11 @@ public class Board {
     @Column(length = 8000, nullable = false)
     private String content;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
     private Date regDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     @UpdateTimestamp
     private Date updDate;
 

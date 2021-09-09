@@ -8,7 +8,7 @@
             <v-btn class="right">취소</v-btn>
           </router-link>
 
-    <h2 class="mt-15">게시물 작성</h2>
+    <h2 class="mt-12">Tell us videos</h2>
 
     <board-register-form class="mt-8" @submit="onSubmit"/>
         </v-col>
@@ -27,8 +27,8 @@ export default {
   },
   methods: {
     onSubmit (payload) {
-      const { title, content, writer } = payload
-      axios.post('http://localhost:7777/board/register', { title, writer, content })
+      const { title, content, writer, link } = payload
+      axios.post('http://localhost:7777/board/register', { title, writer, content, link })
           .then(res => {
             alert('등록 성공! - ' + res)
             this.$router.push('/board')

@@ -19,9 +19,9 @@
       <v-card-text>
         <v-row align="center">
           <v-col class="mt-3" cols="12">
-            <v-btn @click="goLink" text :href="link" target="_blank" class="text-body-2 ml-n5 mt-n2">
+            <v-btn @click="goLink" text target="_blank" class="text-body-2 ml-n5 mt-n2">
               <v-icon>insert_link</v-icon>YouTube Link</v-btn>
-            <div class="text-body-1 right">youtube.com</div>
+            <div class="text-body-1 right">{{ board.link }}</div>
           </v-col>
         </v-row>
       </v-card-text>
@@ -63,15 +63,15 @@ export default {
   },
   data () {
     return {
-      link: "https://www.youtube.com/",
+
     }
   },
   methods: {
     goLink () {
-      if(this.link.includes("https://")){
-        window.open(this.link, '_blank')
+      if(this.board.link.includes("https://")){
+        window.open(this.board.link, '_blank')
       } else {
-        window.open("https://" + this.link, '_blank')
+        window.open("https://" + this.board.link, '_blank')
       }
     },
     onDelete () {

@@ -133,7 +133,8 @@ export default {
               }
             })
             .catch(res => {
-              alert(res.response.data.message)
+              console.log(res)
+              alert('아이디와 비밀번호를 확인해주세요. ')
             })
       } else {
         alert("이미 로그인 되어 있습니다. 아이디 : " +this.$store.state.session.userId)

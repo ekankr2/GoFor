@@ -15,6 +15,7 @@ public class BoardRequest {
     private Long boardNo;
     private String writer;
     private String title;
+    private String link;
     private String content;
     private Date regDate;
     private Date updDate;

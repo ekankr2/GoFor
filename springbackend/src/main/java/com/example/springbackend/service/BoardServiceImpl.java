@@ -20,7 +20,7 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public void register(BoardRequest boardRequest) throws Exception {
         Board boardEntity = new Board(boardRequest.getBoardNo(), boardRequest.getWriter(), boardRequest.getTitle(),
-                boardRequest.getContent(), boardRequest.getRegDate(), boardRequest.getUpdDate());
+                boardRequest.getLink(), boardRequest.getContent(), boardRequest.getRegDate(), boardRequest.getUpdDate());
 
         boardRepository.save(boardEntity);
     }

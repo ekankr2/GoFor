@@ -30,6 +30,9 @@ public class Board {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
+    private String link;
+
     @Column(length = 8000, nullable = false)
     private String content;
 
@@ -41,10 +44,11 @@ public class Board {
     @UpdateTimestamp
     private Date updDate;
 
-    public Board(Long boardNo, String writer, String title, String content, Date regDate, Date updDate) {
+    public Board(Long boardNo, String writer, String title, String link, String content, Date regDate, Date updDate) {
         this.boardNo = boardNo;
         this.writer = writer;
         this.title = title;
+        this.link = link;
         this.content = content;
         this.regDate = regDate;
         this.updDate = updDate;
@@ -52,6 +56,7 @@ public class Board {
 
     public void updateBoard(BoardRequest boardRequest) {
         this.title = boardRequest.getTitle();
+        this.link = boardRequest.getLink();
         this.content = boardRequest.getContent();
         this.updDate = boardRequest.getUpdDate();
     }

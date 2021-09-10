@@ -19,7 +19,7 @@
         </member-register-card>
 
         <v-btn class="btn-flat" v-if="isLogin" @click="logout">
-          로그아웃
+          {{session.member_id}} 님 로그아웃
         </v-btn>
 
       </v-toolbar-items>
@@ -125,6 +125,7 @@ export default {
             .then(res => {
               if (res.data != "") {
                 alert(res.data.member_id + "님 환영합니다.")
+                window.location.reload();
                 this.isLogin = true;
                 this.$store.state.session = res.data
                 this.$cookies.set("user", res.data, '1h')
@@ -152,6 +153,7 @@ export default {
       this.$cookies.remove('user')
       this.isLogin = false
       this.$store.state.session = null
+      window.location.reload();
     }
   },
 }

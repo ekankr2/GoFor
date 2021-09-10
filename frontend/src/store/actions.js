@@ -70,8 +70,8 @@ export default {
                 commit(FETCH_BOARD, res.data)
             })
     },
-    fetchCommentList ({ commit }) {
-        return axios.get(`http://localhost:7777/comment/lists/4`)
+    fetchCommentList ({ commit }, boardNo) {
+        return axios.get(`http://localhost:7777/comment/lists/${boardNo}`)
             .then((res) => {
                 commit(FETCH_COMMENT_LIST, res.data)
             })

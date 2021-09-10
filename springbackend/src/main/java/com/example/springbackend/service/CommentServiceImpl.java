@@ -1,7 +1,6 @@
 package com.example.springbackend.service;
 
 import com.example.springbackend.controller.request.CommentRequest;
-import com.example.springbackend.entity.Board;
 import com.example.springbackend.entity.Comment;
 import com.example.springbackend.repository.BoardRepository;
 import com.example.springbackend.repository.CommentRepository;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -29,9 +27,8 @@ public class CommentServiceImpl implements CommentService{
 
         commentRepository.save(commentEntity);
     }
-
     @Override
-    public List<Board> findByComment(Long boardNo) {
-        return boardRepository.findByComment(boardNo);
+    public List<Comment> getCommentsOfBoard(Long boardNo) throws Exception {
+        return commentRepository.getCommentsOfBoard(boardNo);
     }
 }

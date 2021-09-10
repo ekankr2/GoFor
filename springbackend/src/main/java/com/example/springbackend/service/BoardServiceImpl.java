@@ -5,6 +5,7 @@ import com.example.springbackend.entity.Board;
 import com.example.springbackend.repository.BoardRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public List<Board> boardFindAll() throws Exception {
 
-        return boardRepository.findAll();
+        return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardNo"));
     }
 
     @Override

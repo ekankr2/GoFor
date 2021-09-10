@@ -3,6 +3,7 @@ package com.example.springbackend.controller;
 import com.example.springbackend.controller.request.BoardRequest;
 import com.example.springbackend.controller.request.CommentRequest;
 import com.example.springbackend.entity.Board;
+import com.example.springbackend.entity.Comment;
 import com.example.springbackend.repository.BoardRepository;
 import com.example.springbackend.repository.CommentRepository;
 import com.example.springbackend.service.BoardService;
@@ -27,8 +28,6 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @Autowired
-    private CommentRepository commentRepository;
 
     @PostMapping("/register/{boardNo}")
     public ResponseEntity<Void> Register(@PathVariable Long boardNo,
@@ -41,8 +40,9 @@ public class CommentController {
     }
 
     @GetMapping("/lists/{boardNo}")
-    public ResponseEntity<List<Board>> getLists(@PathVariable("boardNo") Long boardNo) throws Exception {
+    public ResponseEntity<List<Comment>> getLists(@PathVariable("boardNo") Long boardNo) throws Exception {
 
-        return new ResponseEntity<>(commentService.findByComment(boardNo),HttpStatus.OK);
+        return new ResponseEntity<List<Comment>>(commentService.getCommentsOfBoard(boardNo),HttpStatus.OK);
     }
+
 }

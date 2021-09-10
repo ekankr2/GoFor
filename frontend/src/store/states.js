@@ -21,4 +21,6 @@ export default {
     // board
     boards: [],
     board: null,
+
+    comments: [],
 }

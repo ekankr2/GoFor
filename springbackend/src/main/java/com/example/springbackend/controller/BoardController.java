@@ -46,14 +46,14 @@ public class BoardController {
     }
 
     @GetMapping("/{boardNo}")
-    public ResponseEntity<Board> read(@PathVariable("boardNo")  Long boardNo) throws Exception {
+    public ResponseEntity<Board> read(@PathVariable("boardNo") Long boardNo) throws Exception {
         List<Board> board = service.findByBoardNo(boardNo);
         Board boardRead = board.get(0);
         return new ResponseEntity<Board>(boardRead, HttpStatus.OK);
     }
 
     @PutMapping("/{boardNo}")
-    public ResponseEntity<Void> modify(@PathVariable Long boardNo,
+    public ResponseEntity<Void> modify(@PathVariable("boardNo") Long boardNo,
                                        @RequestBody BoardRequest boardRequest) throws Exception {
 
         List<Board> board = service.findByBoardNo(boardNo);

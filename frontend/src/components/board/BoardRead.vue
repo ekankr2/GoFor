@@ -36,13 +36,8 @@
       </v-list-item>
 
       <v-divider></v-divider>
-      <!-- comments v-if logged on-->
-      <v-card-actions v-if="this.$store.state.session">
-            <v-textarea solo auto-grow class="mt-8 ml-5" rows="3" row-height="20" placeholder="댓글을 남겨보세요"
-            ></v-textarea>
-        <v-btn text class="py-9">Comment</v-btn>
-      </v-card-actions>
-
+      <!-- comment if logged on -->
+      <board-comment :board = board></board-comment>
 
     </v-card>
   </div>
@@ -51,19 +46,22 @@
 <script>
 import axios from "axios";
 import {mapState} from "vuex";
+import BoardComment from "./BoardComment";
 export default {
   name: "BoardRead",
+  components: {BoardComment},
+  props: {
     boardNo: {
       type: String,
       required: true
-
+    },
   },
   computed: {
     ...mapState(['board'])
   },
   data () {
     return {
-
+      content: "",
     }
   },
   methods: {
@@ -90,7 +88,18 @@ export default {
     },
     goBack() {
       this.$router.push({ name: 'BoardListPage' })
-    }
+    },
+    comment () {
+      const { content } = this
+      const { writer, boardNo } = this.board
+      axios.post(`http://localhost:7777/comment/register/${boardNo}`, { writer, content })
+          .then(res => {
+            alert('등록 성공! - ' + res)
+          })
+          .catch(res => {
+            alert(res.response.data.message)
+          })
+    },
   }
 }
 </script>

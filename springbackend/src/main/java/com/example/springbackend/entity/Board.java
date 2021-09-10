@@ -2,17 +2,15 @@ package com.example.springbackend.entity;
 
 import com.example.springbackend.controller.request.BoardRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.io.Console;
-import java.time.LocalDateTime;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -43,6 +41,11 @@ public class Board {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
     @UpdateTimestamp
     private Date updDate;
+
+    // comment
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "board_no")
+    private List<Comment> commentList = new ArrayList<Comment>();
 
     public Board(Long boardNo, String writer, String title, String link, String content, Date regDate, Date updDate) {
         this.boardNo = boardNo;

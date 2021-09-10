@@ -8,14 +8,17 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "boardComment")
+@Table(name = "Comment")
 @NoArgsConstructor
 @Data
-public class BoardComment {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_no")
     private Long commentNo;
+
+    @Column(nullable = false)
+    private Long board_no;
 
     @Column(nullable = false)
     private String writer;
@@ -25,4 +28,12 @@ public class BoardComment {
 
     @CreationTimestamp
     private Date regDate;
+
+    public Comment(Long commentNo, Long boardNo, String writer, String content, Date regDate){
+        this.commentNo = commentNo;
+        this.board_no = boardNo;
+        this.writer = writer;
+        this.content = content;
+        this.regDate = regDate;
+    }
 }

@@ -1,6 +1,6 @@
 import {
     FETCH_BOARD,
-    FETCH_BOARD_LIST,
+    FETCH_BOARD_LIST, FETCH_COMMENT_LIST,
     GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK
 } from "./mutation-types";
@@ -39,5 +39,9 @@ export default {
     },
     [FETCH_BOARD] (state, board) {
         state.board = board
+    },
+    //comment
+    [FETCH_COMMENT_LIST] (state,comments) {
+        state.comments = comments;
     },
 }

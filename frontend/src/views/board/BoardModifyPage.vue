@@ -1,7 +1,6 @@
 <template>
   <div>
-    <board-modify-form v-if="!board" :board="board" @submit="onSubmit"/>
-    <test-page :board="board" :board-no="boardNo" @submit="onSubmit"></test-page>
+    <board-modify-form :board="board" :board-no="boardNo" @submit="onSubmit"/>
   </div>
 </template>
 
@@ -9,11 +8,9 @@
 import BoardModifyForm from '@/components/board/BoardModifyForm'
 import { mapState, mapActions } from 'vuex'
 import axios from 'axios'
-import TestPage from "../TestPage";
 export default {
   name: 'BoardModifyPage',
   components: {
-    TestPage,
     BoardModifyForm
   },
   props: {
@@ -28,8 +25,8 @@ export default {
   methods: {
     ...mapActions(['fetchBoard']),
     onSubmit (payload) {
-      const { title, content } = payload
-      axios.put(`http://localhost:7777/board/${this.boardNo}`, { title, content })
+      const { title, content, link } = payload
+      axios.put(`http://localhost:7777/board/${this.boardNo}`, { title, content, link })
           .then(res => {
             alert('수정 성공!')
             console.log(res)

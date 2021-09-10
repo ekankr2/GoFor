@@ -8,7 +8,7 @@
             <v-btn class="right">취소</v-btn>
           </router-link>
 
-    <h2 class="mt-12">Tell us videos</h2>
+    <h2 class="mt-12">Tell Us Videos</h2>
 
     <board-register-form class="mt-8" @submit="onSubmit"/>
         </v-col>

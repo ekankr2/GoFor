@@ -4,14 +4,15 @@
     <div v-for="(item,idx) in comments" :key="idx">
 
       <!-- delete btn -->
-      <v-btn @click="deleteComment(item.commentNo)" v-if="item.writer === checkUser" text class="right deleteBtn mt-1">
+      <v-btn @click="deleteComment(item)" v-if="item.writer === checkUser || checkUser === admin"
+             v-show="item.content !== deleted" text class="right deleteBtn mt-1">
         <v-icon>close</v-icon>댓글삭제</v-btn>
 
       <v-card-title class="text-subtitle-1 font-weight-bold">{{ item.writer }}</v-card-title>
-        <v-card-text class="text-body-1 font-weight-light black-text">{{ item.content }}</v-card-text>
-        <v-card-text class="grey--text">{{ item.regDate }}</v-card-text>
+      <v-card-text class="text-body-1 font-weight-light black-text">{{ item.content }}</v-card-text>
+      <v-card-text class="grey--text">{{ item.regDate }}</v-card-text>
 
-    <v-divider></v-divider>
+      <v-divider></v-divider>
 
     </div>
 
@@ -21,7 +22,6 @@
 <script>
 import {mapActions, mapState} from "vuex";
 import axios from "axios";
-
 export default {
   name: "TestPage",
   props: {
@@ -46,7 +46,8 @@ export default {
     return {
       memberCheck : false,
       content : "삭제된 댓글입니다",
-      writer : '',
+      deleted : "삭제된 댓글입니다",
+      admin : "admin",
     }
   },
   mounted() {
@@ -61,9 +62,9 @@ export default {
     cancel() {
       this.$router.push({ name: 'BoardReadPage' })
     },
-    deleteComment(commentNo) {
-      const { writer, content } = this
-      axios.put(`http://localhost:7777/comment/${commentNo}`, { writer, content })
+    deleteComment(item) {
+      const { content } = this
+      axios.put(`http://localhost:7777/comment/${item.commentNo}`, { writer : item.writer, content })
           .then(() => {
             alert('삭제 성공!')
             window.location.reload();
@@ -80,5 +81,4 @@ export default {
 .v-list-item{
   min-height: 200px;
 }
-
 </style>

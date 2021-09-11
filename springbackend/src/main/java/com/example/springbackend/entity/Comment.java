@@ -1,5 +1,6 @@
 package com.example.springbackend.entity;
 
+import com.example.springbackend.controller.request.CommentRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,5 +38,10 @@ public class Comment {
         this.writer = writer;
         this.content = content;
         this.regDate = regDate;
+    }
+
+    public void updateComment(CommentRequest commentRequest){
+        this.writer = commentRequest.getWriter();
+        this.content = commentRequest.getContent();
     }
 }

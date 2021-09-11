@@ -38,7 +38,7 @@
       <v-divider></v-divider>
       <!-- commentRegister if logged on -->
 
-      <test-page :boardNo="boardNo"></test-page>
+      <test-page :board-no="boardNo"></test-page>
       <board-comment-register :board = board></board-comment-register>
 
 

@@ -13,5 +13,8 @@ public interface CommentRepository extends CrudRepository<Comment, Long> {
 
     @Query("select c from Comment c where  c.board_no = :boardNo")
     public List<Comment> getCommentsOfBoard(Long boardNo);
+
+    @Query("select c from Comment c where c.commentNo = :commentNo")
+    public List<Comment> findByCommentNo(Long commentNo);
 }
 

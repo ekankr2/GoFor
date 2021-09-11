@@ -31,4 +31,15 @@ public class CommentServiceImpl implements CommentService{
     public List<Comment> getCommentsOfBoard(Long boardNo) throws Exception {
         return commentRepository.getCommentsOfBoard(boardNo);
     }
+
+    @Override
+    public List<Comment> findByCommentNo(Long commentNo) throws Exception {
+        return commentRepository.findByCommentNo(commentNo);
+    }
+
+    @Override
+    public void modify(Comment comment, CommentRequest commentRequest) throws Exception {
+        comment.updateComment(commentRequest);
+        commentRepository.save(comment);
+    }
 }

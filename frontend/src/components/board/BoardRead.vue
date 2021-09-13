@@ -38,7 +38,7 @@
       <v-divider></v-divider>
       <!-- commentRegister if logged on -->
 
-      <test-page :board-no="boardNo"></test-page>
+      <board-comment-list :board-no="boardNo"></board-comment-list>
       <board-comment-register :board = board></board-comment-register>
 
 
@@ -50,10 +50,10 @@
 import axios from "axios";
 import {mapState} from "vuex";
 import BoardCommentRegister from "./BoardCommentRegister";
-import TestPage from "../../views/TestPage";
+import BoardCommentList from "./BoardCommentList";
 export default {
   name: "BoardRead",
-  components: {TestPage, BoardCommentRegister},
+  components: {BoardCommentList, BoardCommentRegister},
   props: {
     boardNo: {
       type: String,

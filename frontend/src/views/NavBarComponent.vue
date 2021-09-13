@@ -17,11 +17,12 @@
         <!-- sign up button -->
         <member-register-card @submit="onRegister" v-if="!isLogin">
         </member-register-card>
-
+        <!-- if login true
         <v-btn class="btn-flat" v-if="isLogin" @click="logout">
-          {{session.member_id}} 님 로그아웃
+          {{session.member_id}}
         </v-btn>
-
+        -->
+        <member-info :session="session" v-if="isLogin" @logout="logout"></member-info>
       </v-toolbar-items>
 
       <!-- nav icon -->
@@ -82,10 +83,11 @@ import axios from "axios";
 import {mapState} from 'vuex'
 
 import cookies from "vue-cookies";
+import MemberInfo from "../components/HomeContents/MemberInfo";
 Vue.use(cookies)
 export default {
   name: 'NavBarComponent',
-  components: { MemberRegisterCard, MemberLoginCard},
+  components: {MemberInfo, MemberRegisterCard, MemberLoginCard},
   data () {
     return {
       nav_drawer: false,

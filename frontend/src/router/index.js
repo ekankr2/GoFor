@@ -7,11 +7,11 @@ import Car from "../views/rides/Car";
 import Walk from "../views/rides/Walk";
 import Bike from "../views/rides/Bike";
 import Motorcycle from "../views/rides/Motorcycle";
-import TestPage from "../views/TestPage";
 import BoardRegisterPage from "../views/board/BoardRegisterPage";
 import BoardListPage from "../views/board/BoardListPage";
 import BoardReadPage from "../views/board/BoardReadPage";
 import BoardModifyPage from "../views/board/BoardModifyPage";
+import TestPage from "../views/TestPage";
 
 
 Vue.use(VueRouter)

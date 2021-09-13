@@ -19,7 +19,7 @@
           <v-layout wrap>
             <v-flex xs12>
               <input placeholder="Enter your ID" v-model="member_id"
-                     type="text" class="my-3 px-auto">
+                     type="text" class="my-3 px-auto" autofocus>
 
             </v-flex>
             <v-flex xs12>

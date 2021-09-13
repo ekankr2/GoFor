@@ -1,48 +1,44 @@
 <template>
-  <div id="app">
-    <v-app id="inspire">
-      <div class="text-center">
+      <div>
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn class="btn-flat" color="primary" dark v-bind="attrs" v-on="on">
+            <v-btn class="mt-n4 py-8 btn-flat" text v-bind="attrs" v-on="on">
               {{ session.member_id }}
             </v-btn>
           </template>
           <v-list>
             <v-list-item>
-              <v-list-item-title><v-icon left>assignment_ind</v-icon>My Info</v-list-item-title>
+              <v-list-item-title class="infoBtn"><v-icon left>assignment_ind</v-icon>My Info</v-list-item-title>
             </v-list-item>
+            <v-divider></v-divider>
             <v-list-item>
-              <v-list-item-title class="red-text"><v-icon color="red">exit_to_app</v-icon>
+              <v-list-item-title @click="logoutBtn" class="red-text infoBtn"><v-icon color="red">exit_to_app</v-icon>
                 Sign Out</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
       </div>
-    </v-app>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "TestPage",
+  name: "MemberInfo",
   props: {
     session: {
       type: Array,
       required: true
     },
   },
-  data() {
-    return {
-      items: [
-        { title: 'My Info' },
-        { title: 'Sign Out' },
-      ],
+  methods: {
+    logoutBtn () {
+      this.$emit('logout')
     }
   }
 }
 </script>
 
 <style scoped>
-
+.infoBtn{
+  cursor: pointer;
+}
 </style>

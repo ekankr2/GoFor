@@ -10,13 +10,14 @@
       <v-card-text>
         <p class="text-h4 text--primary mt-2">
           Profile</p><v-spacer class="pt-2"></v-spacer>
+
         <p>ID</p> <v-spacer class="mx-4"></v-spacer><p class="text-h5">{{member.member_id}}</p>
         <p>email</p> <v-spacer class="mx-4"></v-spacer><p class="text-h5">{{member.email}}</p>
         <p>name</p> <v-spacer class="mx-4"></v-spacer><p class="text-h5">{{member.name}}</p>
         <p>Joined in</p> <v-spacer class="mx-4"></v-spacer><p class="text-h5">{{member.regDate}}</p>
       </v-card-text>
 
-      <v-btn class="right mt-n11" text color="deep-purple accent-4">
+      <v-btn @click="changeInfo" class="right mt-n11" text color="deep-purple accent-4">
         Change Profile
       </v-btn>
     </v-card>
@@ -79,6 +80,9 @@ export default {
       }
       console.log(temp)
       return temp;
+    },
+    changeInfo() {
+      this.$router.push({ name: 'MemberInfoChangePage' })
     }
   }
 }

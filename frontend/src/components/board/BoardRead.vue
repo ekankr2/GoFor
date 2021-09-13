@@ -77,18 +77,25 @@ export default {
       }
     },
     onDelete () {
-      const { boardNo } = this.board
-      axios.delete(`http://localhost:7777/board/${boardNo}`)
-          .then(() => {
-            alert('삭제 성공!')
-            this.$router.push({ name: 'BoardListPage' })
-          })
-          .catch(err => {
-            alert(err.response.data.message)
-          })
+      var input = confirm('Do you want to Delete?');
+
+      if(input) {
+        const {boardNo} = this.board
+        axios.delete(`http://localhost:7777/board/${boardNo}`)
+            .then(() => {
+              alert('삭제 성공!')
+              this.$router.push({name: 'BoardListPage'})
+            })
+            .catch(err => {
+              alert(err.response.data.message)
+            })
+      }
     },
     onModify() {
-      this.$router.push({name: 'BoardModifyPage', params: this.boardNo})
+      var input = confirm('Do you want to edit?')
+      if(input) {
+        this.$router.push({name: 'BoardModifyPage', params: this.boardNo})
+      }
     },
     goBack() {
       this.$router.push({ name: 'BoardListPage' })

@@ -2,7 +2,9 @@ package com.example.springbackend.service;
 
 import com.example.springbackend.controller.request.BoardRequest;
 import com.example.springbackend.entity.Board;
+import com.example.springbackend.entity.Comment;
 import com.example.springbackend.repository.BoardRepository;
+import com.example.springbackend.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -17,6 +19,8 @@ public class BoardServiceImpl implements BoardService{
 
     @Autowired
     private BoardRepository boardRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Override
     public void register(BoardRequest boardRequest) throws Exception {
@@ -46,7 +50,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public void delete(Long boardNo) throws Exception {
-
+        commentRepository.deleteByBoardNo(boardNo);
         boardRepository.deleteById(boardNo);
     }
 }

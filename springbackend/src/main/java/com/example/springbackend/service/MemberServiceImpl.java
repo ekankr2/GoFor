@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -55,12 +56,13 @@ public class MemberServiceImpl implements MemberService{
     public boolean checkUserIdValidation(String member_id) throws Exception {
         Optional<Member> maybeMember = memberRepository.findByUserId(member_id);
 
-        if(maybeMember == null)
+        if(maybeMember.isPresent())
         {
-            log.info("login(): 그런 사람 없다.");
             return false;
+        }else {
+            return true;
         }
-        return true;
+
     }
 
     @Override
@@ -71,7 +73,24 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
+    public List<Member> findByMemberNo(Long memberNo) throws Exception {
+        return memberRepository.findByMemberNo(memberNo);
+    }
+
+    @Override
     public void delete(Long memberNo) throws Exception {
         memberRepository.deleteById(memberNo);
+    }
+
+    @Override
+    public void modify(Member member, MemberRequest memberRequest) throws Exception {
+
+        String encodedPassword = passwordEncoder.encode(memberRequest.getMember_pw());
+        memberRequest.setMember_pw(encodedPassword);
+
+
+        member.updateMember(memberRequest);
+
+        memberRepository.save(member);
     }
 }

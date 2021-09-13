@@ -1,5 +1,6 @@
 package com.example.springbackend.entity;
 
+import com.example.springbackend.controller.request.MemberRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,5 +45,12 @@ public class Member {
         this.member_pw = member_pw;
         this.email = email;
         this.name = name;
+    }
+
+    public void updateMember(MemberRequest memberRequest) {
+        this.member_id = memberRequest.getMember_id();
+        this.member_pw = memberRequest.getMember_pw();
+        this.email = memberRequest.getEmail();
+        this.name = memberRequest.getName();
     }
 }

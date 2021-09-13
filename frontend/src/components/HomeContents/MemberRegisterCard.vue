@@ -19,8 +19,9 @@
         <v-container>
           <v-row>
             <v-col cols="12">
-              <input placeholder="아이디" v-model="member_id"
+              <input placeholder="아이디" :disabled="valid" v-model="member_id"
               type="text" class="my-5">
+              <v-btn color="grey darken-1" @click="checkValid" dark class="check mt-5 ml-n5">중복확인</v-btn>
             </v-col>
             <v-col cols="12">
               <input placeholder="비밀번호" v-model="member_pw"
@@ -47,7 +48,7 @@
           cancel
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn color="teal darken-1" type="submit" class="text-button"
+        <v-btn v-if="valid" color="teal darken-1" type="submit" class="text-button"
                text >
           Submit
         </v-btn>
@@ -58,6 +59,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "MemberRegisterCard",
   data() {
@@ -67,6 +70,7 @@ export default {
         member_pw: '',
         name: '',
         email: '',
+        valid: false,
     }
   },
   methods: {
@@ -75,11 +79,30 @@ export default {
       this.$emit('submit', { member_id, member_pw, name, email })
       this.registerDialog = false;
     },
+    checkValid() {
+      const { member_id } = this
+      let temp;
+      axios.get(`http://localhost:7777/member/check/${member_id}`)
+          .then(res => {
+            this.temp = res.data;
+            console.log(this.temp)
+            if(this.temp){
+              alert("Account Usable")
+              this.valid = res.data;
+            }else {
+              alert("Account Duplicate")
+              this.valid = false;
+            }
 
+          })
+      return temp
+    }
   },
 }
 </script>
 
 <style scoped>
-
+.check{
+  position: absolute;
+}
 </style>

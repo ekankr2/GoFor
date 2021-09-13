@@ -14,8 +14,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     @Query("select m from Board m where m.boardNo = :boardNo")
     List<Board> findByBoardNo(Long boardNo);
 
-
-
     @Query("select distinct m from Board m join fetch m.commentList where m.boardNo = :boardNo")
     List<Board> findByComment(Long boardNo);
 

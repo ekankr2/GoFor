@@ -9,11 +9,11 @@
         <v-icon>close</v-icon>댓글삭제</v-btn>
 
       <v-card-title class="text-subtitle-1 font-weight-bold">{{ item.writer }}</v-card-title>
+      <v-card-text class="grey--text mt-n5">{{ item.regDate }}</v-card-text>
       <v-card-text class="text-body-1 font-weight-light black-text">{{ item.content }}</v-card-text>
-      <v-card-text class="grey--text">{{ item.regDate }}</v-card-text>
 
+      <v-btn text v-if="checkUser">reply</v-btn>
       <v-divider></v-divider>
-
     </div>
 
   </v-card>

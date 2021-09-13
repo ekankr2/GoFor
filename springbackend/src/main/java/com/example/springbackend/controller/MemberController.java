@@ -64,7 +64,12 @@ public class MemberController {
         }
         return new ResponseEntity<UserInfo>(info, HttpStatus.OK);
     }
+    @GetMapping("/check/{member_id}")
+    public ResponseEntity<Boolean> checkDuplicate(@PathVariable("member_id") String member_id) throws Exception {
+        Boolean maybeMember = service.checkUserIdValidation(member_id);
 
+        return new ResponseEntity<Boolean>(maybeMember, HttpStatus.OK);
+    }
 
 
     @PostMapping("/removeSession")
@@ -85,5 +90,13 @@ public class MemberController {
     public ResponseEntity<Void> delete(@PathVariable("memberNo") Long memberNo) throws Exception {
         service.delete(memberNo);
         return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+    @PutMapping("/modify/{memberNo}")
+    public ResponseEntity<Void> modify(@PathVariable("memberNo") Long memberNo,
+                                       @RequestBody MemberRequest memberRequest) throws Exception {
+        List<Member> member = service.findByMemberNo(memberNo);
+        Member memberRead = member.get(0);
+        service.modify(memberRead, memberRequest);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

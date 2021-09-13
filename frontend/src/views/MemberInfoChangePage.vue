@@ -6,6 +6,7 @@
       <v-list-item two-line>
         <v-list-item-content>
           <h3 class="center mt-3">Edit Personal Info</h3>
+          {{member}}
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
@@ -13,15 +14,16 @@
         <v-row align="center">
           <v-col class="mt-3" cols="12">
             new ID
-            <v-textarea v-model="link" auto-grow solo row-height="10" value="" class="text-body-1"></v-textarea>
+            <v-textarea v-model="member_id" disabled auto-grow solo row-height="10"
+                        class="text-body-1"></v-textarea>
           </v-col>
         </v-row>
       </v-card-text>
       <v-card-text>
         <v-row align="center">
-          <v-col class="mt-1" cols="12">
+          <v-col class="mt-n10" cols="12">
             new name
-            <v-textarea v-model="link" auto-grow solo row-height="10" value="" class="text-body-1"></v-textarea>
+            <v-textarea v-model="name" auto-grow solo row-height="10" class="text-body-1"></v-textarea>
           </v-col>
         </v-row>
       </v-card-text>
@@ -29,7 +31,7 @@
         <v-row align="center">
           <v-col class="mt-n10" cols="12">
             new Email
-            <v-textarea v-model="link" auto-grow solo row-height="10" value="" class="text-body-1"></v-textarea>
+            <v-textarea v-model="email" auto-grow solo row-height="10" class="text-body-1"></v-textarea>
           </v-col>
         </v-row>
       </v-card-text>
@@ -37,7 +39,7 @@
         <v-row align="center">
           <v-col class="mt-n10" cols="12">
             new Password
-            <v-textarea v-model="link" auto-grow solo row-height="10" value="" class="text-body-1"></v-textarea>
+            <v-textarea v-model="member_pw" auto-grow solo row-height="10" value="" class="text-body-1"></v-textarea>
           </v-col>
         </v-row>
       </v-card-text>
@@ -48,7 +50,7 @@
       <v-card-actions>
         <v-btn text @click="cancel">CANCEL</v-btn>
         <v-spacer></v-spacer>
-        <v-btn text @click="Done">DONE</v-btn>
+        <v-btn text @click="done">DONE</v-btn>
       </v-card-actions>
 
 
@@ -57,23 +59,48 @@
 </template>
 
 <script>
+import axios from "axios";
+import {mapState} from "vuex";
+
 export default {
   name: "MemberInfoChangePage",
-  methods: {
+  computed: {
+    ...mapState(["member"])
+  },
     data() {
       return {
-        link: '',
-        content: '',
+        member_id: this.$store.state.member.member_id,
+        email: this.$store.state.member.email,
+        name: this.$store.state.member.name,
+        member_pw: '',
+        memberNo: this.$store.state.member.memberNo,
       }
     },
-    Done () {
-      const { title, content, link } = this
-      this.$emit('submit', { title, content, link })
-    },
+  methods: {
     cancel() {
-      this.$router.push({ name: 'MemberInfoPage' })
-    }
+      this.$router.push({name: 'MemberInfoPage'})
+    },
+    done() {
+      const { memberNo, member_id, email, name, member_pw } = this
+      console.log(this.member_id)
+      console.log(this.memberNo)
+      console.log(this.email)
+      console.log(this.name)
+      console.log(this.member_pw)
+      axios.put(`http://localhost:7777/member/modify/${memberNo}`, { member_id, email, name, member_pw })
+          .then(res => {
+            alert('수정 성공!')
+            console.log(res)
+            //this.$router.push({
+            //  name: 'BoardListPage',
+            //})
+          })
+          .catch(err => {
+            alert(err.response.data.message)
+          })
+    },
   }
+
 }
 </script>
 

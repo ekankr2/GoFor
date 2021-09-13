@@ -12,6 +12,8 @@ import BoardListPage from "../views/board/BoardListPage";
 import BoardReadPage from "../views/board/BoardReadPage";
 import BoardModifyPage from "../views/board/BoardModifyPage";
 import TestPage from "../views/TestPage";
+import MemberInfoPage from "../views/MemberInfoPage";
+import MemberInfoChangePage from "../views/MemberInfoChangePage";
 
 
 Vue.use(VueRouter)
@@ -91,7 +93,20 @@ const routes = [
       default: true
     }
   },
-
+  {
+    path: '/memberInfo',
+    name: 'MemberInfoPage',
+    components: {
+      default: MemberInfoPage
+    }
+  },
+  {
+    path: '/memberInfoChange',
+    name: 'MemberInfoChangePage',
+    components: {
+      default: MemberInfoChangePage
+    }
+  },
 ]
 
 const router = new VueRouter({

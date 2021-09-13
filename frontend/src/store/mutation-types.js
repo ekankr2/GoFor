@@ -15,3 +15,5 @@ export const FETCH_BOARD = 'FETCH_BOARD'
 
 export const FETCH_COMMENT_LIST = 'FETCH_COMMENT_LIST'
 export const FETCH_COMMENT = "FETCH_COMMENT"
+
+export const FETCH_MEMBER = "FETCH_MEMBER"

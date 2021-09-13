@@ -24,4 +24,6 @@ export default {
 
     comments: [],
     comment: null,
+
+    member: null,
 }

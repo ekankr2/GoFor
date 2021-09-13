@@ -8,7 +8,8 @@
           </template>
           <v-list>
             <v-list-item>
-              <v-list-item-title class="infoBtn"><v-icon left>assignment_ind</v-icon>My Info</v-list-item-title>
+              <v-list-item-title @click="memberInfo" class="infoBtn"><v-icon left>assignment_ind
+              </v-icon>My Info</v-list-item-title>
             </v-list-item>
             <v-divider></v-divider>
             <v-list-item>
@@ -22,16 +23,19 @@
 
 <script>
 export default {
-  name: "MemberInfo",
+  name: "MemberMenu",
   props: {
     session: {
-      type: Array,
+      type: Object,
       required: true
     },
   },
   methods: {
     logoutBtn () {
       this.$emit('logout')
+    },
+    memberInfo() {
+      this.$router.push({ name: 'MemberInfoPage' })
     }
   }
 }

@@ -22,7 +22,7 @@
           {{session.member_id}}
         </v-btn>
         -->
-        <member-info :session="session" v-if="isLogin" @logout="logout"></member-info>
+        <member-menu :session="session" v-if="isLogin" @logout="logout"></member-menu>
       </v-toolbar-items>
 
       <!-- nav icon -->
@@ -83,11 +83,11 @@ import axios from "axios";
 import {mapState} from 'vuex'
 
 import cookies from "vue-cookies";
-import MemberInfo from "../components/HomeContents/MemberInfo";
+import MemberMenu from "../components/HomeContents/MemberMenu";
 Vue.use(cookies)
 export default {
   name: 'NavBarComponent',
-  components: {MemberInfo, MemberRegisterCard, MemberLoginCard},
+  components: {MemberMenu, MemberRegisterCard, MemberLoginCard},
   data () {
     return {
       nav_drawer: false,

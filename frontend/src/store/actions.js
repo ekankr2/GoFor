@@ -1,6 +1,6 @@
 import {
     FETCH_BOARD,
-    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST,
+    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER,
     GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK,
 } from "./mutation-types";
@@ -80,6 +80,12 @@ export default {
         return axios.get(`http://localhost:7777/comment/${commentNo}`)
             .then((res) => {
                 commit(FETCH_COMMENT, res.data)
+            })
+    },
+    fetchMember ({ commit }, memberId) {
+        return axios.get(`http://localhost:7777/member/read/${memberId}`)
+            .then((res) => {
+                commit(FETCH_MEMBER, res.data)
             })
     },
 }

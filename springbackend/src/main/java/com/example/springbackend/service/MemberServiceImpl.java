@@ -62,4 +62,16 @@ public class MemberServiceImpl implements MemberService{
         }
         return true;
     }
+
+    @Override
+    public Member findByMemberId(String member_id) throws Exception {
+        Optional<Member> maybeMember = memberRepository.findByUserId(member_id);
+        Member member = maybeMember.get();
+        return member;
+    }
+
+    @Override
+    public void delete(Long memberNo) throws Exception {
+        memberRepository.deleteById(memberNo);
+    }
 }

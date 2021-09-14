@@ -39,6 +39,7 @@
       <!-- commentRegister if logged on -->
 
       <board-comment-list :board-no="boardNo"></board-comment-list>
+      <v-divider class="mx-5"></v-divider>
       <board-comment-register :board = board></board-comment-register>
 
 

@@ -1,8 +1,9 @@
 <template>
   <v-card-actions v-if="this.$store.state.session">
-    <v-textarea @focus="setWriter" solo auto-grow class="mt-8 ml-5" rows="3" row-height="20" placeholder="댓글을 남겨보세요"
+    <v-textarea :rules="rules" @focus="setWriter" solo auto-grow class="mt-8 ml-5 mr-10"
+                rows="3" row-height="20" placeholder="Write Comment for the Video"
                 v-model="content"></v-textarea>
-    <v-btn @click="onClick" text class="py-9">Comment</v-btn>
+    <v-btn @click="onClick" v-show="content" text class="py-9">Comment</v-btn>
   </v-card-actions>
 </template>
 
@@ -25,6 +26,9 @@ export default {
     return {
       content: '',
       writer: '',
+      rules: [
+        v => !!v || 'Content is required',
+      ]
     }
   },
   methods: {

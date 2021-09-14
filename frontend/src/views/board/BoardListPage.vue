@@ -1,7 +1,7 @@
 <template>
   <div>
       <h3 align="center">Recommend Us Videos</h3>
-      <div align="right" class="mb-3 mr-2"><v-btn @click="recommend">Recommend</v-btn></div>
+      <div align="right" class="mb-3 mr-2"><v-btn @click="recommend">Post Recommendation</v-btn></div>
     <!--<board-list :boards="boards"/>-->
     <board-list :boards="boards"></board-list>
   </div>

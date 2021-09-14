@@ -1,6 +1,5 @@
 <template>
   <v-card max-width="95%" class="mx-auto" elevation="0">
-    {{comment}}
     <div v-for="(item,idx) in comments" :key="idx">
 
       <!-- delete btn -->
@@ -10,10 +9,12 @@
 
       <v-card-title class="text-subtitle-1 font-weight-bold">{{ item.writer }}</v-card-title>
       <v-card-text class="grey--text mt-n5">{{ item.regDate }}</v-card-text>
-      <v-card-text class="text-body-1 font-weight-light black-text">{{ item.content }}</v-card-text>
+      <v-card-text class="text-body-1 mt-n2 mb-1 font-weight-light black-text">{{ item.content }}</v-card-text>
 
-      <v-btn text v-if="checkUser">reply</v-btn>
+      <v-btn text v-if="checkUser" @click="onReply(item.commentNo)">reply</v-btn>
       <v-divider></v-divider>
+      <comment-reply :comment="item" :replies="replies" v-if="comment"
+                     v-show="showReply(item.commentNo)"></comment-reply>
     </div>
 
   </v-card>
@@ -22,8 +23,10 @@
 <script>
 import {mapActions, mapState} from "vuex";
 import axios from "axios";
+import CommentReply from "./CommentReply";
 export default {
   name: "BoardCommentList",
+  components: {CommentReply},
   props: {
     boardNo: {
       type: String,
@@ -31,7 +34,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["comments","comment","board","session"]),
+    ...mapState(["comments","comment","board","session","replies"]),
     checkUser() {
       let temp
       if(this.session !== null) {
@@ -48,13 +51,14 @@ export default {
       content : "삭제된 댓글입니다",
       deleted : "삭제된 댓글입니다",
       admin : "admin",
+      replyOn: false,
     }
   },
   mounted() {
     this.fetchCommentList(this.boardNo)
   },
   methods: {
-    ...mapActions(["fetchCommentList","fetchComment"]),
+    ...mapActions(["fetchCommentList","fetchComment","fetchReplies"]),
     Done () {
       const { title, content } = this
       this.$emit('submit', { title, content })
@@ -72,6 +76,17 @@ export default {
           .catch(err => {
             alert(err.response.data.message)
           })
+    },
+    onReply(value) {
+      this.fetchComment(value)
+      this.fetchReplies(value)
+    },
+    showReply(value){
+      if(this.comment.commentNo === value) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }

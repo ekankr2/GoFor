@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-card-title>
-        <h4>게시물 목록</h4>
+        <h4>Recommendations</h4>
         <v-spacer></v-spacer>
         <v-text-field
             v-model="search"

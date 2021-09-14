@@ -85,7 +85,6 @@ export default {
       axios.get(`http://localhost:7777/member/check/${member_id}`)
           .then(res => {
             this.temp = res.data;
-            console.log(this.temp)
             if(this.temp){
               alert("Account Usable")
               this.valid = res.data;

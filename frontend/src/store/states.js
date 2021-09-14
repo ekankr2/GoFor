@@ -25,5 +25,8 @@ export default {
     comments: [],
     comment: null,
 
+    replies: [],
+    reply: null,
+
     member: null,
 }

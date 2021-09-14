@@ -6,7 +6,6 @@
       <v-list-item two-line>
         <v-list-item-content>
           <h3 class="center mt-3">Edit Personal Info</h3>
-          {{member}}
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
@@ -82,18 +81,12 @@ export default {
     },
     done() {
       const { memberNo, member_id, email, name, member_pw } = this
-      console.log(this.member_id)
-      console.log(this.memberNo)
-      console.log(this.email)
-      console.log(this.name)
-      console.log(this.member_pw)
       axios.put(`http://localhost:7777/member/modify/${memberNo}`, { member_id, email, name, member_pw })
-          .then(res => {
+          .then(() => {
             alert('수정 성공!')
-            console.log(res)
-            //this.$router.push({
-            //  name: 'BoardListPage',
-            //})
+            this.$router.push({
+              name: 'MemberInfoPage',
+            })
           })
           .catch(err => {
             alert(err.response.data.message)

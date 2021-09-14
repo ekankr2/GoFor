@@ -1,6 +1,6 @@
 import {
     FETCH_BOARD,
-    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER,
+    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER, FETCH_REPLY, FETCH_REPLY_LIST,
     GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK
 } from "./mutation-types";
@@ -46,6 +46,12 @@ export default {
     },
     [FETCH_COMMENT] (state,comment) {
         state.comment = comment;
+    },
+    [FETCH_REPLY_LIST] (state,replies) {
+        state.replies = replies;
+    },
+    [FETCH_REPLY] (state,reply) {
+        state.reply = reply
     },
     [FETCH_MEMBER] (state,member) {
         state.member = member;

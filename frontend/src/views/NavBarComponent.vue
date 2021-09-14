@@ -108,8 +108,8 @@ export default {
     onRegister (payload) {
       const { member_id, member_pw, name, email } = payload
       axios.post(`http://localhost:7777/member/register`, { member_id, member_pw, name, email })
-          .then(res =>{
-             alert('가입이 완료되었습니다!' + res)
+          .then(() =>{
+             alert('Sign Up Successful!')
             this.member_id = ''
             this.member_pw = ''
             this.name = ''

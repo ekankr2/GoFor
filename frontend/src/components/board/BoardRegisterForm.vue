@@ -2,8 +2,8 @@
   <form @submit.prevent="onSubmit">
     <input type="text" placeholder="Title here" class="mt-n1" v-model="title">
     <input type="text" class="mt-5"  disabled v-model="writer">
-    <input type="text" class="mt-5" placeholder="YouTube Link" v-model="link">
-    <v-textarea filled auto-grow class="mt-8"  rows="4" row-height="80" placeholder="Description"
+    <v-text-field type="text" class="mt-5" :rules="linkRules" placeholder="YouTube Link" v-model="link"/>
+    <v-textarea solo auto-grow class="mt-8"  rows="4" row-height="80" placeholder="Description"
               v-model="content"></v-textarea>
 
     <div>
@@ -22,7 +22,12 @@ export default {
       title: '',
       writer: '',
       link: '',
-      content: ''
+      content: '',
+      linkRules: [
+          v => !!v || 'Link is required',
+          v => v.length >= 8 || 'Name must be more than 8 characters',
+          v => v.includes("youtube") || 'Must be YouTube Link'
+          ],
     }
   },
   computed: {

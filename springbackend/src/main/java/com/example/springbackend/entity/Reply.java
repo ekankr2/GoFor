@@ -1,28 +1,27 @@
 package com.example.springbackend.entity;
 
 import com.example.springbackend.controller.request.CommentRequest;
+import com.example.springbackend.controller.request.ReplyRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "Comment")
+@Table(name = "Reply")
 @NoArgsConstructor
 @Data
-public class Comment {
+public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_no")
-    private Long commentNo;
+    @Column
+    private Long replyNo;
 
     @Column(nullable = false)
-    private Long board_no;
+    private Long comment_no;
 
     @Column(nullable = false)
     private String writer;
@@ -34,20 +33,16 @@ public class Comment {
     @CreationTimestamp
     private Date regDate;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "comment_no")
-    private List<Reply> replyList = new ArrayList<Reply>();
-
-    public Comment(Long commentNo, Long boardNo, String writer, String content, Date regDate){
-        this.commentNo = commentNo;
-        this.board_no = boardNo;
+    public Reply(Long replyNo, Long commentNo, String writer, String content, Date regDate){
+        this.replyNo = replyNo;
+        this.comment_no = commentNo;
         this.writer = writer;
         this.content = content;
         this.regDate = regDate;
     }
 
-    public void updateComment(CommentRequest commentRequest){
-        this.writer = commentRequest.getWriter();
-        this.content = commentRequest.getContent();
+    public void updateReply(ReplyRequest replyRequest){
+        this.writer = replyRequest.getWriter();
+        this.content = replyRequest.getContent();
     }
 }

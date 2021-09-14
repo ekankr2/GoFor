@@ -43,7 +43,7 @@ public class Board {
     private Date updDate;
 
     // comment
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "board_no")
     private List<Comment> commentList = new ArrayList<Comment>();
 

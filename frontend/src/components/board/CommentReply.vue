@@ -28,7 +28,7 @@
 
 <script>
 import axios from "axios";
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "CommentReply",
@@ -63,13 +63,15 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["fetchReplies"]),
     registerReply() {
       const { writer, content } = this
       const { commentNo } = this.comment
       axios.post(`http://localhost:7777/reply/register/${commentNo}`, { writer, content })
           .then(() => {
             alert('reply complete')
-            window.location.reload();
+            this.fetchReplies(this.comment.commentNo)
+            this.content = ""
           })
           .catch(res => {
             alert(res.response.data.message)
@@ -85,7 +87,8 @@ export default {
           { writer : item.writer, content : "삭제된 댓글입니다."})
           .then(() => {
             alert('삭제 성공!')
-            window.location.reload();
+            //window.location.reload();
+            this.fetchReplies(this.comment.commentNo)
           })
           .catch(err => {
             alert(err.response.data.message)

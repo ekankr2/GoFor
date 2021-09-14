@@ -65,7 +65,8 @@ export default {
       axios.put(`http://localhost:7777/comment/${item.commentNo}`, { writer : item.writer, content })
           .then(() => {
             alert('삭제 성공!')
-            window.location.reload();
+            //window.location.reload();
+            this.fetchCommentList(this.boardNo)
           })
           .catch(err => {
             alert(err.response.data.message)

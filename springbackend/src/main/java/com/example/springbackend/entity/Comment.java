@@ -34,7 +34,7 @@ public class Comment {
     @CreationTimestamp
     private Date regDate;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "comment_no")
     private List<Reply> replyList = new ArrayList<Reply>();
 

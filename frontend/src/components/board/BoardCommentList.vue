@@ -5,15 +5,15 @@
       <!-- delete btn -->
       <v-btn @click="deleteComment(item)" v-if="item.writer === checkUser || checkUser === admin"
              v-show="item.content !== deleted" text class="right deleteBtn mt-1">
-        <v-icon>close</v-icon>댓글삭제</v-btn>
+        <v-icon>close</v-icon>delete</v-btn>
 
       <v-card-title class="text-subtitle-1 font-weight-bold">{{ item.writer }}</v-card-title>
       <v-card-text class="grey--text mt-n5">{{ item.regDate }}</v-card-text>
       <v-card-text class="text-body-1 mt-n2 mb-1 font-weight-light black-text">{{ item.content }}</v-card-text>
 
-      <v-btn text v-if="checkUser" @click="onReply(item.commentNo)">reply</v-btn>
+      <v-btn text v-if="checkUser" @click="onReply(item.commentNo), showIt = !showIt">reply</v-btn>
       <v-divider></v-divider>
-      <comment-reply :comment="item" :replies="replies" v-if="comment"
+      <comment-reply :comment="item" :replies="replies" v-if="showIt && comment"
                      v-show="showReply(item.commentNo)"></comment-reply>
     </div>
 
@@ -52,6 +52,7 @@ export default {
       deleted : "삭제된 댓글입니다",
       admin : "admin",
       replyOn: false,
+      showIt: false,
     }
   },
   mounted() {
@@ -59,13 +60,6 @@ export default {
   },
   methods: {
     ...mapActions(["fetchCommentList","fetchComment","fetchReplies"]),
-    Done () {
-      const { title, content } = this
-      this.$emit('submit', { title, content })
-    },
-    cancel() {
-      this.$router.push({ name: 'BoardReadPage' })
-    },
     deleteComment(item) {
       const { content } = this
       axios.put(`http://localhost:7777/comment/${item.commentNo}`, { writer : item.writer, content })

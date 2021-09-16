@@ -10,8 +10,9 @@
           </v-list-item-title>
           <v-list-item-subtitle align="right">글 번호 : {{board.boardNo}}<br>
             작성일 : {{ board.regDate }}</v-list-item-subtitle>
-          <v-list-item-subtitle class="mb-n4"><v-btn text @click="onDelete">delete</v-btn>
-            <v-btn text @click="onModify">Edit</v-btn>
+          <v-list-item-subtitle v-if="session" v-show="board.writer == session.member_id" class="mb-n4">
+            <v-btn text  @click="onDelete">delete</v-btn>
+            <v-btn text  @click="onModify">Edit</v-btn>
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -63,7 +64,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(['board'])
+    ...mapState(['board','session'])
   },
   data () {
     return {

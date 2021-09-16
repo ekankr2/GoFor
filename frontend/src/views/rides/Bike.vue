@@ -6,12 +6,12 @@
 
     <v-navigation-drawer right v-model="drawer" absolute temporary>
       <v-list-item>
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        <v-list-item-avatar v-if="session">
+          <v-img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_960_720.png"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>John Leider</v-list-item-title>
+          <v-list-item-title v-if="session" class="text-h6">{{ session.member_id }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -128,7 +128,7 @@ export default {
     player() {
       return this.$refs.videoPlayer.player
     },
-    ...mapState(['selectedBike']),
+    ...mapState(['selectedBike','session']),
   },
   methods: {
     ...mapActions(['getRandomBike']),

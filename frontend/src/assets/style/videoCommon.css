@@ -21,7 +21,7 @@
 }
 .video-player{
     left: 50%;
-    margin: 0px;
+    margin: 0;
     position: absolute;
     top: 45%;
     transform: translate(-50%, -50%);

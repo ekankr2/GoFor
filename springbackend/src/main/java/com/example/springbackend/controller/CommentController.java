@@ -44,13 +44,15 @@ public class CommentController {
 
         return new ResponseEntity<List<Comment>>(commentService.getCommentsOfBoard(boardNo),HttpStatus.OK);
     }
-
+/*
     @GetMapping("/{commentNo}")
     public ResponseEntity<Comment> delete(@PathVariable("commentNo") Long commentNo) throws Exception {
         List<Comment> commentList = commentService.findByCommentNo(commentNo);
         Comment commentRead = commentList.get(0);
         return new ResponseEntity<Comment>(commentRead, HttpStatus.OK);
     }
+
+ */
 
     @PutMapping("/{commentNo}")
     public ResponseEntity<Void> modify(@PathVariable("commentNo") Long commentNo,

@@ -1,5 +1,6 @@
 <template>
   <v-card max-width="95%" class="mx-auto" elevation="0">
+
     <div v-for="(item,idx) in comments" :key="idx">
 
       <!-- delete btn -->

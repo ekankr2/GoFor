@@ -36,6 +36,7 @@
       </v-list-item>
 
       <v-divider></v-divider>
+
       <!-- commentRegister if logged on -->
 
       <board-comment-list :board-no="boardNo"></board-comment-list>

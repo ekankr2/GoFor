@@ -33,9 +33,13 @@ Video Page
 
 <img width="60%" src="https://user-images.githubusercontent.com/83811729/133616156-9ec9075d-779a-4408-a071-4f3b054b2c62.png" title="Video" alt="Video"/>
 
-Recommend Us Video Page
+Recommend us video page
 
 <img width="60%" src="https://user-images.githubusercontent.com/83811729/133616485-9f96df50-c096-4740-aa31-07a194b2a438.png" title="board" alt="board"/>
+
+Adding comments
+
+<img width="60%" src="https://user-images.githubusercontent.com/83811729/133616715-4ad733b8-7b0a-40ce-ac41-4aebd162189d.png" title="comment" alt="comment"/>
 
 * Description Link
 

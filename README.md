@@ -39,7 +39,7 @@ I made it because I wanted to "go for" a trip but I couldn't
 * Nav Drawer
     * buttons for Home, Location, Sound on/off, source video link, select city
 
-<img width="60%" src="https://user-images.githubusercontent.com/83811729/135461470-46ee8fb0-bf65-4d3b-8f31-944317210971.png" title="Drawer" alt="Drawer"/>
+<img width="40%" src="https://user-images.githubusercontent.com/83811729/135461470-46ee8fb0-bf65-4d3b-8f31-944317210971.png" title="Drawer" alt="Drawer"/>
 
 * Map Location
     * You can see the location of the video

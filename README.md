@@ -34,7 +34,17 @@ I made it because I wanted to "go for" a trip but I couldn't
 * Video Page
     * You can select videos from the select city list
 
-<img width="60%" src="https://user-images.githubusercontent.com/83811729/133616156-9ec9075d-779a-4408-a071-4f3b054b2c62.png" title="Video" alt="Video"/>
+<img width="60%" src="https://user-images.githubusercontent.com/83811729/135461750-4d0cd4de-481e-4597-8a67-e140538d4499.png" title="Video" alt="Video"/>
+
+* Nav Drawer
+    * buttons for Home, Location, Sound on/off, source video link, select city
+
+<img width="60%" src="https://user-images.githubusercontent.com/83811729/135461470-46ee8fb0-bf65-4d3b-8f31-944317210971.png" title="Drawer" alt="Drawer"/>
+
+* Map Location
+    * You can see the location of the video
+
+<img width="60%" src="https://user-images.githubusercontent.com/83811729/135461246-dbcba85b-1539-4bc5-9465-10ebd0c81337.png" title="Map" alt="Map"/>
 
 * Recommend us Videos Page
     * If you don't have the city you want, recommend us

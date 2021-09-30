@@ -32,7 +32,7 @@ I made it because I wanted to "go for" a trip but I couldn't
 <img width="60%" src="https://user-images.githubusercontent.com/83811729/133615743-f6b7696e-afde-4f83-a954-9e7a1ef27934.png" title="Login" alt="Login"/>
 
 * Video Page
-    * You can select videos from the city list
+    * You can select videos from the select city list
 
 <img width="60%" src="https://user-images.githubusercontent.com/83811729/133616156-9ec9075d-779a-4408-a071-4f3b054b2c62.png" title="Video" alt="Video"/>
 

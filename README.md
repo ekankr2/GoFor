@@ -3,7 +3,7 @@ a Remote World Travel Web
 
 ---------------------------------
 ```
-I made it because I wanted to go for a trip but I couldn't
+I made it because I wanted to "go for" a trip but I couldn't
 ```
 
 

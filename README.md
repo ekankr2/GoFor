@@ -7,11 +7,12 @@ I made it because I wanted to "go for" a trip but I couldn't
 ```
 
 
-* Deploy ( only frontend )
+* Deploy with Firebase ( only frontend )
 
     * **Gofor: [Gofor Link][goFor Link]**
 
 [goFor Link]: https://gofor-b9ac3.web.app/
+
 ---------------------------------
 
 

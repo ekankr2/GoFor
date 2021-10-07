@@ -19,6 +19,7 @@ I made it because I wanted to "go for" a trip but I couldn't
     * Vue.js
         * Vuetify
     * MySQL
+---------------------------------
 
 * Main Page
     * 4 catagories of videos

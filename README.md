@@ -6,6 +6,12 @@ a Remote World Travel Web
 I made it because I wanted to "go for" a trip but I couldn't
 ```
 
+
+* Deploy ( only frontend )
+
+    * **Gofor: [Gofor][goFor Link]**
+
+[goFor Link]: https://gofor-b9ac3.web.app/"
 ---------------------------------
 
 
@@ -75,6 +81,6 @@ I made it because I wanted to "go for" a trip but I couldn't
 
 * Making Process Journal Link
 
-    * **Blog: [GoFor][goFor Link]**
+    * **Blog: [Blog][blog Link]**
 
-[goFor Link]: https://blog.naver.com/ekankr2/222508166591"
+[blog Link]: https://blog.naver.com/ekankr2/222508166591"

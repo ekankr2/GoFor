@@ -42,7 +42,7 @@ export default {
       city: '',
       country: '',
       accessToken:
-          "",
+          "pk.eyJ1IjoiZWthbmtyMiIsImEiOiJja3VwYWp1Y2IwcXVxMnBxcmNnbnhwaW9sIn0.1LXgsqQzWo1YVUZubqbwEw",
       // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/streets-v11", // your map style
       coordinates: '',

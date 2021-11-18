@@ -7,7 +7,7 @@ I made it because I wanted to "go for" a trip but I couldn't
 ```
 
 
-* Deploy with Firebase ( only frontend )
+* Deploy Link (with Firebase)
 
     * **Gofor: [Gofor Link][goFor Link]**
 

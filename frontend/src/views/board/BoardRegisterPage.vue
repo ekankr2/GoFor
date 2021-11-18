@@ -28,7 +28,7 @@ export default {
   methods: {
     onSubmit (payload) {
       const { title, content, writer, link } = payload
-      axios.post('http://localhost:7777/board/register', { title, writer, content, link })
+      axios.post('https://goforbackend.herokuapp.com/board/register', { title, writer, content, link })
           .then(res => {
             alert('등록 성공! - ' + res)
             this.$router.push('/board')

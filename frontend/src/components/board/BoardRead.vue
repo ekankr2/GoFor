@@ -84,7 +84,7 @@ export default {
 
       if(input) {
         const {boardNo} = this.board
-        axios.delete(`http://localhost:7777/board/${boardNo}`)
+        axios.delete(`https://goforbackend.herokuapp.com/board/${boardNo}`)
             .then(() => {
               alert('삭제 성공!')
               this.$router.push({name: 'BoardListPage'})

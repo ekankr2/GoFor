@@ -26,7 +26,7 @@ export default {
     ...mapActions(['fetchBoard']),
     onSubmit (payload) {
       const { title, content, link } = payload
-      axios.put(`http://localhost:7777/board/${this.boardNo}`, { title, content, link })
+      axios.put(`https://goforbackend.herokuapp.com/board/${this.boardNo}`, { title, content, link })
           .then(res => {
             alert('수정 성공!')
             console.log(res)

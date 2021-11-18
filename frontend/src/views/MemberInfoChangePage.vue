@@ -81,7 +81,7 @@ export default {
     },
     done() {
       const { memberNo, member_id, email, name, member_pw } = this
-      axios.put(`http://localhost:7777/member/modify/${memberNo}`, { member_id, email, name, member_pw })
+      axios.put(`https://goforbackend.herokuapp.com/member/modify/${memberNo}`, { member_id, email, name, member_pw })
           .then(() => {
             alert('수정 성공!')
             this.$router.push({

@@ -67,7 +67,7 @@ export default {
     registerReply() {
       const { writer, content } = this
       const { commentNo } = this.comment
-      axios.post(`http://localhost:7777/reply/register/${commentNo}`, { writer, content })
+      axios.post(`https://goforbackend.herokuapp.com/reply/register/${commentNo}`, { writer, content })
           .then(() => {
             alert('reply complete')
             this.fetchReplies(this.comment.commentNo)
@@ -83,7 +83,7 @@ export default {
     },
     deleteReply(item) {
       //const { content } = this
-      axios.put(`http://localhost:7777/reply/${item.replyNo}`,
+      axios.put(`https://goforbackend.herokuapp.com/reply/${item.replyNo}`,
           { writer : item.writer, content : "삭제된 댓글입니다."})
           .then(() => {
             alert('삭제 성공!')

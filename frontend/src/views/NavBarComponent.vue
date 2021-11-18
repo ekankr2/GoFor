@@ -107,7 +107,7 @@ export default {
   methods: {
     onRegister (payload) {
       const { member_id, member_pw, name, email } = payload
-      axios.post(`http://localhost:7777/member/register`, { member_id, member_pw, name, email })
+      axios.post(`https://goforbackend.herokuapp.com/member/register`, { member_id, member_pw, name, email })
           .then(() =>{
              alert('Sign Up Successful!')
             this.member_id = ''
@@ -123,7 +123,7 @@ export default {
       if(this.$store.state.session == null) {
         const {member_id, member_pw} = payload
         const name = null
-        axios.post('http://localhost:7777/member/login', {member_id, member_pw, name})
+        axios.post('https://goforbackend.herokuapp.com/member/login', {member_id, member_pw, name})
             .then(res => {
               if (res.data != "") {
                 alert(res.data.member_id + "님 환영합니다.")
@@ -145,7 +145,7 @@ export default {
 
     },
     removeSession () {
-      axios.post('http://localhost:7777/member/removeSession')
+      axios.post('https://goforbackend.herokuapp.com/member/removeSession')
           .then(res => {
             this.isLogin = res.data
             alert('로그아웃 되었습니다.')

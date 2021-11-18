@@ -59,43 +59,43 @@ export default {
     },
     // Board
     fetchBoardList ({ commit }) {
-        return axios.get(`http://localhost:7777/board/lists`)
+        return axios.get(`https://goforbackend.herokuapp.com/board/lists`)
             .then((res) => {
                 commit(FETCH_BOARD_LIST, res.data)
             })
     },
     fetchBoard ({ commit }, boardNo) {
-        return axios.get(`http://localhost:7777/board/${boardNo}`)
+        return axios.get(`https://goforbackend.herokuapp.com/board/${boardNo}`)
             .then((res) => {
                 commit(FETCH_BOARD, res.data)
             })
     },
     fetchCommentList ({ commit }, boardNo) {
-        return axios.get(`http://localhost:7777/comment/lists/${boardNo}`)
+        return axios.get(`https://goforbackend.herokuapp.com/comment/lists/${boardNo}`)
             .then((res) => {
                 commit(FETCH_COMMENT_LIST, res.data)
             })
     },
     fetchComment ({ commit }, commentNo) {
-        return axios.get(`http://localhost:7777/comment/${commentNo}`)
+        return axios.get(`https://goforbackend.herokuapp.com/comment/${commentNo}`)
             .then((res) => {
                 commit(FETCH_COMMENT, res.data)
             })
     },
     fetchReplies({ commit }, commentNo) {
-        return axios.get(`http://localhost:7777/reply/lists/${commentNo}`)
+        return axios.get(`https://goforbackend.herokuapp.com/reply/lists/${commentNo}`)
             .then((res) => {
             commit(FETCH_REPLY_LIST, res.data)
         })
     },
     fetchReply({ commit }, replyNo) {
-        return axios.get(`http://localhost:7777/reply/${replyNo}`)
+        return axios.get(`https://goforbackend.herokuapp.com/reply/${replyNo}`)
             .then((res) => {
                 commit(FETCH_REPLY, res.data)
             })
     },
     fetchMember ({ commit }, memberId) {
-        return axios.get(`http://localhost:7777/member/read/${memberId}`)
+        return axios.get(`https://goforbackend.herokuapp.com/member/read/${memberId}`)
             .then((res) => {
                 commit(FETCH_MEMBER, res.data)
             })

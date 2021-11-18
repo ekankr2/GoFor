@@ -35,7 +35,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["comments","comment","board","session","replies"]),
+    ...mapState(["comments", "comment", "board", "session", "replies"]),
     checkUser() {
       let temp
       if(this.session !== null) {
@@ -63,7 +63,7 @@ export default {
     ...mapActions(["fetchCommentList","fetchComment","fetchReplies"]),
     deleteComment(item) {
       const { content } = this
-      axios.put(`http://localhost:7777/comment/${item.commentNo}`, { writer : item.writer, content })
+      axios.put(`https://goforbackend.herokuapp.com/comment/${item.commentNo}`, { writer : item.writer, content })
           .then(() => {
             alert('삭제 성공!')
             //window.location.reload();

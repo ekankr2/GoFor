@@ -34,7 +34,7 @@ export default {
       const { writer, content } = this
       const { boardNo } = this.board
 
-      axios.post(`http://localhost:7777/comment/register/${boardNo}`, { writer, content })
+      axios.post(`https://goforbackend.herokuapp.com/comment/register/${boardNo}`, { writer, content })
           .then(() => {
             alert('댓글 등록 성공!')
             //window.location.reload();

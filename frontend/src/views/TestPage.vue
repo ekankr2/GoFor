@@ -64,7 +64,7 @@ export default {
       if (inputString == this.member.member_id) {
         temp = true;
         const { memberNo } = this.member
-        axios.delete(`http://localhost:7777/member/${memberNo}`)
+        axios.delete(`https://goforbackend.herokuapp.com/member/${memberNo}`)
             .then(() => {
               alert("Account Deleted")
               this.$cookies.remove('user')

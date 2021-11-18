@@ -82,7 +82,7 @@ export default {
     checkValid() {
       const { member_id } = this
       let temp;
-      axios.get(`http://localhost:7777/member/check/${member_id}`)
+      axios.get(`https://goforbackend.herokuapp.com/member/check/${member_id}`)
           .then(res => {
             this.temp = res.data;
             if(this.temp){

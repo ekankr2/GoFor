@@ -7,7 +7,7 @@ I made it because I wanted to "go for" a trip but I couldn't
 ```
 
 
-* Deploy Link (with Firebase)
+* Deploy Link (with Firebase Frontend server & Heroku Backend server)
 
     * **Gofor: [Gofor Link][goFor Link]**
 

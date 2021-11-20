@@ -10,23 +10,24 @@
           <v-img src="https://user-images.githubusercontent.com/83811729/139426389-ea6ace2a-bd42-4e3a-96fa-82388a029e67.png"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-content v-if="session" @click="$router.push('/isMyPage')" class="pointer">
-          <v-list-item-title>{{ session.memberId }}</v-list-item-title>
+        <v-list-item-content v-if="session" @click="memberInfo" class="pointer">
+          <v-list-item-title>{{ session.member_id }}</v-list-item-title>
         </v-list-item-content>
 
-        <div class="loginBtn" v-if="!session">
-          <v-icon>exit_to_app</v-icon>
-          <member-login-card/>
-        </div>
-        <v-divider class="divider"></v-divider>
-        <div class="registerBtn">
-          <v-icon>exit_to_app</v-icon>
-          <member-register-card/>
-        </div>
+        <v-list-item-content v-if="!session">
+          <div class="loginBtn">
+            <v-icon>exit_to_app</v-icon>
+            <member-login-card/>
+          </div>
+          <v-divider class="divider"></v-divider>
+          <div class="registerBtn">
+            <v-icon>exit_to_app</v-icon>
+            <member-register-card/>
+          </div>
+        </v-list-item-content>
+
 
       </v-list-item>
-
-
 
     </v-navigation-drawer>
 
@@ -51,12 +52,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['removeSession'])
+    ...mapActions(['removeSession']),
+    memberInfo() {
+      this.$router.push({ name: 'MemberInfoPage' })
+    }
   }
 }
 </script>
 
 <style scoped>
+.pointer{
+  cursor: pointer;
+}
 .loginBtn{
   position: absolute;
   top: 20px;
@@ -66,6 +73,6 @@ export default {
   top: 80px;
 }
 .divider{
-  margin-top: 82px;
+  margin-top: 65px;
 }
 </style>

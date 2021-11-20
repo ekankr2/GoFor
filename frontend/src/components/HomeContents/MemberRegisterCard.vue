@@ -14,7 +14,7 @@
         Sign Up
       </v-card-title>
       <!-- card contents -->
-      <form @submit="register">
+      <form @submit.prevent="register">
       <v-card-text>
         <v-container>
           <v-row>
@@ -75,9 +75,6 @@ export default {
   },
   methods: {
     register () {
-      // const { member_id, member_pw, name, email } = this
-      // this.$emit('submit', { member_id, member_pw, name, email })
-      // this.registerDialog = false;
       const { member_id, member_pw, name, email } = this
       axios.post(`https://goforbackend.herokuapp.com/member/register`, { member_id, member_pw, name, email })
           .then(() =>{
@@ -86,6 +83,7 @@ export default {
             this.member_pw = ''
             this.name = ''
             this.email = ''
+            this.registerDialog = false
           })
           .catch(res => {
             alert(res.response.data.message)

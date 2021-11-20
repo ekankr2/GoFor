@@ -113,7 +113,7 @@ export default {
         }
     },
     removeSession ({ commit }) {
-        this.$cookies.remove('user')
+        Vue.$cookies.remove('user')
         commit(FETCH_SESSION, null)
     },
 }

@@ -22,15 +22,12 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "MemberMenu",
-  props: {
-    session: {
-      type: Object,
-      required: true
-    },
+  computed:{
+    ...mapState(['session'])
   },
   methods: {
     ...mapActions(['removeSession']),

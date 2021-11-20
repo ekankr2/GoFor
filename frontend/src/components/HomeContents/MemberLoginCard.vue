@@ -48,6 +48,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import {mapActions, mapState} from "vuex";
+
 export default {
   name: "MemberLoginCard",
   data() {
@@ -58,11 +61,33 @@ export default {
 
     }
   },
+  computed:{
+    ...mapState(['session'])
+  },
   methods: {
+    ...mapActions(['fetchSession']),
     onLogin () {
-      const { member_id, member_pw } = this
-      this.$emit('submit', { member_id, member_pw })
-      this.loginDialog = false;
+      if(this.session == null) {
+        const {member_id, member_pw} = this
+        const name = null
+        axios.post('https://goforbackend.herokuapp.com/member/login', {member_id, member_pw, name})
+            .then(res => {
+              if (res.data !== null) {
+                alert(res.data.member_id + "님 환영합니다.")
+                this.$cookies.set("user", res.data, '1h')
+                this.fetchSession()
+                this.loginDialog = false
+              } else {
+                alert('아이디와 비밀번호를 확인해주세요. ' + res.data)
+              }
+            })
+            .catch(res => {
+              console.log(res)
+              alert('아이디와 비밀번호를 확인해주세요. ')
+            })
+      } else {
+        alert("이미 로그인 되어 있습니다. 아이디 : " +this.$store.state.session.member_id)
+      }
     },
   },
 }

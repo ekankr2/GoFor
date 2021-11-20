@@ -1,6 +1,9 @@
+import Vue from "vue";
+import cookies from "vue-cookies";
+Vue.use(cookies);
 import {
     FETCH_BOARD,
-    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER, FETCH_REPLY, FETCH_REPLY_LIST,
+    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER, FETCH_REPLY, FETCH_REPLY_LIST, FETCH_SESSION,
     GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK,
 } from "./mutation-types";
@@ -99,5 +102,18 @@ export default {
             .then((res) => {
                 commit(FETCH_MEMBER, res.data)
             })
+    },
+    fetchSession ({ commit }) {
+        let data = Vue.$cookies.get('user')
+
+        if(data !== null){
+            commit(FETCH_SESSION, data)
+        }else{
+            commit(FETCH_SESSION, null)
+        }
+    },
+    removeSession ({ commit }) {
+        this.$cookies.remove('user')
+        commit(FETCH_SESSION, null)
     },
 }

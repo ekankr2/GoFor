@@ -20,18 +20,24 @@
       <v-btn @click="changeInfo" class="right mt-n11" text color="deep-purple accent-4">
         Change Profile
       </v-btn>
+
     </v-card>
+
     <v-spacer class="py-8"></v-spacer>
+
     <v-card class="mx-auto mt-n3" max-width="700" min-height="100">
+
       <v-card-text>
         <p class="text-h4 text--primary mt-2">
           Delete My Account</p><v-spacer class="pt-2"></v-spacer>
         <p>I want to delete my Account</p>
       </v-card-text>
+
       <v-btn @click="deleteId" class="right mt-n11" text color="red accent-4">
         Delete
       </v-btn>
     </v-card>
+
   </v-container>
 
 </template>

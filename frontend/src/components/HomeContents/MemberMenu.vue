@@ -13,7 +13,7 @@
             </v-list-item>
             <v-divider></v-divider>
             <v-list-item>
-              <v-list-item-title @click="logoutBtn" class="red-text infoBtn"><v-icon color="red">exit_to_app</v-icon>
+              <v-list-item-title @click="removeSession" class="red-text infoBtn"><v-icon color="red">exit_to_app</v-icon>
                 Sign Out</v-list-item-title>
             </v-list-item>
           </v-list>
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+
 export default {
   name: "MemberMenu",
   props: {
@@ -31,9 +33,7 @@ export default {
     },
   },
   methods: {
-    logoutBtn () {
-      this.$emit('logout')
-    },
+    ...mapActions(['removeSession']),
     memberInfo() {
       this.$router.push({ name: 'MemberInfoPage' })
     }

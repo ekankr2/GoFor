@@ -1,7 +1,7 @@
 import {
     FETCH_BOARD,
-    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER, FETCH_REPLY, FETCH_REPLY_LIST,
-    GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK,
+    FETCH_BOARD_LIST, FETCH_COMMENT, FETCH_COMMENT_LIST, FETCH_MEMBER, FETCH_REPLY, FETCH_REPLY_LIST, FETCH_SESSION,
+    GET_RANDOM_BIKE, GET_RANDOM_CAR, GET_RANDOM_MOTORCYCLE, GET_RANDOM_WALK, REMOVE_SESSION,
     SELECT_BIKE, SELECT_CAR, SELECT_MOTORCYCLE, SELECT_WALK
 } from "./mutation-types";
 
@@ -55,5 +55,11 @@ export default {
     },
     [FETCH_MEMBER] (state,member) {
         state.member = member;
-    }
+    },
+    [FETCH_SESSION] (state, payload){
+        state.session = payload
+    },
+    [REMOVE_SESSION] (state, payload){
+        state.session = payload
+    },
 }

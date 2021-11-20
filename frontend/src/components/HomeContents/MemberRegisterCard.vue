@@ -1,5 +1,5 @@
 <template>
-  <v-dialog  v-model="registerDialog" persistent max-width="500px">
+  <v-dialog  v-model="registerDialog" persistent max-width="600px">
     <template v-slot:activator="{ on, attrs }">
       <v-btn text color="white" class="btn-flat" v-on="on" v-bind="attrs">회원가입</v-btn>
     </template>
@@ -14,7 +14,7 @@
         Sign Up
       </v-card-title>
       <!-- card contents -->
-      <form v-on:submit.prevent="onRegister">
+      <form @submit="register">
       <v-card-text>
         <v-container>
           <v-row>
@@ -74,10 +74,22 @@ export default {
     }
   },
   methods: {
-    onRegister () {
+    register () {
+      // const { member_id, member_pw, name, email } = this
+      // this.$emit('submit', { member_id, member_pw, name, email })
+      // this.registerDialog = false;
       const { member_id, member_pw, name, email } = this
-      this.$emit('submit', { member_id, member_pw, name, email })
-      this.registerDialog = false;
+      axios.post(`https://goforbackend.herokuapp.com/member/register`, { member_id, member_pw, name, email })
+          .then(() =>{
+            alert('Sign Up Successful!')
+            this.member_id = ''
+            this.member_pw = ''
+            this.name = ''
+            this.email = ''
+          })
+          .catch(res => {
+            alert(res.response.data.message)
+          })
     },
     checkValid() {
       const { member_id } = this

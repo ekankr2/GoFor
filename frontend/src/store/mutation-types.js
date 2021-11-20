@@ -20,3 +20,6 @@ export const FETCH_REPLY_LIST = 'FETCH_REPLY_LIST'
 export const FETCH_REPLY = "FETCH_REPLY"
 
 export const FETCH_MEMBER = "FETCH_MEMBER"
+
+export const FETCH_SESSION = "FETCH_SESSION"
+export const REMOVE_SESSION = 'REMOVE_SESSION'

@@ -17,7 +17,7 @@ export default {
     car: car,
     selectedCar: null,
     // session
-    session: [],
+    session: null,
     // board
     boards: [],
     board: null,
@@ -29,4 +29,5 @@ export default {
     reply: null,
 
     member: null,
+
 }
